@@ -15,7 +15,14 @@ class CreateChallengesTable extends Migration
     {
         Schema::create('challenges', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->integer('step_id');
+            $table->boolean('finish_flg')->default(0);
+            $table->boolean('delete_flg')->default(0);
             $table->timestamps();
+            // 外部キー制約
+            $table->foreign('step_id')->references('id')->on('steps')->onDelete('cascades');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascades');
         });
     }
 

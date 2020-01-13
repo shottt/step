@@ -15,6 +15,7 @@ class CreateProcessesTable extends Migration
     {
         Schema::create('processes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
             $table->string('content');
             $table->integer('step_id');
             $table->boolean('delete_flg')->default(0);

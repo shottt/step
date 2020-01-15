@@ -17,4 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// API以外のリクエストに対してはindexテンプレートを返す
+// 画面遷移はフロントエンドのVueRouterが制御する
+Route::get('/{any}', function(){
+    return view('index');
+})->where('any', '.*');
+
+// Route::get('/home', 'HomeController@index')->name('home');

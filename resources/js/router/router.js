@@ -1,27 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-// VueRouterプラグインの使用
-Vue.use(VueRouter)
 
-// トップページ
+// ページコンポーネントをインポートする
+import login from '../components/pages/login';
 import top from '../components/pages/top';
-
-// マイページ
 import mypage from '../components/pages/mypage';
 
 // コンポーネントをインポート
 import header from '../components/organisms/header';
 import footer from '../components/organisms/footer';
 
+// VueRouterプラグインの使用
+Vue.use(VueRouter)
+
 // パスとコンポーネントのマッチング
 const routes = [
   {
-    path: '/',
-    components: {
-
-    },
-  }
+    path: '/login',
+    component: login
+  },
 ]
 
 // VueRouterインスタンスを作る

@@ -1,0 +1,28 @@
+@import "variable";
+html,body{
+  width: 100%;
+  color: $font-color_default;
+  font-size: $font-size_default;
+  line-height: 1.7;
+  font-family: $font-family_corp; 
+  text-size-adjust: 100%;
+  letter-spacing: 0.1em;
+}
+
+p,a{
+  -webkit-font-smoothing: antialiased;
+}
+
+a{
+  color: $font-size_default;
+  text-decoration: none;
+  transition: .3s;
+}
+a:hover{
+  color: $color_corp;
+  transition: .3s;
+}
+img{
+  width: 100%;
+  vertical-align: bottom;
+}

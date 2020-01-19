@@ -8,8 +8,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import Vue from 'vue';
-import App from './App';
+import App from './App.vue';
 import router from './router/router';
+import store from './store/index';
 
 Vue.config.productionTip = false;
 
@@ -33,8 +34,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app',
     router, // ルーティングの定義を読み込む
-    components: { App }, // ルートコンポーネントの使用を宣言する
-    template: '<App />' // ルートコンポーネントを描画する
-})
+    store, // ストアの定義を読み込む
+    render: h => h(App),
+}).$mount('#app');

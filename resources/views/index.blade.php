@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>STEP</title>
   <link rel="stylesheet" href="">
-  <script src="{{ mix('js/app.js') }}"></script>
 </head>
 <body>
   <div id="app"></div>
+  <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

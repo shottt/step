@@ -1,0 +1,17 @@
+// ・～543px
+// ・544～767px
+// ・768～991px
+// ・992～1199px
+// ・1200px～
+// マップ型変数
+$breakpoints: (
+  'sp': 'screen and (min-width: 400px)',
+  'tab': 'screen and (min-width: 768px)',
+  'pc': 'screen and (min-width: 1024px)',
+) !default;
+
+@mixin mq($breakpoints: sp) {
+  @media #{map-get($breakpoints, $breakpoint)}{
+    @content;
+  }
+}

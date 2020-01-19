@@ -1,9 +1,9 @@
 <template>
-  <router-view></router-view>
+  <div>loginページです</div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: '',
 }
 </script>

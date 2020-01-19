@@ -17,14 +17,15 @@ class CreateStepsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('thumbnail')->default();
-            $table->integer('user_id');
-            $table->integer('category_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('category_id');
             $table->string('content');
             $table->integer('target_time');
             $table->boolean('delete_flg')->default(0);
             $table->timestamps();
             // 外部キー制約
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

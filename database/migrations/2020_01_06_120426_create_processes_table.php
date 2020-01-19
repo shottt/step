@@ -17,11 +17,11 @@ class CreateProcessesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('content');
-            $table->integer('step_id');
+            $table->unsignedBigInteger('step_id');
             $table->boolean('delete_flg')->default(0);
             $table->timestamps();
             // 外部キー制約
-            $table->foreign('step_id')->references('id')->on('steps')->onDelete('cascades');
+            $table->foreign('step_id')->references('id')->on('steps')->onDelete('cascade');
         });
     }
 

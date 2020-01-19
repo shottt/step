@@ -3,13 +3,13 @@ import VueRouter from 'vue-router'
 
 
 // ページコンポーネントをインポートする
-import login from '../components/pages/login';
-import top from '../components/pages/top';
-import mypage from '../components/pages/mypage';
+import Login from '../components/pages/Login';
+import Top from '../components/pages/Top';
+import Mypage from '../components/pages/Mypage';
 
 // コンポーネントをインポート
-import header from '../components/organisms/header';
-import footer from '../components/organisms/footer';
+import Header from '../components/organisms/Header';
+import Footer from '../components/organisms/Footer';
 
 // VueRouterプラグインの使用
 Vue.use(VueRouter)
@@ -18,7 +18,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/login',
-    component: login
+    component: Login
   },
 ]
 

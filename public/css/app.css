@@ -11730,3 +11730,10 @@ svg:not([fill]) {
   cursor: default;
 }
 
+.l-header {
+  width: 100%;
+  height: 70px;
+  background: #000;
+  color: #777;
+}
+

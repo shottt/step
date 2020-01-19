@@ -1,9 +1,19 @@
 <template>
-  <div>loginページです</div>
+  <div>
+    <Header />
+    <Footer />
+  </div>
 </template>
 
 <script>
+import Header from '../organisms/Header';
+import Footer from '../organisms/Footer';
+
 export default {
-  name: '',
+  name: 'login',
+  components: {
+    Header,
+    Footer,
+  }
 }
 </script>

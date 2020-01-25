@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,6 +13,15 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $param = [
+            'icon' => 1,
+            'name' => 'test',
+            'email' => 'test@test.com',
+            'password' => 'password',
+            'introduction' => 'hello',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('users')->insert($param);
     }
 }

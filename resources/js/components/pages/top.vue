@@ -1,19 +1,16 @@
 <template>
   <div>
-    <Header />
-    <Footer />
+    <MainVisual />
   </div>
 </template>
 
 <script>
-import Header from '../organisms/Header';
-import Footer from '../organisms/Footer';
+import MainVisual from '../organisms/MainVisual';
 
 export default {
   name: 'top',
   components: {
-    Header,
-    Footer,
+    'MainVisual': MainVisual
   }
 }
 </script>

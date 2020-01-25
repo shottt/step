@@ -10,6 +10,17 @@
           <router-link class="c-menu__link" to="/register">ユーザー登録</router-link>
         </li>
       </ul>
+      <ul class="c-menu">
+        <li class="c-menu__item">
+          <router-link class="c-menu__link" to="">STEP一覧</router-link>
+        </li>
+        <li class="c-menu__item">
+          <router-link class="c-menu__link" to="/mypage">マイページ</router-link>
+        </li>
+        <li class="c-menu__item">
+          <router-link class="c-menu__link" to="">ログアウト</router-link>
+        </li>
+      </ul>
     </nav>
   </header>
 </template>

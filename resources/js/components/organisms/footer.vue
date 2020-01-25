@@ -1,6 +1,6 @@
 <template>
   <footer class="l-footer">
-    <p>&copy; 2020 STEP. All Rights Reserved</p>
+    <p>Copyright &copy; 2020 STEP. All Rights Reserved</p>
   </footer>
 </template>
 

@@ -30,6 +30,10 @@ const routes = [
     path: '/register',
     component: Register
   },
+  {
+    path: '/mypage',
+    component: Mypage
+  },
   // {
   //   path: '/passreminder',
   //   component: PassReminder

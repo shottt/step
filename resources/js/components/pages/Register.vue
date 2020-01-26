@@ -33,8 +33,8 @@ export default {
       // authストアのregisterアクションを呼び出す
       this.$store.dispatch('auth/register', this.registerForm);
 
-      // トップページに遷移する
-      // this.$router.push('/');
+      // マイページに遷移する
+      this.$router.push('/mypage');
     }
   }
 }

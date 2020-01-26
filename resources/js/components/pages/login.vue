@@ -27,7 +27,13 @@ export default {
   },
   methods: {
     login: function(){
-      console.log(this.loginForm);
+      // フォームの入力内容をコンソールに出力
+      console.log('loginForm：', this.loginForm);
+      // authストアのloginアクションを呼び出す
+      this.$store.dispatch('auth/login', this.loginForm);
+
+      // マイページに移動する
+      this.$router.push('/mypage');
     }
   }
 }

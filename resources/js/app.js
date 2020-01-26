@@ -33,8 +33,18 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    router, // ルーティングの定義を読み込む
-    store, // ストアの定義を読み込む
-    render: h => h(App),
-}).$mount('#app');
+
+
+const createApp = async function(){
+    await store.dispatch('auth/currentUser');
+
+    new Vue({
+        router, // ルーティングの定義を読み込む
+        store, // ストアの定義を読み込む
+        render: h => h(App),
+    }).$mount('#app');
+}
+
+createApp();
+
+

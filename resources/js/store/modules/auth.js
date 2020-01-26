@@ -26,7 +26,7 @@ const actions = {
     axios.post('/api/register', data).then((res) => {
       // DBからのレスポンスをログに出力
       console.log('res.data：', res.data);
-
+      // ミューテーション実行
       context.commit('setUser', res.data);
     }).catch((error) => {
       this.message = 'ERROR';
@@ -38,7 +38,7 @@ const actions = {
     axios.post('/api/login', data).then((res) => {
       // DBからのレスポンスをログに出力
       console.log('res.data：', res.data);
-
+      // ミューテーション実行
       context.commit('setUser', res.data);
     }).catch((error) => {
       this.message = 'ERROR';
@@ -48,10 +48,20 @@ const actions = {
   logout: function(context){
     axios.post('/api/logout').then((res) => {
       console.log('res：', res);
-
+      // ミューテーション実行
       context.commit('setUser', null);
     }).catch((error) => {
       this.message = 'ERROR';
+    });
+  },
+  // ログインユーザー取得機能
+  currentUser: function(context){
+    axios.get('/api/user').then((res) => {
+      console.log('res：', res);
+      // ログインしていなければ、初期値のnullにする
+      const user = res.data || null;
+      // ミューテーション実行
+      context.commit('setUser', user);
     })
   }
 }

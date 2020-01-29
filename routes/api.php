@@ -30,3 +30,6 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/user', function(){
     return Auth::user();
 })->name('user');
+
+// STEP一覧取得
+Route::get('/steps', 'Api\StepsController@index')->name('steps');

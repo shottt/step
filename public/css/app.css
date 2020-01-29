@@ -11368,6 +11368,7 @@ body {
       -ms-text-size-adjust: 100%;
           text-size-adjust: 100%;
   letter-spacing: 0.1em;
+  box-sizing: border-box;
 }
 
 p,
@@ -11769,5 +11770,45 @@ svg:not([fill]) {
 
 .l-header .nav-menu .c-menu__link {
   padding: 10px 15px;
+}
+
+.l-main {
+  margin: 30px auto;
+}
+
+.l-form-container {
+  margin: 0 auto;
+  width: 500px;
+}
+
+.c-form__title {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.c-form__label {
+  display: block;
+  font-size: 16px;
+}
+
+.c-form__item {
+  display: block;
+  width: 340px;
+  height: 50px;
+  border: solid 1px #333;
+  margin-bottom: 20px;
+}
+
+.c-form__button {
+  margin-bottom: 20px;
+}
+
+.c-button-submit {
+  cursor: pointer;
+  background: #242322;
+  color: #fff;
+  border-radius: 5px;
+  border: solid 1px;
+  padding: 15px 30px;
 }
 

@@ -1,6 +1,8 @@
 <template>
   <header class="l-header">
-    <h1 class="title">STEP</h1>
+    <h1 class="title">
+      <router-link to="">STEP</router-link>
+    </h1>
     <nav class="nav-menu js-toggle-sp-menu-target">
       <ul v-if="islogin" class="c-menu">
         <li class="c-menu__item">

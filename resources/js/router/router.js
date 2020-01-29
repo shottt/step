@@ -1,5 +1,6 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import store from '../store';
 
 
 // ページコンポーネントをインポートする
@@ -24,7 +25,15 @@ const routes = [
   },
   {
     path: '/login',
-    component: Login
+    component: Login,
+    // ナビゲーションガード
+    beforeEnter(to, from, next){
+      if(store.getters['auth/check']){
+        next('/mypage');
+      }else{
+        next();
+      }
+    }
   },
   {
     path: '/register',

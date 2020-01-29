@@ -1,14 +1,15 @@
 <template>
-  <div class="form-container">
-    <form class="form" @submit.prevent="register">
-      <label for="register-email">メールアドレス</label>
-      <input type="email" class="form__item" id="register-email" v-model="registerForm.email">
-      <label for="register-password">パスワード（6文字以上12文字以内）</label>
-      <input type="password" class="form__item" id="register-password" v-model="registerForm.password">
-      <label for="register-password-confirmation">パスワード（再入力）</label>
-      <input type="password" class="form__item" id="register-password-confirmation" v-model="registerForm.password_confirmation">
-      <div class="form__button">
-        <button type="submit" class="register-button">登録する</button>
+  <div class="l-form-container">
+    <form class="c-form" @submit.prevent="register">
+      <h2 class="c-form__title">ユーザー登録</h2>
+      <label for="register-email" class="c-form__label">メールアドレス</label>
+      <input type="email" class="c-form__item" id="register-email" v-model="registerForm.email">
+      <label for="register-password" class="c-form__label">パスワード（6文字以上12文字以内）</label>
+      <input type="password" class="c-form__item" id="register-password" v-model="registerForm.password">
+      <label for="register-password-confirmation" class="c-form__label">パスワード（再入力）</label>
+      <input type="password" class="c-form__item" id="register-password-confirmation" v-model="registerForm.password_confirmation">
+      <div class="c-form__button">
+        <button type="submit" class="c-button-submit">登録する</button>
       </div>
     </form>
   </div>

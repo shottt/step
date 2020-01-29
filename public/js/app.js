@@ -1954,6 +1954,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2057,6 +2059,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'header',
   computed: {
@@ -2125,6 +2129,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'login',
   data: function data() {
@@ -2177,6 +2182,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -38356,7 +38362,7 @@ var render = function() {
     [
       _c("Header"),
       _vm._v(" "),
-      _c("main", [_c("router-view")], 1),
+      _c("main", { staticClass: "l-main" }, [_c("router-view")], 1),
       _vm._v(" "),
       _c("Footer")
     ],
@@ -38466,7 +38472,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("header", { staticClass: "l-header" }, [
-    _c("h1", { staticClass: "title" }, [_vm._v("STEP")]),
+    _c(
+      "h1",
+      { staticClass: "title" },
+      [_c("router-link", { attrs: { to: "" } }, [_vm._v("STEP")])],
+      1
+    ),
     _vm._v(" "),
     _c("nav", { staticClass: "nav-menu js-toggle-sp-menu-target" }, [
       _vm.islogin
@@ -38598,11 +38609,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "form-container" }, [
+  return _c("div", { staticClass: "l-form-container" }, [
     _c(
       "form",
       {
-        staticClass: "form",
+        staticClass: "c-form",
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -38611,9 +38622,13 @@ var render = function() {
         }
       },
       [
-        _c("label", { attrs: { for: "login-email" } }, [
-          _vm._v("メールアドレス")
-        ]),
+        _c("h2", { staticClass: "c-form__title" }, [_vm._v("ログイン")]),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "c-form__label", attrs: { for: "login-email" } },
+          [_vm._v("メールアドレス")]
+        ),
         _vm._v(" "),
         _c("input", {
           directives: [
@@ -38624,7 +38639,7 @@ var render = function() {
               expression: "loginForm.email"
             }
           ],
-          staticClass: "form__item",
+          staticClass: "c-form__item",
           attrs: { type: "email", id: "login-email" },
           domProps: { value: _vm.loginForm.email },
           on: {
@@ -38637,9 +38652,11 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _c("label", { attrs: { for: "login-password" } }, [
-          _vm._v("パスワード")
-        ]),
+        _c(
+          "label",
+          { staticClass: "c-form__label", attrs: { for: "login-password" } },
+          [_vm._v("パスワード")]
+        ),
         _vm._v(" "),
         _c("input", {
           directives: [
@@ -38650,7 +38667,7 @@ var render = function() {
               expression: "loginForm.password"
             }
           ],
-          staticClass: "form__item",
+          staticClass: "c-form__item",
           attrs: { type: "password", id: "login-password" },
           domProps: { value: _vm.loginForm.password },
           on: {
@@ -38669,12 +38686,14 @@ var render = function() {
         _vm._v(" "),
         _c(
           "p",
-          {},
+          { staticClass: "c-form__text" },
           [
             _vm._v("パスワードを忘れた方は"),
-            _c("router-link", { attrs: { to: "/pass_reminder" } }, [
-              _vm._v("こちら")
-            ])
+            _c(
+              "router-link",
+              { staticClass: "c-form__link", attrs: { to: "/pass_reminder" } },
+              [_vm._v("こちら")]
+            )
           ],
           1
         )
@@ -38687,10 +38706,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form__button" }, [
-      _c("button", { staticClass: "login-button", attrs: { type: "submit" } }, [
-        _vm._v("ログイン")
-      ])
+    return _c("div", { staticClass: "c-form__button" }, [
+      _c(
+        "button",
+        { staticClass: "c-button-submit", attrs: { type: "submit" } },
+        [_vm._v("ログイン")]
+      )
     ])
   }
 ]
@@ -38739,11 +38760,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "form-container" }, [
+  return _c("div", { staticClass: "l-form-container" }, [
     _c(
       "form",
       {
-        staticClass: "form",
+        staticClass: "c-form",
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -38752,9 +38773,13 @@ var render = function() {
         }
       },
       [
-        _c("label", { attrs: { for: "register-email" } }, [
-          _vm._v("メールアドレス")
-        ]),
+        _c("h2", { staticClass: "c-form__title" }, [_vm._v("ユーザー登録")]),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "c-form__label", attrs: { for: "register-email" } },
+          [_vm._v("メールアドレス")]
+        ),
         _vm._v(" "),
         _c("input", {
           directives: [
@@ -38765,7 +38790,7 @@ var render = function() {
               expression: "registerForm.email"
             }
           ],
-          staticClass: "form__item",
+          staticClass: "c-form__item",
           attrs: { type: "email", id: "register-email" },
           domProps: { value: _vm.registerForm.email },
           on: {
@@ -38778,9 +38803,11 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _c("label", { attrs: { for: "register-password" } }, [
-          _vm._v("パスワード（6文字以上12文字以内）")
-        ]),
+        _c(
+          "label",
+          { staticClass: "c-form__label", attrs: { for: "register-password" } },
+          [_vm._v("パスワード（6文字以上12文字以内）")]
+        ),
         _vm._v(" "),
         _c("input", {
           directives: [
@@ -38791,7 +38818,7 @@ var render = function() {
               expression: "registerForm.password"
             }
           ],
-          staticClass: "form__item",
+          staticClass: "c-form__item",
           attrs: { type: "password", id: "register-password" },
           domProps: { value: _vm.registerForm.password },
           on: {
@@ -38804,9 +38831,14 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _c("label", { attrs: { for: "register-password-confirmation" } }, [
-          _vm._v("パスワード（再入力）")
-        ]),
+        _c(
+          "label",
+          {
+            staticClass: "c-form__label",
+            attrs: { for: "register-password-confirmation" }
+          },
+          [_vm._v("パスワード（再入力）")]
+        ),
         _vm._v(" "),
         _c("input", {
           directives: [
@@ -38817,7 +38849,7 @@ var render = function() {
               expression: "registerForm.password_confirmation"
             }
           ],
-          staticClass: "form__item",
+          staticClass: "c-form__item",
           attrs: { type: "password", id: "register-password-confirmation" },
           domProps: { value: _vm.registerForm.password_confirmation },
           on: {
@@ -38844,10 +38876,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form__button" }, [
+    return _c("div", { staticClass: "c-form__button" }, [
       _c(
         "button",
-        { staticClass: "register-button", attrs: { type: "submit" } },
+        { staticClass: "c-button-submit", attrs: { type: "submit" } },
         [_vm._v("登録する")]
       )
     ])
@@ -55819,13 +55851,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _components_pages_Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/pages/Login */ "./resources/js/components/pages/Login.vue");
-/* harmony import */ var _components_pages_Register__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/Register */ "./resources/js/components/pages/Register.vue");
-/* harmony import */ var _components_pages_PassReminder__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/pages/PassReminder */ "./resources/js/components/pages/PassReminder.vue");
-/* harmony import */ var _components_pages_Top__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/pages/Top */ "./resources/js/components/pages/Top.vue");
-/* harmony import */ var _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/pages/Mypage */ "./resources/js/components/pages/Mypage.vue");
-/* harmony import */ var _components_organisms_Header__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/organisms/Header */ "./resources/js/components/organisms/Header.vue");
-/* harmony import */ var _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/organisms/Footer */ "./resources/js/components/organisms/Footer.vue");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./resources/js/store/index.js");
+/* harmony import */ var _components_pages_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/Login */ "./resources/js/components/pages/Login.vue");
+/* harmony import */ var _components_pages_Register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/pages/Register */ "./resources/js/components/pages/Register.vue");
+/* harmony import */ var _components_pages_PassReminder__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/pages/PassReminder */ "./resources/js/components/pages/PassReminder.vue");
+/* harmony import */ var _components_pages_Top__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/pages/Top */ "./resources/js/components/pages/Top.vue");
+/* harmony import */ var _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/pages/Mypage */ "./resources/js/components/pages/Mypage.vue");
+/* harmony import */ var _components_organisms_Header__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/organisms/Header */ "./resources/js/components/organisms/Header.vue");
+/* harmony import */ var _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/organisms/Footer */ "./resources/js/components/organisms/Footer.vue");
+
 
  // ページコンポーネントをインポートする
 
@@ -55842,16 +55876,24 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 var routes = [{
   path: '/',
-  component: _components_pages_Top__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _components_pages_Top__WEBPACK_IMPORTED_MODULE_6__["default"]
 }, {
   path: '/login',
-  component: _components_pages_Login__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _components_pages_Login__WEBPACK_IMPORTED_MODULE_3__["default"],
+  // ナビゲーションガード
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/mypage');
+    } else {
+      next();
+    }
+  }
 }, {
   path: '/register',
-  component: _components_pages_Register__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _components_pages_Register__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
   path: '/mypage',
-  component: _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_6__["default"]
+  component: _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_7__["default"]
 } // {
 //   path: '/passreminder',
 //   component: PassReminder

@@ -1,0 +1,20 @@
+.c-form{
+  &__title{
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  &__label{
+    display: block;
+    font-size: 16px;
+  }
+  &__item{
+    display: block;
+    width: 340px;
+    height: 50px;
+    border: solid 1px #333;
+    margin-bottom: 20px; // リファクタリング検討
+  }
+  &__button{
+    margin-bottom: 20px;
+  }
+}

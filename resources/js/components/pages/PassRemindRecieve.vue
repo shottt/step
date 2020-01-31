@@ -5,7 +5,7 @@
       <label for="passreminderecieve-authkey">認証キー</label>
       <input type="text" class="c-form__item" id="passreminderecieve-authkey" v-model="passreminderecieveForm.email">
       <div class="c-form__button">
-        <button type="submit" class="c-button-submit">送信する</button>
+        <button type="submit" class="c-button">送信する</button>
       </div>
     </div>
   </div>

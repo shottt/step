@@ -8,7 +8,7 @@
       <input type="password" class="c-form__item" id="login-password" v-model="loginForm.password">
       <input type="checkbox">次回ログインを省略する
       <div class="c-form__button">
-        <button type="submit" class="c-button-submit">ログイン</button>
+        <button type="submit" class="c-button">ログイン</button>
       </div>
       <p class="c-form__text">パスワードを忘れた方は<router-link class="c-form__link" to="/pass_reminde_send">こちら</router-link></p>
     </form>

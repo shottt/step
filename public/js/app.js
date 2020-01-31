@@ -38867,11 +38867,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "c-form__button" }, [
-      _c(
-        "button",
-        { staticClass: "c-button-submit", attrs: { type: "submit" } },
-        [_vm._v("ログイン")]
-      )
+      _c("button", { staticClass: "c-button", attrs: { type: "submit" } }, [
+        _vm._v("ログイン")
+      ])
     ])
   }
 ]
@@ -39025,11 +39023,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "c-form__button" }, [
-      _c(
-        "button",
-        { staticClass: "c-button-submit", attrs: { type: "submit" } },
-        [_vm._v("変更する")]
-      )
+      _c("button", { staticClass: "c-button", attrs: { type: "submit" } }, [
+        _vm._v("変更する")
+      ])
     ])
   }
 ]
@@ -39110,11 +39106,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "c-form__button" }, [
-      _c(
-        "button",
-        { staticClass: "c-button-submit", attrs: { type: "submit" } },
-        [_vm._v("送信する")]
-      )
+      _c("button", { staticClass: "c-button", attrs: { type: "submit" } }, [
+        _vm._v("送信する")
+      ])
     ])
   }
 ]
@@ -39195,11 +39189,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "c-form__button" }, [
-      _c(
-        "button",
-        { staticClass: "c-button-submit", attrs: { type: "submit" } },
-        [_vm._v("送信する")]
-      )
+      _c("button", { staticClass: "c-button", attrs: { type: "submit" } }, [
+        _vm._v("送信する")
+      ])
     ])
   }
 ]
@@ -39341,11 +39333,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "c-form__button" }, [
-      _c(
-        "button",
-        { staticClass: "c-button-submit", attrs: { type: "submit" } },
-        [_vm._v("登録する")]
-      )
+      _c("button", { staticClass: "c-button", attrs: { type: "submit" } }, [
+        _vm._v("登録する")
+      ])
     ])
   }
 ]

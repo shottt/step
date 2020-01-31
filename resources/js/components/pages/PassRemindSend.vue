@@ -5,7 +5,7 @@
       <label for="passremindsend-email">メールアドレス</label>
       <input type="email" class="c-form__item" id="passremindsend-email" v-model="passremindsendForm.email">
       <div class="c-form__button">
-        <button type="submit" class="c-button">送信する</button>
+        <button type="submit" class="c-button-right">送信する</button>
       </div>
     </div>
   </div>

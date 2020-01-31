@@ -2002,6 +2002,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/organisms/Feature.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/organisms/Feature.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'feature'
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/organisms/Footer.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/organisms/Footer.vue?vue&type=script&lang=js& ***!
@@ -2089,6 +2118,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2236,28 +2274,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'passreminderecieve',
+  name: 'passremindrecieve',
   data: function data() {
     return {
-      passreminderecieveForm: {
+      passremindrecieveForm: {
         authkey: ''
       }
     };
   },
   methods: {
-    passremindesend: function passremindesend() {
+    passremindsend: function passremindsend() {
       // フォームの入力内容をコンソールに出力
-      console.log('passreminderecieveForm：', this.passreminderecieveForm);
+      console.log('passremindrecieveForm：', this.passremindrecieveForm);
     }
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PassRemindeSend.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/PassRemindeSend.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PassRemindSend.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/PassRemindSend.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2277,18 +2315,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'passremindesend',
+  name: 'passremindsend',
   data: function data() {
     return {
-      passremindesendForm: {
+      passremindsendForm: {
         email: ''
       }
     };
   },
   methods: {
-    passremindesend: function passremindesend() {
+    passremindsend: function passremindsend() {
       // フォームの入力内容をコンソールに出力
-      console.log('passremindesendForm：', this.passremindesendForm);
+      console.log('passremindsendForm：', this.passremindsendForm);
     }
   }
 });
@@ -2356,6 +2394,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _organisms_MainVisual__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../organisms/MainVisual */ "./resources/js/components/organisms/MainVisual.vue");
+/* harmony import */ var _organisms_Feature__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../organisms/Feature */ "./resources/js/components/organisms/Feature.vue");
+//
 //
 //
 //
@@ -2363,10 +2403,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'top',
   components: {
-    'MainVisual': _organisms_MainVisual__WEBPACK_IMPORTED_MODULE_0__["default"]
+    'MainVisual': _organisms_MainVisual__WEBPACK_IMPORTED_MODULE_0__["default"],
+    'Feature': _organisms_Feature__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 
@@ -38510,6 +38552,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "l-container" },
     [
       _c("Header"),
       _vm._v(" "),
@@ -38565,6 +38608,45 @@ var staticRenderFns = [
           ])
         ])
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/organisms/Feature.vue?vue&type=template&id=3fd13c26&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/organisms/Feature.vue?vue&type=template&id=3fd13c26& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-feature" }, [
+      _c("h2", { staticClass: "p-feature__title" }, [_vm._v("3つの特徴")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-feature__item" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-feature__item" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-feature__item" })
     ])
   }
 ]
@@ -38645,7 +38727,7 @@ var render = function() {
               [
                 _c(
                   "router-link",
-                  { staticClass: "c-menu__link", attrs: { to: "" } },
+                  { staticClass: "c-menu__link", attrs: { to: "/steplist" } },
                   [_vm._v("STEP一覧")]
                 )
               ],
@@ -38725,26 +38807,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "main-visual" }, [
-      _c("h2", { staticClass: "page-title" }, [
-        _vm._v("あなたの人生を共有しよう！")
-      ]),
+  return _c("div", { staticClass: "p-main-visual" }, [
+    _c("h2", { staticClass: "p-main-visual__title" }, [
+      _vm._v("あなたの人生を共有しよう！")
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "p-main-visual__text" }, [
+      _vm._v(
+        "プログラミングや英語などを学ぶのにも人それぞれ「これが良かった」という「順番」と「内容」がある。\n     人それぞれの「この順番でこういったものを学んでいったのが良かった」という「STEP」を投稿し、\n     他の人はそれを見ながらその「STEP」を元に学習を進めていけるサービス。\n  "
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "p-main-visual__button" }, [
+      _c(
+        "button",
+        { staticClass: "c-button" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "p-main-visual__link", attrs: { to: "/steplist" } },
+            [_vm._v("STEPを見る")]
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "プログラミングや英語などを学ぶのにも人それぞれ「これが良かった」という「順番」と「内容」がある。\n     人それぞれの「この順番でこういったものを学んでいったのが良かった」という「STEP」を投稿し、\n     他の人はそれを見ながらその「STEP」を元に学習を進めていけるサービス。"
-        )
-      ])
+      _c(
+        "button",
+        { staticClass: "c-button" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "p-main-visual__link", attrs: { to: "/register" } },
+            [_vm._v("登録する")]
+          )
+        ],
+        1
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38850,7 +38953,7 @@ var render = function() {
               "router-link",
               {
                 staticClass: "c-form__link",
-                attrs: { to: "/pass_reminde_send" }
+                attrs: { to: "/pass_remind_send" }
               },
               [_vm._v("こちら")]
             )
@@ -38867,9 +38970,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "c-form__button" }, [
-      _c("button", { staticClass: "c-button", attrs: { type: "submit" } }, [
-        _vm._v("ログイン")
-      ])
+      _c(
+        "button",
+        { staticClass: "c-button-right", attrs: { type: "submit" } },
+        [_vm._v("ログイン")]
+      )
     ])
   }
 ]
@@ -39023,9 +39128,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "c-form__button" }, [
-      _c("button", { staticClass: "c-button", attrs: { type: "submit" } }, [
-        _vm._v("変更する")
-      ])
+      _c(
+        "button",
+        { staticClass: "c-button-right", attrs: { type: "submit" } },
+        [_vm._v("変更する")]
+      )
     ])
   }
 ]
@@ -39058,18 +39165,18 @@ var render = function() {
         on: {
           submit: function($event) {
             $event.preventDefault()
-            return _vm.passreminderecieve($event)
+            return _vm.passremindrecieve($event)
           }
         }
       },
       [
         _c("p", { staticClass: "c-form__text" }, [
           _vm._v(
-            "ご指定のメールアドレス宛にお送りした【パスワード再発行認証メール内にある「認証キー」をご入力ください。"
+            "ご指定のメールアドレス宛にお送りした【パスワード再発行認証】メール内にある「認証キー」をご入力ください。"
           )
         ]),
         _vm._v(" "),
-        _c("label", { attrs: { for: "passreminderecieve-authkey" } }, [
+        _c("label", { attrs: { for: "passremindrecieve-authkey" } }, [
           _vm._v("認証キー")
         ]),
         _vm._v(" "),
@@ -39078,19 +39185,19 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.passreminderecieveForm.email,
-              expression: "passreminderecieveForm.email"
+              value: _vm.passremindrecieveForm.email,
+              expression: "passremindrecieveForm.email"
             }
           ],
           staticClass: "c-form__item",
-          attrs: { type: "text", id: "passreminderecieve-authkey" },
-          domProps: { value: _vm.passreminderecieveForm.email },
+          attrs: { type: "text", id: "passremindrecieve-authkey" },
+          domProps: { value: _vm.passremindrecieveForm.email },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.passreminderecieveForm, "email", $event.target.value)
+              _vm.$set(_vm.passremindrecieveForm, "email", $event.target.value)
             }
           }
         }),
@@ -39106,9 +39213,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "c-form__button" }, [
-      _c("button", { staticClass: "c-button", attrs: { type: "submit" } }, [
-        _vm._v("送信する")
-      ])
+      _c(
+        "button",
+        { staticClass: "c-button-right", attrs: { type: "submit" } },
+        [_vm._v("送信する")]
+      )
     ])
   }
 ]
@@ -39118,10 +39227,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PassRemindeSend.vue?vue&type=template&id=9af6319e&":
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/PassRemindeSend.vue?vue&type=template&id=9af6319e& ***!
-  \************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PassRemindSend.vue?vue&type=template&id=2ba17198&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/PassRemindSend.vue?vue&type=template&id=2ba17198& ***!
+  \***********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -39141,7 +39250,7 @@ var render = function() {
         on: {
           submit: function($event) {
             $event.preventDefault()
-            return _vm.passremindesend($event)
+            return _vm.passremindsend($event)
           }
         }
       },
@@ -39152,7 +39261,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("label", { attrs: { for: "passremindesend-email" } }, [
+        _c("label", { attrs: { for: "passremindsend-email" } }, [
           _vm._v("メールアドレス")
         ]),
         _vm._v(" "),
@@ -39161,19 +39270,19 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.passremindesendForm.email,
-              expression: "passremindesendForm.email"
+              value: _vm.passremindsendForm.email,
+              expression: "passremindsendForm.email"
             }
           ],
           staticClass: "c-form__item",
-          attrs: { type: "email", id: "passremindesend-email" },
-          domProps: { value: _vm.passremindesendForm.email },
+          attrs: { type: "email", id: "passremindsend-email" },
+          domProps: { value: _vm.passremindsendForm.email },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.passremindesendForm, "email", $event.target.value)
+              _vm.$set(_vm.passremindsendForm, "email", $event.target.value)
             }
           }
         }),
@@ -39189,9 +39298,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "c-form__button" }, [
-      _c("button", { staticClass: "c-button", attrs: { type: "submit" } }, [
-        _vm._v("送信する")
-      ])
+      _c(
+        "button",
+        { staticClass: "c-button-right", attrs: { type: "submit" } },
+        [_vm._v("送信する")]
+      )
     ])
   }
 ]
@@ -39333,9 +39444,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "c-form__button" }, [
-      _c("button", { staticClass: "c-button", attrs: { type: "submit" } }, [
-        _vm._v("登録する")
-      ])
+      _c(
+        "button",
+        { staticClass: "c-button-right", attrs: { type: "submit" } },
+        [_vm._v("登録する")]
+      )
     ])
   }
 ]
@@ -39360,7 +39473,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("MainVisual")], 1)
+  return _c("div", [_c("MainVisual"), _vm._v(" "), _c("Feature")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -55835,6 +55948,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/organisms/Feature.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/organisms/Feature.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Feature_vue_vue_type_template_id_3fd13c26___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Feature.vue?vue&type=template&id=3fd13c26& */ "./resources/js/components/organisms/Feature.vue?vue&type=template&id=3fd13c26&");
+/* harmony import */ var _Feature_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Feature.vue?vue&type=script&lang=js& */ "./resources/js/components/organisms/Feature.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Feature_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Feature_vue_vue_type_template_id_3fd13c26___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Feature_vue_vue_type_template_id_3fd13c26___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/organisms/Feature.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/organisms/Feature.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/organisms/Feature.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Feature_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Feature.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/organisms/Feature.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Feature_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/organisms/Feature.vue?vue&type=template&id=3fd13c26&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/organisms/Feature.vue?vue&type=template&id=3fd13c26& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Feature_vue_vue_type_template_id_3fd13c26___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Feature.vue?vue&type=template&id=3fd13c26& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/organisms/Feature.vue?vue&type=template&id=3fd13c26&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Feature_vue_vue_type_template_id_3fd13c26___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Feature_vue_vue_type_template_id_3fd13c26___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/organisms/Footer.vue":
 /*!******************************************************!*\
   !*** ./resources/js/components/organisms/Footer.vue ***!
@@ -56318,17 +56500,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/PassRemindeSend.vue":
-/*!***********************************************************!*\
-  !*** ./resources/js/components/pages/PassRemindeSend.vue ***!
-  \***********************************************************/
+/***/ "./resources/js/components/pages/PassRemindSend.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/pages/PassRemindSend.vue ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PassRemindeSend_vue_vue_type_template_id_9af6319e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PassRemindeSend.vue?vue&type=template&id=9af6319e& */ "./resources/js/components/pages/PassRemindeSend.vue?vue&type=template&id=9af6319e&");
-/* harmony import */ var _PassRemindeSend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PassRemindeSend.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/PassRemindeSend.vue?vue&type=script&lang=js&");
+/* harmony import */ var _PassRemindSend_vue_vue_type_template_id_2ba17198___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PassRemindSend.vue?vue&type=template&id=2ba17198& */ "./resources/js/components/pages/PassRemindSend.vue?vue&type=template&id=2ba17198&");
+/* harmony import */ var _PassRemindSend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PassRemindSend.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/PassRemindSend.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -56338,9 +56520,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _PassRemindeSend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _PassRemindeSend_vue_vue_type_template_id_9af6319e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _PassRemindeSend_vue_vue_type_template_id_9af6319e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _PassRemindSend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PassRemindSend_vue_vue_type_template_id_2ba17198___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PassRemindSend_vue_vue_type_template_id_2ba17198___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -56350,40 +56532,104 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/pages/PassRemindeSend.vue"
+component.options.__file = "resources/js/components/pages/PassRemindSend.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/PassRemindeSend.vue?vue&type=script&lang=js&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/pages/PassRemindeSend.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************/
+/***/ "./resources/js/components/pages/PassRemindSend.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/pages/PassRemindSend.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PassRemindeSend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./PassRemindeSend.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PassRemindeSend.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PassRemindeSend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PassRemindSend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./PassRemindSend.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PassRemindSend.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PassRemindSend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/PassRemindeSend.vue?vue&type=template&id=9af6319e&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/pages/PassRemindeSend.vue?vue&type=template&id=9af6319e& ***!
-  \******************************************************************************************/
+/***/ "./resources/js/components/pages/PassRemindSend.vue?vue&type=template&id=2ba17198&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/pages/PassRemindSend.vue?vue&type=template&id=2ba17198& ***!
+  \*****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PassRemindeSend_vue_vue_type_template_id_9af6319e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./PassRemindeSend.vue?vue&type=template&id=9af6319e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PassRemindeSend.vue?vue&type=template&id=9af6319e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PassRemindeSend_vue_vue_type_template_id_9af6319e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PassRemindSend_vue_vue_type_template_id_2ba17198___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./PassRemindSend.vue?vue&type=template&id=2ba17198& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PassRemindSend.vue?vue&type=template&id=2ba17198&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PassRemindSend_vue_vue_type_template_id_2ba17198___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PassRemindeSend_vue_vue_type_template_id_9af6319e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PassRemindSend_vue_vue_type_template_id_2ba17198___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/Process.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/pages/Process.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/pages/Process.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/ProfEdit.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/pages/ProfEdit.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/pages/ProfEdit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
@@ -56456,6 +56702,134 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/Step.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/pages/Step.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/pages/Step.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/StepEdit.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/pages/StepEdit.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/pages/StepEdit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/StepList.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/pages/StepList.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/pages/StepList.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/StepRegister.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/pages/StepRegister.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/pages/StepRegister.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/Top.vue":
 /*!***********************************************!*\
   !*** ./resources/js/components/pages/Top.vue ***!
@@ -56522,6 +56896,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Top_vue_vue_type_template_id_571849af___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/User.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/pages/User.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/pages/User.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
@@ -56607,14 +57013,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./resources/js/store/index.js");
-/* harmony import */ var _components_pages_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/Login */ "./resources/js/components/pages/Login.vue");
+/* harmony import */ var _components_pages_Top__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/Top */ "./resources/js/components/pages/Top.vue");
 /* harmony import */ var _components_pages_Register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/pages/Register */ "./resources/js/components/pages/Register.vue");
-/* harmony import */ var _components_pages_PassRemindeSend__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/pages/PassRemindeSend */ "./resources/js/components/pages/PassRemindeSend.vue");
-/* harmony import */ var _components_pages_PassRemindRecieve__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/pages/PassRemindRecieve */ "./resources/js/components/pages/PassRemindRecieve.vue");
-/* harmony import */ var _components_pages_Top__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/pages/Top */ "./resources/js/components/pages/Top.vue");
-/* harmony import */ var _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/pages/Mypage */ "./resources/js/components/pages/Mypage.vue");
-/* harmony import */ var _components_pages_Withdraw__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/pages/Withdraw */ "./resources/js/components/pages/Withdraw.vue");
-/* harmony import */ var _components_pages_PassChange__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/pages/PassChange */ "./resources/js/components/pages/PassChange.vue");
+/* harmony import */ var _components_pages_Login__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/pages/Login */ "./resources/js/components/pages/Login.vue");
+/* harmony import */ var _components_pages_PassRemindSend__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/pages/PassRemindSend */ "./resources/js/components/pages/PassRemindSend.vue");
+/* harmony import */ var _components_pages_PassRemindRecieve__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/pages/PassRemindRecieve */ "./resources/js/components/pages/PassRemindRecieve.vue");
+/* harmony import */ var _components_pages_User__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/pages/User */ "./resources/js/components/pages/User.vue");
+/* harmony import */ var _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/pages/Mypage */ "./resources/js/components/pages/Mypage.vue");
+/* harmony import */ var _components_pages_ProfEdit__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/pages/ProfEdit */ "./resources/js/components/pages/ProfEdit.vue");
+/* harmony import */ var _components_pages_PassChange__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/pages/PassChange */ "./resources/js/components/pages/PassChange.vue");
+/* harmony import */ var _components_pages_Withdraw__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/pages/Withdraw */ "./resources/js/components/pages/Withdraw.vue");
+/* harmony import */ var _components_pages_StepRegister__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/pages/StepRegister */ "./resources/js/components/pages/StepRegister.vue");
+/* harmony import */ var _components_pages_StepEdit__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/pages/StepEdit */ "./resources/js/components/pages/StepEdit.vue");
+/* harmony import */ var _components_pages_Process__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/pages/Process */ "./resources/js/components/pages/Process.vue");
+/* harmony import */ var _components_pages_StepList__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/pages/StepList */ "./resources/js/components/pages/StepList.vue");
+/* harmony import */ var _components_pages_Step__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/pages/Step */ "./resources/js/components/pages/Step.vue");
 
 
  // ページコンポーネントをインポートする
@@ -56626,17 +57039,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
  // コンポーネントをインポート
 // VueRouterプラグインの使用
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // パスとコンポーネントのマッチング
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // ルーティング
 
-var routes = [{
+var routes = [// ログイン前のルーティング
+// トップページ
+{
   path: '/',
-  component: _components_pages_Top__WEBPACK_IMPORTED_MODULE_7__["default"]
-}, {
+  component: _components_pages_Top__WEBPACK_IMPORTED_MODULE_3__["default"]
+}, // ユーザー登録ページ
+{
+  path: '/register',
+  component: _components_pages_Register__WEBPACK_IMPORTED_MODULE_4__["default"]
+}, // ログインページ
+{
   path: '/login',
-  component: _components_pages_Login__WEBPACK_IMPORTED_MODULE_3__["default"],
+  component: _components_pages_Login__WEBPACK_IMPORTED_MODULE_5__["default"],
   // ナビゲーションガード
   beforeEnter: function beforeEnter(to, from, next) {
     if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
@@ -56645,24 +57072,57 @@ var routes = [{
       next();
     }
   }
-}, {
-  path: '/register',
-  component: _components_pages_Register__WEBPACK_IMPORTED_MODULE_4__["default"]
-}, {
+}, // パスワードリマインダー送信ページ
+{
+  path: '/pass_remind_send',
+  component: _components_pages_PassRemindSend__WEBPACK_IMPORTED_MODULE_6__["default"]
+}, // パスワードリマインダー入力ページ
+{
+  path: '/pass_remind_recieve',
+  component: _components_pages_PassRemindRecieve__WEBPACK_IMPORTED_MODULE_7__["default"]
+}, // 他のユーザーページ
+{
+  path: '/user:id',
+  component: _components_pages_User__WEBPACK_IMPORTED_MODULE_8__["default"]
+}, // ログイン後のルーティング
+// マイページ
+{
   path: '/mypage',
-  component: _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_8__["default"]
-}, {
-  path: '/pass_reminde_send',
-  component: _components_pages_PassRemindeSend__WEBPACK_IMPORTED_MODULE_5__["default"]
-}, {
-  path: '/pass_reminde_recieve',
-  component: _components_pages_PassRemindRecieve__WEBPACK_IMPORTED_MODULE_6__["default"]
-}, {
-  path: '/withdraw',
-  component: _components_pages_Withdraw__WEBPACK_IMPORTED_MODULE_9__["default"]
-}, {
+  component: _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_9__["default"]
+}, // プロフィール編集ページ
+{
+  path: '/prof_edit',
+  component: _components_pages_ProfEdit__WEBPACK_IMPORTED_MODULE_10__["default"]
+}, // パスワード変更ページ
+{
   path: '/pass_change',
-  component: _components_pages_PassChange__WEBPACK_IMPORTED_MODULE_10__["default"]
+  component: _components_pages_PassChange__WEBPACK_IMPORTED_MODULE_11__["default"]
+}, // 退会ページ
+{
+  path: '/withdraw',
+  component: _components_pages_Withdraw__WEBPACK_IMPORTED_MODULE_12__["default"]
+}, // ステップ登録ページ（子ステップは子コンポーネントを使う）
+{
+  path: '/step_register',
+  component: _components_pages_StepRegister__WEBPACK_IMPORTED_MODULE_13__["default"]
+}, // ステップ編集ページ（子ステップは子コンポーネントを使う）
+{
+  path: '/step_edit',
+  component: _components_pages_StepEdit__WEBPACK_IMPORTED_MODULE_14__["default"]
+}, // 子ステップ詳細ページ
+{
+  path: '/steplist/:id/process:id',
+  // パスは検討要
+  component: _components_pages_Process__WEBPACK_IMPORTED_MODULE_15__["default"]
+}, // ログイン未ログインどちらでもアクセス可
+// ステップ一覧ページ
+{
+  path: '/steplist',
+  component: _components_pages_StepList__WEBPACK_IMPORTED_MODULE_16__["default"]
+}, // ステップ詳細ページ
+{
+  path: '/steplist/:id',
+  component: _components_pages_Step__WEBPACK_IMPORTED_MODULE_17__["default"]
 }]; // VueRouterインスタンスを作る
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

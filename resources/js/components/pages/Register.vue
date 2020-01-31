@@ -9,7 +9,7 @@
       <label for="register-password-confirmation" class="c-form__label">パスワード（再入力）</label>
       <input type="password" class="c-form__item" id="register-password-confirmation" v-model="registerForm.password_confirmation">
       <div class="c-form__button">
-        <button type="submit" class="c-button">登録する</button>
+        <button type="submit" class="c-button-right">登録する</button>
       </div>
     </form>
   </div>

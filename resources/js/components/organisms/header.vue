@@ -6,7 +6,7 @@
     <nav class="l-header__nav-menu js-toggle-sp-menu-target">
       <ul v-if="islogin" class="c-menu">
         <li class="c-menu__item">
-          <router-link class="c-menu__link" to="">STEP一覧</router-link>
+          <router-link class="c-menu__link" to="/steplist">STEP一覧</router-link>
         </li>
         <li class="c-menu__item">
           <router-link class="c-menu__link" to="/mypage">マイページ</router-link>

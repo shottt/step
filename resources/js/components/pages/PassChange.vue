@@ -9,7 +9,7 @@
       <label for="new-password-confirmation" class="c-form__label">新しいパスワード（再入力）</label>
       <input type="password" class="c-form__item" id="new-password-confirmation" v-model="passchangeForm.new_password_confirmation">
       <div class="c-form__button">
-        <button type="submit" class="c-button">変更する</button>
+        <button type="submit" class="c-button-right">変更する</button>
       </div>
     </form>
   </div>

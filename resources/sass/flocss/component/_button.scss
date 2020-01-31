@@ -1,4 +1,11 @@
 .c-button{
+  cursor: pointer;
+  background: #242322;
+  color: #fff;
+  border-radius: 10px;
+  border: solid 1px ;
+  padding: 15px 30px;
+  &-right{  //以下は冗長のため、リファクタリング要
     cursor: pointer;
     background: #242322;
     color: #fff;
@@ -6,4 +13,5 @@
     border: solid 1px ;
     padding: 15px 30px;
     float: right;
+  }
 }

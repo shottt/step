@@ -1,0 +1,6 @@
+.l-container{
+  // フッターを最下部に固定するための処理
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

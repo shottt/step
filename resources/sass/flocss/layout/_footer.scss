@@ -6,5 +6,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  // フッター最下部固定のための処理
+  margin-top: auto;
 }

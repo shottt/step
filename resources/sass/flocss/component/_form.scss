@@ -1,25 +1,29 @@
 .c-form{
   &__title{
     font-size: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   &__label{
     display: block;
     font-size: 16px;
+    margin-bottom: 10px;
   }
   &__item{
     display: block;
     width: 340px;
     height: 50px;
     border: solid 1px #333;
-    margin-bottom: 20px; // リファクタリング検討
+    margin-bottom: 20px;
   }
   &__button{
-    margin-bottom: 20px;
+    padding: 20px 0;
     &::after{
       content: '';
       display: block;
       clear: both;
     }
+  }
+  &__text{
+    margin-bottom: 20px;
   }
 }

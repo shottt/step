@@ -11755,6 +11755,7 @@ svg:not([fill]) {
           align-items: center;
   -webkit-box-pack: center;
           justify-content: center;
+  margin-top: auto;
 }
 
 .l-header {
@@ -11775,18 +11776,30 @@ svg:not([fill]) {
 }
 
 .l-form-container {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
   max-width: 340px;
+}
+
+.l-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  min-height: 100vh;
 }
 
 .c-form__title {
   font-size: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .c-form__label {
   display: block;
   font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .c-form__item {
@@ -11798,7 +11811,7 @@ svg:not([fill]) {
 }
 
 .c-form__button {
-  margin-bottom: 20px;
+  padding: 20px 0;
 }
 
 .c-form__button::after {
@@ -11807,7 +11820,20 @@ svg:not([fill]) {
   clear: both;
 }
 
+.c-form__text {
+  margin-bottom: 20px;
+}
+
 .c-button {
+  cursor: pointer;
+  background: #242322;
+  color: #fff;
+  border-radius: 10px;
+  border: solid 1px;
+  padding: 15px 30px;
+}
+
+.c-button-right {
   cursor: pointer;
   background: #242322;
   color: #fff;
@@ -11837,5 +11863,28 @@ svg:not([fill]) {
 
 .p-profile__right {
   width: 70%;
+}
+
+.p-feature__title {
+  text-align: center;
+}
+
+.p-main-visual {
+  width: 100%;
+  background-image: url();
+}
+
+.p-main-visual__title {
+  text-align: center;
+}
+
+.p-main-visual__text {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.p-main-visual__button {
+  padding: 20px 0;
+  text-align: center;
 }
 

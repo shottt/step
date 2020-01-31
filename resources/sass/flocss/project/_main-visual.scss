@@ -1,0 +1,15 @@
+.p-main-visual{
+  width: 100%;
+  background-image: url();
+  &__title{
+    text-align: center;
+  }
+  &__text{
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  &__button{
+    padding: 20px 0;
+    text-align: center; // ボタンの中央揃え
+  }
+}

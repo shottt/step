@@ -6,13 +6,15 @@ import store from '../store';
 // ページコンポーネントをインポートする
 import Login from '../components/pages/Login';
 import Register from '../components/pages/Register';
-import Pass_reminder from '../components/pages/PassReminder';
+import PassRemindeSend from '../components/pages/PassRemindeSend';
+import PassRemindeRecive from '../components/pages/PassRemindRecieve';
 import Top from '../components/pages/Top';
 import Mypage from '../components/pages/Mypage';
+import Withdraw from '../components/pages/Withdraw';
+import PassChange from '../components/pages/PassChange';
 
 // コンポーネントをインポート
-import Header from '../components/organisms/Header';
-import Footer from '../components/organisms/Footer';
+
 
 // VueRouterプラグインの使用
 Vue.use(VueRouter)
@@ -43,10 +45,22 @@ const routes = [
     path: '/mypage',
     component: Mypage
   },
-  // {
-  //   path: '/passreminder',
-  //   component: PassReminder
-  // },
+  {
+    path: '/pass_reminde_send',
+    component: PassRemindeSend
+  },
+  {
+    path: '/pass_reminde_recieve',
+    component: PassRemindeRecive,
+  },
+  {
+    path: '/withdraw',
+    component: Withdraw,
+  },
+  {
+    path: '/pass_change',
+    component: PassChange
+  },
 ]
 
 // VueRouterインスタンスを作る

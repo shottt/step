@@ -10,7 +10,7 @@
       <div class="c-form__button">
         <button type="submit" class="c-button-submit">ログイン</button>
       </div>
-      <p class="c-form__text">パスワードを忘れた方は<router-link class="c-form__link" to="/pass_reminder">こちら</router-link></p>
+      <p class="c-form__text">パスワードを忘れた方は<router-link class="c-form__link" to="/pass_reminde_send">こちら</router-link></p>
     </form>
   </div>
 </template>

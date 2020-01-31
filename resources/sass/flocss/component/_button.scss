@@ -1,10 +1,9 @@
 .c-button{
-  &-submit{
     cursor: pointer;
     background: #242322;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     border: solid 1px ;
     padding: 15px 30px;
-  }
+    float: right;
 }

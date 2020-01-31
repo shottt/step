@@ -6,12 +6,4 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .nav-menu{
-    .c-menu{
-      display: flex;
-      &__link{
-        padding: 10px 15px;
-      }
-    }
-  }
 }

@@ -65,7 +65,7 @@ const routes = [
   },
   // 他のユーザーページ
   {
-    path: '/user:id',
+    path: '/user',
     component: User,
   },
   // ログイン後のルーティング

@@ -11773,6 +11773,7 @@ svg:not([fill]) {
 
 .l-main {
   margin: 30px auto;
+  width: 960px;
 }
 
 .l-form-container {
@@ -11826,11 +11827,12 @@ svg:not([fill]) {
 
 .c-button {
   cursor: pointer;
+  font-size: 12px;
   background: #242322;
   color: #fff;
   border-radius: 10px;
   border: solid 1px;
-  padding: 15px 30px;
+  padding: 10px 20px;
 }
 
 .c-button-right {
@@ -11839,7 +11841,7 @@ svg:not([fill]) {
   color: #fff;
   border-radius: 10px;
   border: solid 1px;
-  padding: 15px 30px;
+  padding: 10px 20px;
   float: right;
 }
 
@@ -11853,16 +11855,36 @@ svg:not([fill]) {
 }
 
 .p-profile {
+  width: 100%;
   display: -webkit-box;
   display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  max-height: 200px;
+  position: relative;
 }
 
 .p-profile__left {
-  width: 30%;
+  width: 40%;
+  margin-right: 20px;
+  text-align: center;
 }
 
 .p-profile__right {
-  width: 70%;
+  width: 60%;
+}
+
+.p-profile__icon {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.p-profile__button {
+  position: absolute;
+  bottom: 0;
 }
 
 .p-feature__title {
@@ -11872,10 +11894,13 @@ svg:not([fill]) {
 .p-main-visual {
   width: 100%;
   background-image: url();
+  min-height: 500px;
+  margin-bottom: 40px;
 }
 
 .p-main-visual__title {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .p-main-visual__text {

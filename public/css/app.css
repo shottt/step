@@ -11407,6 +11407,17 @@ ul {
   box-sizing: border-box;
 }
 
+h1,
+h2 {
+  margin: 0;
+}
+
+select {
+  background: #fff;
+  display: block;
+  border: 1px solid #ccc;
+}
+
 /*!
  * ress.css • v2.0.2
  * MIT License
@@ -11771,6 +11782,10 @@ svg:not([fill]) {
           align-items: center;
 }
 
+.l-header__logo-link {
+  color: #777;
+}
+
 .l-main {
   margin: 30px auto;
   width: 960px;
@@ -11845,6 +11860,10 @@ svg:not([fill]) {
   float: right;
 }
 
+.c-button__link {
+  color: #777;
+}
+
 .c-menu {
   display: -webkit-box;
   display: flex;
@@ -11852,9 +11871,10 @@ svg:not([fill]) {
 
 .c-menu__link {
   padding: 10px 15px;
+  color: #777;
 }
 
-.p-profile {
+.p-prof-card {
   width: 100%;
   display: -webkit-box;
   display: flex;
@@ -11864,17 +11884,17 @@ svg:not([fill]) {
   position: relative;
 }
 
-.p-profile__left {
+.p-prof-card__left {
   width: 40%;
   margin-right: 20px;
   text-align: center;
 }
 
-.p-profile__right {
+.p-prof-card__right {
   width: 60%;
 }
 
-.p-profile__icon {
+.p-prof-card__icon {
   width: 200px;
   height: 200px;
   -o-object-fit: cover;
@@ -11882,7 +11902,7 @@ svg:not([fill]) {
   border-radius: 50%;
 }
 
-.p-profile__button {
+.p-prof-card__button {
   position: absolute;
   bottom: 0;
 }
@@ -11911,5 +11931,78 @@ svg:not([fill]) {
 .p-main-visual__button {
   padding: 20px 0;
   text-align: center;
+}
+
+.p-step-card {
+  width: 300px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.p-step-card__title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.p-step-card__link {
+  color: #777;
+}
+
+.p-step-card__thumbnail {
+  width: 300px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.p-step-card__content {
+  margin-bottom: 10px;
+  max-height: 50px;
+  overflow: hidden;
+}
+
+.p-step-card__favorites {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.p-step-card__challenges {
+  margin-bottom: 20px;
+}
+
+.p-step-index__title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.p-step-index__area {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+}
+
+.p-step-list {
+  width: 70%;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.p-step-search {
+  width: 30%;
+  background: #F0F3F5;
+}
+
+.p-step-search__form {
+  margin-left: 20px;
+  width: 200px;
+}
+
+.p-step-search__title {
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.p-step-search__label {
+  display: block;
 }
 

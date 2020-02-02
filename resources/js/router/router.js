@@ -17,8 +17,8 @@ import Withdraw from '../components/pages/Withdraw';
 import StepRegister from '../components/pages/StepRegister';
 import StepEdit from '../components/pages/StepEdit';
 import Process from '../components/pages/Process';
-import StepList from '../components/pages/StepList';
-import Step from '../components/pages/Step';
+import StepIndex from '../components/pages/StepIndex';
+import StepDetail from '../components/pages/StepDeatil';
 
 
 // コンポーネントをインポート
@@ -107,13 +107,13 @@ const routes = [
   // ログイン未ログインどちらでもアクセス可
   // ステップ一覧ページ
   {
-    path: '/steplist',
-    component: StepList,
+    path: '/stepindex',
+    component: StepIndex,
   },
   // ステップ詳細ページ
   {
     path: '/steplist/:id',
-    component: Step,
+    component: StepDetail,
   },
 ]
 

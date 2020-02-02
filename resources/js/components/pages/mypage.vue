@@ -1,9 +1,13 @@
 <template>
-  
+  <ProfCard />
 </template>
 
 <script>
+import ProfCard from '../organisms/ProfCard';
 export default {
-  nama: 'mypage',
+  name: 'mypage',
+  components: {
+    'ProfCard': ProfCard,
+  }
 }
 </script>

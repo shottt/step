@@ -1,0 +1,15 @@
+.p-step-search{
+  width: 30%;
+  background: #F0F3F5;
+  &__form{
+    margin-left: 20px;
+    width: 200px;
+  }
+  &__title{
+    text-decoration: underline;
+    margin-bottom: 20px;
+  }
+  &__label{
+    display: block;
+  }
+}

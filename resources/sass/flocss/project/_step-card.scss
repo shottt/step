@@ -1,0 +1,33 @@
+.p-step-card{
+  width: 300px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  &__title{
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  &__link{
+    // text-decoration: none;
+    color: $font-color_default;
+  }
+  &__thumbnail{
+    width: 300px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  &__content{
+    margin-bottom: 10px;
+    max-height: 50px;
+    overflow: hidden;
+  }
+  &__date{
+  
+  }
+  &__favorites{
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+  &__challenges{
+    margin-bottom: 20px;
+  }
+}

@@ -17,10 +17,17 @@
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
+    border: dot 1px #333;
   }
   &__button{
     position: absolute;
     bottom: 0;
+  }
+  &__name{
+    margin-bottom: 20px;
+  }
+  &__link{
+    color: #fff;
   }
 
 }

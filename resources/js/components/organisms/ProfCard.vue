@@ -6,10 +6,10 @@
     <div class="p-prof-card__right">
       <h2 class="p-prof-card__name">{{ name }}</h2>
       <p class="p-prof-card__introduction">{{ introduction }}</p>
-      <div class="p-prof-card__button">
-        <button class="c-button">プロフィール編集</button>
-        <button class="c-button">パスワード変更</button>
-        <button class="c-button">退会</button>
+      <div v-if="isLogin" class="p-prof-card__button">
+        <button class="c-button"><router-link class="p-prof-card__link" to="/prof_edit">プロフィール編集</router-link></button>
+        <button class="c-button"><router-link class="p-prof-card__link" to="/pass_change">パスワード変更</router-link></button>
+        <button class="c-button"><router-link class="p-prof-card__link" to="/withdraw">退会</router-link></button>
       </div>
     </div>
   </div>
@@ -21,6 +21,11 @@ export default {
     return {
       name: '山田太郎',
       introduction: '自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介',
+    }
+  },
+  computed: {
+    isLogin: function(){
+      return this.$store.getters['auth/check'];
     }
   }
 }

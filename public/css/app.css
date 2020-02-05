@@ -11759,7 +11759,7 @@ svg:not([fill]) {
   width: 100%;
   height: 50px;
   background: #000;
-  color: #777;
+  color: #fff;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -11783,7 +11783,7 @@ svg:not([fill]) {
 }
 
 .l-header__logo-link {
-  color: #777;
+  color: #fff;
 }
 
 .l-main {
@@ -11818,12 +11818,23 @@ svg:not([fill]) {
   margin-bottom: 10px;
 }
 
-.c-form__item {
+.c-form__input {
   display: block;
   width: 340px;
   height: 50px;
   border: solid 1px #333;
   margin-bottom: 20px;
+}
+
+.c-form__input-file {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  background: #F0F3F5;
+  border: dot 1px #333;
+  opacity: 0;
 }
 
 .c-form__button {
@@ -11838,6 +11849,13 @@ svg:not([fill]) {
 
 .c-form__text {
   margin-bottom: 20px;
+}
+
+.c-form__textarea {
+  display: block;
+  width: 340px;
+  height: 100px;
+  border: solid 1px #333;
 }
 
 .c-button {
@@ -11861,7 +11879,7 @@ svg:not([fill]) {
 }
 
 .c-button__link {
-  color: #777;
+  color: #fff;
 }
 
 .c-menu {
@@ -11871,7 +11889,11 @@ svg:not([fill]) {
 
 .c-menu__link {
   padding: 10px 15px;
-  color: #777;
+  color: #fff;
+}
+
+.c-menu__button {
+  color: #fff;
 }
 
 .p-prof-card {
@@ -11900,11 +11922,20 @@ svg:not([fill]) {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
+  border: dot 1px #333;
 }
 
 .p-prof-card__button {
   position: absolute;
   bottom: 0;
+}
+
+.p-prof-card__name {
+  margin-bottom: 20px;
+}
+
+.p-prof-card__link {
+  color: #fff;
 }
 
 .p-feature__title {

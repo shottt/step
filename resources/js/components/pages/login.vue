@@ -3,9 +3,9 @@
     <form class="c-form" @submit.prevent="login">
       <h2 class="c-form__title">ログイン</h2>
       <label for="login-email" class="c-form__label">メールアドレス</label>
-      <input type="email" class="c-form__item" id="login-email" v-model="loginForm.email">
+      <input type="email" class="c-form__input" id="login-email" v-model="loginForm.email">
       <label for="login-password" class="c-form__label">パスワード</label>
-      <input type="password" class="c-form__item" id="login-password" v-model="loginForm.password">
+      <input type="password" class="c-form__input" id="login-password" v-model="loginForm.password">
       <input type="checkbox">次回ログインを省略する
       <div class="c-form__button">
         <button type="submit" class="c-button-right">ログイン</button>

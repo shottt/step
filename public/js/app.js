@@ -2207,6 +2207,11 @@ __webpack_require__.r(__webpack_exports__);
       name: '山田太郎',
       introduction: '自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介'
     };
+  },
+  computed: {
+    isLogin: function isLogin() {
+      return this.$store.getters['auth/check'];
+    }
   }
 });
 
@@ -2467,6 +2472,94 @@ __webpack_require__.r(__webpack_exports__);
     passremindsend: function passremindsend() {
       // フォームの入力内容をコンソールに出力
       console.log('passremindsendForm：', this.passremindsendForm);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/ProfEdit.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/ProfEdit.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'profedit',
+  data: function data() {
+    return {
+      profEditForm: {
+        icon: '',
+        name: '',
+        email: '',
+        introduction: ''
+      }
+    };
+  },
+  methods: {
+    // フォームでファイルが選択されたら実行される
+    onFileChange: function onFileChange(event) {
+      var _this = this;
+
+      // 何も選択されていなかったら、処理中断
+      if (event.target.files.length === 0) {
+        this.reset();
+        return false;
+      } // ファイルが画像ではなかったら、処理中断
+
+
+      if (!event.target.files[0].type.match('image.*')) {
+        this.reset();
+        return false;
+      } // FileReaderクラスのインスタンスを取得
+
+
+      var reader = new FileReader(); // ファイルを読み込み終わったタイミングで実行する処理
+
+      reader.onload = function (e) {
+        // iconに読み込み結果（データURL）を代入する
+        // iconに値が入ると<output>につけたv-ifがtrueと判定される
+        // また<output>内部の<img>のsrc属性はiconの値を参照しているので結果として画像が表示される
+        _this.profEditForm.icon = e.target.result;
+      }; // ファイルを読み込む
+      // 読み込まれたファイルはデータURL形式で受け取れる（上記onload参照）
+
+
+      reader.readAsDataURL(event.target.files[0]);
+    },
+    reset: function reset() {
+      this.profEditForm.icon = '', this.$el.querySelector('input[type="file"]').value = null;
+    },
+    profEdit: function profEdit() {
+      // フォームの入力内容をコンソールに出力
+      console.log('profEditForm：', this.profEditForm); // ストアのメソッドの操作を呼び出す
     }
   }
 });
@@ -39089,7 +39182,7 @@ var render = function() {
         [
           _c(
             "router-link",
-            { staticClass: "c-button__link", attrs: { to: "/steplist" } },
+            { staticClass: "c-button__link", attrs: { to: "/stepindex" } },
             [_vm._v("STEPを見る")]
           )
         ],
@@ -39164,7 +39257,57 @@ var render = function() {
         _vm._v(_vm._s(_vm.introduction))
       ]),
       _vm._v(" "),
-      _vm._m(1)
+      _vm.isLogin
+        ? _c("div", { staticClass: "p-prof-card__button" }, [
+            _c(
+              "button",
+              { staticClass: "c-button" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "p-prof-card__link",
+                    attrs: { to: "/prof_edit" }
+                  },
+                  [_vm._v("プロフィール編集")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "c-button" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "p-prof-card__link",
+                    attrs: { to: "/pass_change" }
+                  },
+                  [_vm._v("パスワード変更")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "c-button" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "p-prof-card__link",
+                    attrs: { to: "/withdraw" }
+                  },
+                  [_vm._v("退会")]
+                )
+              ],
+              1
+            )
+          ])
+        : _vm._e()
     ])
   ])
 }
@@ -39178,18 +39321,6 @@ var staticRenderFns = [
         staticClass: "p-prof-card__icon",
         attrs: { src: "img/78982111.jpeg", alt: "アイコン画像" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-prof-card__button" }, [
-      _c("button", { staticClass: "c-button" }, [_vm._v("プロフィール編集")]),
-      _vm._v(" "),
-      _c("button", { staticClass: "c-button" }, [_vm._v("パスワード変更")]),
-      _vm._v(" "),
-      _c("button", { staticClass: "c-button" }, [_vm._v("退会")])
     ])
   }
 ]
@@ -39341,7 +39472,7 @@ var render = function() {
               expression: "loginForm.email"
             }
           ],
-          staticClass: "c-form__item",
+          staticClass: "c-form__input",
           attrs: { type: "email", id: "login-email" },
           domProps: { value: _vm.loginForm.email },
           on: {
@@ -39369,7 +39500,7 @@ var render = function() {
               expression: "loginForm.password"
             }
           ],
-          staticClass: "c-form__item",
+          staticClass: "c-form__input",
           attrs: { type: "password", id: "login-password" },
           domProps: { value: _vm.loginForm.password },
           on: {
@@ -39484,7 +39615,7 @@ var render = function() {
             expression: "passchangeForm.old_password"
           }
         ],
-        staticClass: "c-form__item",
+        staticClass: "c-form__input",
         attrs: { type: "password", id: "old-password" },
         domProps: { value: _vm.passchangeForm.old_password },
         on: {
@@ -39512,7 +39643,7 @@ var render = function() {
             expression: "passchangeForm.new_password"
           }
         ],
-        staticClass: "c-form__item",
+        staticClass: "c-form__input",
         attrs: { type: "password", id: "new-password" },
         domProps: { value: _vm.passchangeForm.new_password },
         on: {
@@ -39543,7 +39674,7 @@ var render = function() {
             expression: "passchangeForm.new_password_confirmation"
           }
         ],
-        staticClass: "c-form__item",
+        staticClass: "c-form__input",
         attrs: { type: "password", id: "new-password-confirmation" },
         domProps: { value: _vm.passchangeForm.new_password_confirmation },
         on: {
@@ -39631,7 +39762,7 @@ var render = function() {
               expression: "passremindrecieveForm.email"
             }
           ],
-          staticClass: "c-form__item",
+          staticClass: "c-form__input",
           attrs: { type: "text", id: "passremindrecieve-authkey" },
           domProps: { value: _vm.passremindrecieveForm.email },
           on: {
@@ -39716,7 +39847,7 @@ var render = function() {
               expression: "passremindsendForm.email"
             }
           ],
-          staticClass: "c-form__item",
+          staticClass: "c-form__input",
           attrs: { type: "email", id: "passremindsend-email" },
           domProps: { value: _vm.passremindsendForm.email },
           on: {
@@ -39744,6 +39875,148 @@ var staticRenderFns = [
         "button",
         { staticClass: "c-button-right", attrs: { type: "submit" } },
         [_vm._v("送信する")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/ProfEdit.vue?vue&type=template&id=526609ce&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/ProfEdit.vue?vue&type=template&id=526609ce& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "l-form-container" }, [
+    _c("form", { staticClass: "c-form" }, [
+      _c("h2", { staticClass: "c-form__title" }, [_vm._v("プロフィール編集")]),
+      _vm._v(" "),
+      _c("label", { staticClass: "c-form__label", attrs: { for: "icon" } }, [
+        _vm._v("アイコン画像")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "c-form__input-file",
+        attrs: { type: "file", accept: "image/*", id: "icon" },
+        on: { change: _vm.onFileChange }
+      }),
+      _vm._v(" "),
+      _vm.profEditForm.icon
+        ? _c("output", { staticClass: "c-form__output" }, [
+            _c("img", {
+              staticClass: "c-form__preview",
+              attrs: { src: _vm.profEditForm.icon, alt: "アイコン" }
+            })
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("label", { staticClass: "c-form__label", attrs: { for: "name" } }, [
+        _vm._v("名前")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.profEditForm.name,
+            expression: "profEditForm.name"
+          }
+        ],
+        staticClass: "c-form__input",
+        attrs: { type: "text", id: "name" },
+        domProps: { value: _vm.profEditForm.name },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.profEditForm, "name", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { staticClass: "c-form__label", attrs: { for: "email" } }, [
+        _vm._v("メールアドレス")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.profEditForm.email,
+            expression: "profEditForm.email"
+          }
+        ],
+        staticClass: "c-form__input",
+        attrs: { type: "email", id: "email" },
+        domProps: { value: _vm.profEditForm.email },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.profEditForm, "email", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "label",
+        { staticClass: "c-form__label", attrs: { for: "introduction" } },
+        [_vm._v("自己紹介文")]
+      ),
+      _vm._v(" "),
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.profEditForm.introduction,
+            expression: "profEditForm.introduction"
+          }
+        ],
+        staticClass: "c-form__textarea",
+        attrs: { id: "introduction" },
+        domProps: { value: _vm.profEditForm.introduction },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.profEditForm, "introduction", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm._m(0)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "c-form__button" }, [
+      _c(
+        "button",
+        { staticClass: "c-button-right", attrs: { type: "submit" } },
+        [_vm._v("編集する")]
       )
     ])
   }
@@ -39799,7 +40072,7 @@ var render = function() {
               expression: "registerForm.email"
             }
           ],
-          staticClass: "c-form__item",
+          staticClass: "c-form__input",
           attrs: { type: "email", id: "register-email" },
           domProps: { value: _vm.registerForm.email },
           on: {
@@ -39827,7 +40100,7 @@ var render = function() {
               expression: "registerForm.password"
             }
           ],
-          staticClass: "c-form__item",
+          staticClass: "c-form__input",
           attrs: { type: "password", id: "register-password" },
           domProps: { value: _vm.registerForm.password },
           on: {
@@ -39858,7 +40131,7 @@ var render = function() {
               expression: "registerForm.password_confirmation"
             }
           ],
-          staticClass: "c-form__item",
+          staticClass: "c-form__input",
           attrs: { type: "password", id: "register-password-confirmation" },
           domProps: { value: _vm.registerForm.password_confirmation },
           on: {
@@ -57385,17 +57658,20 @@ component.options.__file = "resources/js/components/pages/Process.vue"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
+/* harmony import */ var _ProfEdit_vue_vue_type_template_id_526609ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProfEdit.vue?vue&type=template&id=526609ce& */ "./resources/js/components/pages/ProfEdit.vue?vue&type=template&id=526609ce&");
+/* harmony import */ var _ProfEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProfEdit.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/ProfEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ProfEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ProfEdit_vue_vue_type_template_id_526609ce___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ProfEdit_vue_vue_type_template_id_526609ce___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -57403,8 +57679,42 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   
 )
 
+/* hot reload */
+if (false) { var api; }
 component.options.__file = "resources/js/components/pages/ProfEdit.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/ProfEdit.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/pages/ProfEdit.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ProfEdit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/ProfEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/ProfEdit.vue?vue&type=template&id=526609ce&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/pages/ProfEdit.vue?vue&type=template&id=526609ce& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfEdit_vue_vue_type_template_id_526609ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ProfEdit.vue?vue&type=template&id=526609ce& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/ProfEdit.vue?vue&type=template&id=526609ce&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfEdit_vue_vue_type_template_id_526609ce___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfEdit_vue_vue_type_template_id_526609ce___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

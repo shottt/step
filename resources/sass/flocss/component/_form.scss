@@ -8,12 +8,38 @@
     font-size: 16px;
     margin-bottom: 10px;
   }
-  &__item{
+  &__area-drop{
+    // position: relative;
+    // height: 200px;
+  }
+  &__input{
     display: block;
     width: 340px;
     height: 50px;
     border: solid 1px #333;
     margin-bottom: 20px;
+    &-file{
+      // position: absolute;
+      // top: 0;
+      // left: 50%;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #F0F3F5;
+      border: dot 1px #333;
+      opacity: 0; // ファイル選択のボタンを消す
+    }
+  }
+  &__output{
+    // position: absolute;
+    // top: 0;
+    // left: 50%;
+  }
+  &__preview{
+    // position: absolute;
+    // top: 0;
+    // left: 50%;
   }
   &__button{
     padding: 20px 0;
@@ -25,5 +51,14 @@
   }
   &__text{
     margin-bottom: 20px;
+  }
+  &__textarea{
+    display: block;
+    width: 340px;
+    height: 100px;
+    border: solid 1px #333;
+  }
+  &__output{
+
   }
 }

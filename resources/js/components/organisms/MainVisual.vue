@@ -7,7 +7,7 @@
     </p>
     <div class="p-main-visual__button">
       <button class="c-button">
-        <router-link class="c-button__link" to="/steplist">STEPを見る</router-link>
+        <router-link class="c-button__link" to="/stepindex">STEPを見る</router-link>
       </button>
       <button class="c-button">
         <router-link class="c-button__link" to="/register">登録する</router-link>

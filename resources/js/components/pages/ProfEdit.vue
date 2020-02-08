@@ -1,6 +1,6 @@
 <template>
   <div class="l-form-container">
-    <form class="c-form">
+    <form class="c-form" enctype="multipart/form-data" @submit.prevent="profEdit">
       <h2 class="c-form__title">プロフィール編集</h2>
       <label for="icon" class="c-form__label">アイコン画像</label>
       <!-- <div class="c-form__area-drop"> -->
@@ -35,17 +35,22 @@ export default {
       }
     }
   },
+  computed: {
+    userID: function(){
+      return this.$store.getters['auth/getUserID']
+    }
+  },
   methods: {
-    // フォームでファイルが選択されたら実行される
+    // ライブプレビュー機能
     onFileChange: function(event){
       // 何も選択されていなかったら、処理中断
       if(event.target.files.length === 0){
-        this.reset();
+        this.resetFile();
         return false;
       }
       // ファイルが画像ではなかったら、処理中断
       if(! event.target.files[0].type.match('image.*')){
-        this.reset();
+        this.resetFile();
         return false;
       }
       // FileReaderクラスのインスタンスを取得
@@ -62,14 +67,54 @@ export default {
       // 読み込まれたファイルはデータURL形式で受け取れる（上記onload参照）
       reader.readAsDataURL(event.target.files[0]);
     },
-    reset: function(){
+    // 画像データリセット
+    resetFile: function(){
       this.profEditForm.icon = '',
       this.$el.querySelector('input[type="file"]').value = null;
     },
+    // 入力データリセット
+    reset: function(){
+      this.resetFile();
+      this.profEditForm.name = '',
+      this.profEditForm.email = '',
+      this.profEditForm.introduction = ''
+    },
+    // プロフィール編集
     profEdit: function(){
       // フォームの入力内容をコンソールに出力
       console.log('profEditForm：', this.profEditForm);
-      // ストアのメソッドの操作を呼び出す
+      console.log('userID：', this.userID);
+      // const formData = new FormData();
+      // // フォームへの入力データを追加する
+      // formData.append('icon', this.profEditForm.icon);
+      // // formData.append('name', this.name);
+      // // formData.append('email', this.name);
+      // // formData.append('introduction', this.introduction);
+      // console.log('formData：', formData);
+      
+      // const response = axios.post('/api/prof_edit', formData, {
+      //   headers: {
+      //     'content-type': 'multipart/form-data',
+      //   },
+      // }).then((res) => {
+      //   // レスポンスをコンソールに表示
+      //   console.log('res：', res);
+      // });
+
+      axios.post('/api/prof_edit',{
+        name: this.profEditForm.name,
+        introduction: this.profEditForm.introduction,
+        id: this.userID,
+      });
+      // console.log('response：', response);
+      // if(response){
+      //   // // 送信完了後に入力値をクリアする
+      //   this.reset();
+      // }
+      
+
+      // this.$router.push();
+
     }
   },
 }

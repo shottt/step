@@ -2523,20 +2523,25 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  computed: {
+    userID: function userID() {
+      return this.$store.getters['auth/getUserID'];
+    }
+  },
   methods: {
-    // フォームでファイルが選択されたら実行される
+    // ライブプレビュー機能
     onFileChange: function onFileChange(event) {
       var _this = this;
 
       // 何も選択されていなかったら、処理中断
       if (event.target.files.length === 0) {
-        this.reset();
+        this.resetFile();
         return false;
       } // ファイルが画像ではなかったら、処理中断
 
 
       if (!event.target.files[0].type.match('image.*')) {
-        this.reset();
+        this.resetFile();
         return false;
       } // FileReaderクラスのインスタンスを取得
 
@@ -2554,12 +2559,45 @@ __webpack_require__.r(__webpack_exports__);
 
       reader.readAsDataURL(event.target.files[0]);
     },
-    reset: function reset() {
+    // 画像データリセット
+    resetFile: function resetFile() {
       this.profEditForm.icon = '', this.$el.querySelector('input[type="file"]').value = null;
     },
+    // 入力データリセット
+    reset: function reset() {
+      this.resetFile();
+      this.profEditForm.name = '', this.profEditForm.email = '', this.profEditForm.introduction = '';
+    },
+    // プロフィール編集
     profEdit: function profEdit() {
       // フォームの入力内容をコンソールに出力
-      console.log('profEditForm：', this.profEditForm); // ストアのメソッドの操作を呼び出す
+      console.log('profEditForm：', this.profEditForm);
+      console.log('userID：', this.userID); // const formData = new FormData();
+      // // フォームへの入力データを追加する
+      // formData.append('icon', this.profEditForm.icon);
+      // // formData.append('name', this.name);
+      // // formData.append('email', this.name);
+      // // formData.append('introduction', this.introduction);
+      // console.log('formData：', formData);
+      // const response = axios.post('/api/prof_edit', formData, {
+      //   headers: {
+      //     'content-type': 'multipart/form-data',
+      //   },
+      // }).then((res) => {
+      //   // レスポンスをコンソールに表示
+      //   console.log('res：', res);
+      // });
+
+      axios.post('/api/prof_edit', {
+        name: this.profEditForm.name,
+        introduction: this.profEditForm.introduction,
+        id: this.userID
+      }); // console.log('response：', response);
+      // if(response){
+      //   // // 送信完了後に入力値をクリアする
+      //   this.reset();
+      // }
+      // this.$router.push();
     }
   }
 });
@@ -39901,110 +39939,125 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "l-form-container" }, [
-    _c("form", { staticClass: "c-form" }, [
-      _c("h2", { staticClass: "c-form__title" }, [_vm._v("プロフィール編集")]),
-      _vm._v(" "),
-      _c("label", { staticClass: "c-form__label", attrs: { for: "icon" } }, [
-        _vm._v("アイコン画像")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "c-form__input-file",
-        attrs: { type: "file", accept: "image/*", id: "icon" },
-        on: { change: _vm.onFileChange }
-      }),
-      _vm._v(" "),
-      _vm.profEditForm.icon
-        ? _c("output", { staticClass: "c-form__output" }, [
-            _c("img", {
-              staticClass: "c-form__preview",
-              attrs: { src: _vm.profEditForm.icon, alt: "アイコン" }
-            })
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("label", { staticClass: "c-form__label", attrs: { for: "name" } }, [
-        _vm._v("名前")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.profEditForm.name,
-            expression: "profEditForm.name"
-          }
-        ],
-        staticClass: "c-form__input",
-        attrs: { type: "text", id: "name" },
-        domProps: { value: _vm.profEditForm.name },
+    _c(
+      "form",
+      {
+        staticClass: "c-form",
+        attrs: { enctype: "multipart/form-data" },
         on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.profEditForm, "name", $event.target.value)
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.profEdit($event)
           }
         }
-      }),
-      _vm._v(" "),
-      _c("label", { staticClass: "c-form__label", attrs: { for: "email" } }, [
-        _vm._v("メールアドレス")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.profEditForm.email,
-            expression: "profEditForm.email"
-          }
-        ],
-        staticClass: "c-form__input",
-        attrs: { type: "email", id: "email" },
-        domProps: { value: _vm.profEditForm.email },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+      },
+      [
+        _c("h2", { staticClass: "c-form__title" }, [
+          _vm._v("プロフィール編集")
+        ]),
+        _vm._v(" "),
+        _c("label", { staticClass: "c-form__label", attrs: { for: "icon" } }, [
+          _vm._v("アイコン画像")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "c-form__input-file",
+          attrs: { type: "file", accept: "image/*", id: "icon" },
+          on: { change: _vm.onFileChange }
+        }),
+        _vm._v(" "),
+        _vm.profEditForm.icon
+          ? _c("output", { staticClass: "c-form__output" }, [
+              _c("img", {
+                staticClass: "c-form__preview",
+                attrs: { src: _vm.profEditForm.icon, alt: "アイコン" }
+              })
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("label", { staticClass: "c-form__label", attrs: { for: "name" } }, [
+          _vm._v("名前")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.profEditForm.name,
+              expression: "profEditForm.name"
             }
-            _vm.$set(_vm.profEditForm, "email", $event.target.value)
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "c-form__label", attrs: { for: "introduction" } },
-        [_vm._v("自己紹介文")]
-      ),
-      _vm._v(" "),
-      _c("textarea", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.profEditForm.introduction,
-            expression: "profEditForm.introduction"
-          }
-        ],
-        staticClass: "c-form__textarea",
-        attrs: { id: "introduction" },
-        domProps: { value: _vm.profEditForm.introduction },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          ],
+          staticClass: "c-form__input",
+          attrs: { type: "text", id: "name" },
+          domProps: { value: _vm.profEditForm.name },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.profEditForm, "name", $event.target.value)
             }
-            _vm.$set(_vm.profEditForm, "introduction", $event.target.value)
           }
-        }
-      }),
-      _vm._v(" "),
-      _vm._m(0)
-    ])
+        }),
+        _vm._v(" "),
+        _c("label", { staticClass: "c-form__label", attrs: { for: "email" } }, [
+          _vm._v("メールアドレス")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.profEditForm.email,
+              expression: "profEditForm.email"
+            }
+          ],
+          staticClass: "c-form__input",
+          attrs: { type: "email", id: "email" },
+          domProps: { value: _vm.profEditForm.email },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.profEditForm, "email", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "c-form__label", attrs: { for: "introduction" } },
+          [_vm._v("自己紹介文")]
+        ),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.profEditForm.introduction,
+              expression: "profEditForm.introduction"
+            }
+          ],
+          staticClass: "c-form__textarea",
+          attrs: { id: "introduction" },
+          domProps: { value: _vm.profEditForm.introduction },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.profEditForm, "introduction", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -58340,6 +58393,9 @@ var getters = {
     } else {
       return false;
     }
+  },
+  getUserID: function getUserID(state) {
+    return state.user.id;
   }
 };
 var mutations = {

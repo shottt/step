@@ -10,6 +10,9 @@ const getters = {
     }else{
       return false;
     }
+  },
+  getUserID: function(state){
+    return state.user.id;
   }
 }
 

@@ -2211,6 +2211,10 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     isLogin: function isLogin() {
       return this.$store.getters['auth/check'];
+    },
+    userIcon: function userIcon() {
+      var userData = this.$store.getters['auth/getUser'];
+      return userData.icon;
     }
   }
 });
@@ -2515,6 +2519,8 @@ __webpack_require__.r(__webpack_exports__);
   name: 'profedit',
   data: function data() {
     return {
+      preview: '',
+      // ライブプレビュー用（データURLが入る）
       profEditForm: {
         icon: '',
         name: '',
@@ -2525,7 +2531,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     userID: function userID() {
-      return this.$store.getters['auth/getUserID'];
+      var userData = this.$store.getters['auth/getUser'];
+      return userData.id;
     }
   },
   methods: {
@@ -2546,22 +2553,25 @@ __webpack_require__.r(__webpack_exports__);
       } // FileReaderクラスのインスタンスを取得
 
 
-      var reader = new FileReader(); // ファイルを読み込み終わったタイミングで実行する処理
+      var reader = new FileReader(); // ファイルを読み込み後のタイミングで実行する処理
 
       reader.onload = function (e) {
-        // iconに読み込み結果（データURL）を代入する
-        // iconに値が入ると<output>につけたv-ifがtrueと判定される
-        // また<output>内部の<img>のsrc属性はiconの値を参照しているので結果として画像が表示される
-        _this.profEditForm.icon = e.target.result;
+        // ロード時の各種情報はonloadの引数に格納される
+        // ロードされた画像ファイルのデータURLはe.target.resultに格納される
+        // previewに読み込み結果（データURL）を代入する
+        _this.preview = e.target.result; // previewに値が入ると<output>につけたv-ifがtrueと判定される
+        // また<output>内部の<img>のsrc属性はpreviewの値を参照しているので結果として画像が表示される
       }; // ファイルを読み込む
       // 読み込まれたファイルはデータURL形式で受け取れる（上記onload参照）
 
 
-      reader.readAsDataURL(event.target.files[0]);
+      reader.readAsDataURL(event.target.files[0]); // ユーザーのアップロードデータをiconにいれる
+
+      this.profEditForm.icon = event.target.files[0];
     },
-    // 画像データリセット
+    // 画像データリセット（画像データキャンセル時）
     resetFile: function resetFile() {
-      this.profEditForm.icon = '', this.$el.querySelector('input[type="file"]').value = null;
+      this.preview = '', this.$el.querySelector('input[type="file"]').value = null;
     },
     // 入力データリセット
     reset: function reset() {
@@ -2570,34 +2580,30 @@ __webpack_require__.r(__webpack_exports__);
     },
     // プロフィール編集
     profEdit: function profEdit() {
+      var _this2 = this;
+
       // フォームの入力内容をコンソールに出力
       console.log('profEditForm：', this.profEditForm);
-      console.log('userID：', this.userID); // const formData = new FormData();
-      // // フォームへの入力データを追加する
-      // formData.append('icon', this.profEditForm.icon);
-      // // formData.append('name', this.name);
-      // // formData.append('email', this.name);
-      // // formData.append('introduction', this.introduction);
-      // console.log('formData：', formData);
-      // const response = axios.post('/api/prof_edit', formData, {
-      //   headers: {
-      //     'content-type': 'multipart/form-data',
-      //   },
-      // }).then((res) => {
-      //   // レスポンスをコンソールに表示
-      //   console.log('res：', res);
-      // });
+      console.log('userID：', this.userID);
+      var formData = new FormData(); // フォームへの入力データを追加する
 
-      axios.post('/api/prof_edit', {
-        name: this.profEditForm.name,
-        introduction: this.profEditForm.introduction,
-        id: this.userID
-      }); // console.log('response：', response);
-      // if(response){
-      //   // // 送信完了後に入力値をクリアする
-      //   this.reset();
-      // }
-      // this.$router.push();
+      formData.append('icon', this.profEditForm.icon);
+      formData.append('name', this.profEditForm.name);
+      formData.append('email', this.profEditForm.email);
+      formData.append('introduction', this.profEditForm.introduction);
+      formData.append('id', this.userID);
+      console.log('formData：', formData);
+      axios.post('/api/prof_edit', formData).then(function (res) {
+        if (res.data.result_flg === true) {
+          console.log('通信成功'); // 送信完了後に入力値をクリアする
+
+          _this2.reset();
+
+          _this2.$router.push('/mypage');
+        }
+      })["catch"](function (err) {
+        console.log('err：', err);
+      });
     }
   }
 });
@@ -39284,7 +39290,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-prof-card" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "p-prof-card__left" }, [
+      _c("img", {
+        staticClass: "p-prof-card__icon",
+        attrs: { src: _vm.userIcon, alt: "アイコン画像" }
+      })
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-prof-card__right" }, [
       _c("h2", { staticClass: "p-prof-card__name" }, [
@@ -39349,19 +39360,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-prof-card__left" }, [
-      _c("img", {
-        staticClass: "p-prof-card__icon",
-        attrs: { src: "img/78982111.jpeg", alt: "アイコン画像" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -39943,7 +39942,7 @@ var render = function() {
       "form",
       {
         staticClass: "c-form",
-        attrs: { enctype: "multipart/form-data" },
+        attrs: { accept: "”image/*”" },
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -39962,15 +39961,15 @@ var render = function() {
         _vm._v(" "),
         _c("input", {
           staticClass: "c-form__input-file",
-          attrs: { type: "file", accept: "image/*", id: "icon" },
+          attrs: { type: "file", id: "icon" },
           on: { change: _vm.onFileChange }
         }),
         _vm._v(" "),
-        _vm.profEditForm.icon
+        _vm.preview
           ? _c("output", { staticClass: "c-form__output" }, [
               _c("img", {
                 staticClass: "c-form__preview",
-                attrs: { src: _vm.profEditForm.icon, alt: "アイコン" }
+                attrs: { src: _vm.preview, alt: "アイコン" }
               })
             ])
           : _vm._e(),
@@ -58396,6 +58395,9 @@ var getters = {
   },
   getUserID: function getUserID(state) {
     return state.user.id;
+  },
+  getUser: function getUser(state) {
+    return state.user;
   }
 };
 var mutations = {

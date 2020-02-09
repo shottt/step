@@ -11,10 +11,7 @@ use Illuminate\Support\Facades\Log;
 class UsersController extends Controller
 {
     // ユーザー情報の編集
-    public function prof_edit(Request $request){
-
-        // バリデーション
-        // $this->validate($request, );
+    public function prof_edit(ProfileRequest $request){
 
         // post値を変数に格納
         $icon = $request->icon;
@@ -22,7 +19,7 @@ class UsersController extends Controller
         $introduction = $request->introduction;
         $id = $request->id;
 
-        // Log::debug('uploadImg：' . $uploadImg);
+        Log::debug('icon：' . $icon);
         Log::debug('id：' . $id);
         Log::debug('name：' . $name);
         Log::debug('introduction：' . $introduction);
@@ -31,22 +28,31 @@ class UsersController extends Controller
         $user = User::Where('id', $id)->where('delete_flg', 0)->first();
         Log::debug($user);
 
-        // 画像がアップロードできているか確認し、ファイル名をUserインスタンスのプロパティにセット
-        // if($icon->isValid()){
-        //     $filePath = $icon->store('public');
-        //     // str_replace関数で$filePathからファイル名を取り出し、変数に格納
-        //     $fileName = str_replace('public/', '', $filePath);
-        // }
-        // Log::debug($filePath);
-        // Log::debug($fileName);
+        // 画像がアップロードできているか確認
+        if($icon->isValid()){
+          // storage/app/public配下に画像を保存し、パスを変数に格納
+            $filePath = $icon->store('public');
+            // str_replace関数で$filePathからファイル名を取り出し、変数に格納
+            $fileName = str_replace('public/', 'storage/', $filePath);
+        }
+        Log::debug($filePath);
+        Log::debug($fileName);
 
+        if(!empty($fileName)){
+          $user->icon = $fileName;
+        }
+        if(!empty($name)){
+          $user->name = $name;
+        }
+        if(!empty($introduction)){
+          $user->introduction = $introduction;
+        }
         // DBに保存する
-        // $user->icon->$fileName;
-        $user->name = $name;
-        $user->introduction = $introduction;
-        $user->save();
+        $result = $user->save();
+        
+        if($result){
+            return response()->json(['result_flg' => true]);
+        }
 
-
-        // return response()->json([]);
     }
 }

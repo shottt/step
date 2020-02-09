@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->integer('group')->default(1); // 一般ユーザー：１、管理ユーザー：100
             // iconはデフォルト画像を入れる
-            $table->integer('icon')->default();
+            $table->string('icon')->default('storage/avatar.jpeg');
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

@@ -1,7 +1,7 @@
 <template>
   <div class="p-prof-card">
     <div class="p-prof-card__left">
-      <img src="img/78982111.jpeg" alt="アイコン画像" class="p-prof-card__icon">
+      <img :src="userIcon" alt="アイコン画像" class="p-prof-card__icon">
     </div>
     <div class="p-prof-card__right">
       <h2 class="p-prof-card__name">{{ name }}</h2>
@@ -26,6 +26,10 @@ export default {
   computed: {
     isLogin: function(){
       return this.$store.getters['auth/check'];
+    },
+    userIcon: function(){
+      const userData = this.$store.getters['auth/getUser'];
+      return userData.icon;
     }
   }
 }

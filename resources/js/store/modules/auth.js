@@ -13,6 +13,9 @@ const getters = {
   },
   getUserID: function(state){
     return state.user.id;
+  },
+  getUser: function(state){
+    return state.user;
   }
 }
 

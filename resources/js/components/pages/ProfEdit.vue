@@ -1,12 +1,12 @@
 <template>
   <div class="l-form-container">
-    <form class="c-form" enctype="multipart/form-data" @submit.prevent="profEdit">
+    <form class="c-form" accept=”image/*” @submit.prevent="profEdit">
       <h2 class="c-form__title">プロフィール編集</h2>
       <label for="icon" class="c-form__label">アイコン画像</label>
       <!-- <div class="c-form__area-drop"> -->
-        <input type="file" accept="image/*" class="c-form__input-file" id="icon" @change="onFileChange">
-        <output class="c-form__output" v-if="profEditForm.icon">
-          <img :src="profEditForm.icon" alt="アイコン" class="c-form__preview">
+        <input type="file" class="c-form__input-file" id="icon" @change="onFileChange">
+        <output class="c-form__output" v-if="preview">
+          <img :src="preview" alt="アイコン" class="c-form__preview">
         </output>
       <!-- </div> -->
       <label for="name" class="c-form__label">名前</label>
@@ -27,6 +27,7 @@ export default {
   name: 'profedit',
   data: function(){
     return {
+      preview: '', // ライブプレビュー用（データURLが入る）
       profEditForm: {
         icon: '',
         name: '',
@@ -37,7 +38,8 @@ export default {
   },
   computed: {
     userID: function(){
-      return this.$store.getters['auth/getUserID']
+      const userData = this.$store.getters['auth/getUser'];
+      return userData.id;
     }
   },
   methods: {
@@ -55,21 +57,24 @@ export default {
       }
       // FileReaderクラスのインスタンスを取得
       const reader = new FileReader();
-      // ファイルを読み込み終わったタイミングで実行する処理
+      // ファイルを読み込み後のタイミングで実行する処理
       reader.onload = e => {
-        // iconに読み込み結果（データURL）を代入する
-        // iconに値が入ると<output>につけたv-ifがtrueと判定される
-        // また<output>内部の<img>のsrc属性はiconの値を参照しているので結果として画像が表示される
-        this.profEditForm.icon = e.target.result;
+        // ロード時の各種情報はonloadの引数に格納される
+        // ロードされた画像ファイルのデータURLはe.target.resultに格納される
+        // previewに読み込み結果（データURL）を代入する
+        this.preview = e.target.result;
+        // previewに値が入ると<output>につけたv-ifがtrueと判定される
+        // また<output>内部の<img>のsrc属性はpreviewの値を参照しているので結果として画像が表示される
       }
-
       // ファイルを読み込む
       // 読み込まれたファイルはデータURL形式で受け取れる（上記onload参照）
       reader.readAsDataURL(event.target.files[0]);
+      // ユーザーのアップロードデータをiconにいれる
+      this.profEditForm.icon = event.target.files[0];
     },
-    // 画像データリセット
+    // 画像データリセット（画像データキャンセル時）
     resetFile: function(){
-      this.profEditForm.icon = '',
+      this.preview = '',
       this.$el.querySelector('input[type="file"]').value = null;
     },
     // 入力データリセット
@@ -84,36 +89,28 @@ export default {
       // フォームの入力内容をコンソールに出力
       console.log('profEditForm：', this.profEditForm);
       console.log('userID：', this.userID);
-      // const formData = new FormData();
-      // // フォームへの入力データを追加する
-      // formData.append('icon', this.profEditForm.icon);
-      // // formData.append('name', this.name);
-      // // formData.append('email', this.name);
-      // // formData.append('introduction', this.introduction);
-      // console.log('formData：', formData);
-      
-      // const response = axios.post('/api/prof_edit', formData, {
-      //   headers: {
-      //     'content-type': 'multipart/form-data',
-      //   },
-      // }).then((res) => {
-      //   // レスポンスをコンソールに表示
-      //   console.log('res：', res);
-      // });
 
-      axios.post('/api/prof_edit',{
-        name: this.profEditForm.name,
-        introduction: this.profEditForm.introduction,
-        id: this.userID,
+      const formData = new FormData();
+
+      // フォームへの入力データを追加する
+      formData.append('icon', this.profEditForm.icon);
+      formData.append('name', this.profEditForm.name);
+      formData.append('email', this.profEditForm.email);
+      formData.append('introduction', this.profEditForm.introduction);
+      formData.append('id', this.userID);
+
+      console.log('formData：', formData);
+      
+      axios.post('/api/prof_edit', formData).then((res) => {
+        if(res.data.result_flg === true){
+          console.log('通信成功');
+        // 送信完了後に入力値をクリアする
+          this.reset();
+          this.$router.push('/mypage');
+        }
+      }).catch(err => {
+        console.log('err：', err);
       });
-      // console.log('response：', response);
-      // if(response){
-      //   // // 送信完了後に入力値をクリアする
-      //   this.reset();
-      // }
-      
-
-      // this.$router.push();
 
     }
   },

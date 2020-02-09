@@ -11902,7 +11902,7 @@ svg:not([fill]) {
   display: flex;
   -webkit-box-pack: center;
           justify-content: center;
-  max-height: 200px;
+  height: 200px;
   position: relative;
 }
 

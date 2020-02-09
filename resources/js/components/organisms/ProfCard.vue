@@ -1,11 +1,11 @@
 <template>
   <div class="p-prof-card">
     <div class="p-prof-card__left">
-      <img :src="userIcon" alt="アイコン画像" class="p-prof-card__icon">
+      <img :src="userData.icon" alt="アイコン画像" class="p-prof-card__icon">
     </div>
     <div class="p-prof-card__right">
-      <h2 class="p-prof-card__name">{{ name }}</h2>
-      <p class="p-prof-card__introduction">{{ introduction }}</p>
+      <h2 class="p-prof-card__name">{{ userData.name }}</h2>
+      <p class="p-prof-card__introduction">{{ userData.introduction }}</p>
       <div v-if="isLogin" class="p-prof-card__button">
         <button class="c-button"><router-link class="p-prof-card__link" to="/prof_edit">プロフィール編集</router-link></button>
         <button class="c-button"><router-link class="p-prof-card__link" to="/pass_change">パスワード変更</router-link></button>
@@ -17,19 +17,12 @@
 <script>
 export default {
   name: 'profcard',
-  data: function(){
-    return {
-      name: '山田太郎',
-      introduction: '自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介',
-    }
-  },
   computed: {
     isLogin: function(){
       return this.$store.getters['auth/check'];
     },
-    userIcon: function(){
-      const userData = this.$store.getters['auth/getUser'];
-      return userData.icon;
+    userData: function(){
+      return this.$store.getters['auth/getUser'];
     }
   }
 }

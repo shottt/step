@@ -2202,19 +2202,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'profcard',
-  data: function data() {
-    return {
-      name: '山田太郎',
-      introduction: '自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介'
-    };
-  },
   computed: {
     isLogin: function isLogin() {
       return this.$store.getters['auth/check'];
     },
-    userIcon: function userIcon() {
-      var userData = this.$store.getters['auth/getUser'];
-      return userData.icon;
+    userData: function userData() {
+      return this.$store.getters['auth/getUser'];
     }
   }
 });
@@ -2595,7 +2588,11 @@ __webpack_require__.r(__webpack_exports__);
       console.log('formData：', formData);
       axios.post('/api/prof_edit', formData).then(function (res) {
         if (res.data.result_flg === true) {
-          console.log('通信成功'); // 送信完了後に入力値をクリアする
+          console.log('通信成功');
+          console.log('res：', res.data); // authストアのprofEditアクションを呼び出す（ここがうまくいっていない）
+
+          _this2.$store.dispatch('auth/profEdit', res.data.user); // 送信完了後に入力値をクリアする
+
 
           _this2.reset();
 
@@ -39293,17 +39290,17 @@ var render = function() {
     _c("div", { staticClass: "p-prof-card__left" }, [
       _c("img", {
         staticClass: "p-prof-card__icon",
-        attrs: { src: _vm.userIcon, alt: "アイコン画像" }
+        attrs: { src: _vm.userData.icon, alt: "アイコン画像" }
       })
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-prof-card__right" }, [
       _c("h2", { staticClass: "p-prof-card__name" }, [
-        _vm._v(_vm._s(_vm.name))
+        _vm._v(_vm._s(_vm.userData.name))
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "p-prof-card__introduction" }, [
-        _vm._v(_vm._s(_vm.introduction))
+        _vm._v(_vm._s(_vm.userData.introduction))
       ]),
       _vm._v(" "),
       _vm.isLogin
@@ -58403,6 +58400,19 @@ var getters = {
 var mutations = {
   setUser: function setUser(state, user) {
     state.user = user;
+  },
+  editUser: function editUser(state, user) {
+    if (user.icon) {
+      state.user.icon = user.icon;
+    }
+
+    if (user.name) {
+      state.user.name = user.name;
+    }
+
+    if (user.introduction) {
+      state.user.introduction = user.introduction;
+    }
   }
 };
 var actions = {
@@ -58455,6 +58465,10 @@ var actions = {
 
       context.commit('setUser', user);
     });
+  },
+  // プロフィール編集機能
+  profEdit: function profEdit(context, data) {
+    context.commit('editUser', data);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({

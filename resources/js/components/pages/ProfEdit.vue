@@ -104,7 +104,10 @@ export default {
       axios.post('/api/prof_edit', formData).then((res) => {
         if(res.data.result_flg === true){
           console.log('通信成功');
-        // 送信完了後に入力値をクリアする
+          console.log('res：', res.data);
+          // authストアのprofEditアクションを呼び出す（ここがうまくいっていない）
+          this.$store.dispatch('auth/profEdit', res.data.user);
+          // 送信完了後に入力値をクリアする
           this.reset();
           this.$router.push('/mypage');
         }

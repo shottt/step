@@ -22,6 +22,17 @@ const getters = {
 const mutations = {
   setUser: function(state, user){
     state.user = user
+  },
+  editUser: function(state, user){
+    if(user.icon){
+      state.user.icon = user.icon;
+    }
+    if(user.name){
+      state.user.name = user.name;
+    }
+    if(user.introduction){
+      state.user.introduction = user.introduction;
+    }
   }
 }
 
@@ -69,6 +80,10 @@ const actions = {
       // ミューテーション実行
       context.commit('setUser', user);
     })
+  },
+  // プロフィール編集機能
+  profEdit: function(context, data){
+    context.commit('editUser', data);
   }
 }
 

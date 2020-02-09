@@ -51,7 +51,9 @@ class UsersController extends Controller
         $result = $user->save();
         
         if($result){
-            return response()->json(['result_flg' => true]);
+            // 編集したユーザーデータを取得（更新後の画面を表示するため）
+            $user = User::Where('id', $id)->where('delete_flg', 0)->select('icon', 'name', 'introduction')->first();
+            return response()->json(['user' => $user, 'result_flg' => true]);
         }
 
     }

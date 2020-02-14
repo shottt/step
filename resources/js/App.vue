@@ -1,10 +1,8 @@
 <template>
   <div class="l-container">
-    <Header />
-    <main class="l-main">
-      <router-view></router-view>
-    </main>
-    <Footer />
+    <router-view name="header"></router-view>
+    <router-view name="main" class="l-main"></router-view>
+    <router-view name="footer"></router-view>
   </div>
 </template>
 

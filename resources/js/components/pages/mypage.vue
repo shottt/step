@@ -1,5 +1,7 @@
 <template>
-  <ProfCard />
+  <main>
+    <ProfCard />
+  </main>
 </template>
 
 <script>

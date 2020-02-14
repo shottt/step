@@ -22,29 +22,56 @@ import StepDetail from '../components/pages/StepDeatil';
 
 
 // コンポーネントをインポート
-
+import Header from '../components/organisms/Header';
+import Footer from '../components/organisms/Footer';
 
 // VueRouterプラグインの使用
 Vue.use(VueRouter)
 
-// ルーティング
+// ルーティング（beforeEnterはルート毎の記載で肥大化しているのでリファクタリング要）
 const routes = [
   // ログイン前のルーティング
   // トップページ
   {
     path: '/',
-    component: Top
+    components: {
+      header: Header,
+      main: Top,
+      footer: Footer,
+    },
+    // ナビゲーションガード
+    beforeEnter(to, from, next){
+      if(store.getters['auth/check']){
+        next('/mypage');
+      }else{
+        next();
+      }
+    }
   },
   // ユーザー登録ページ
   {
     path: '/register',
-    component: Register
+    components: {
+      header: Header,
+      main: Register,
+      footer: Footer,
+    },
+    beforeEnter(to, from, next){
+      if(store.getters['auth/check']){
+        next('/mypage');
+      }else{
+        next();
+      }
+    }
   },
   // ログインページ
   {
     path: '/login',
-    component: Login,
-    // ナビゲーションガード
+    components: {
+      header: Header,
+      main: Login,
+      footer: Footer,
+    },
     beforeEnter(to, from, next){
       if(store.getters['auth/check']){
         next('/mypage');
@@ -56,64 +83,168 @@ const routes = [
   // パスワードリマインダー送信ページ
   {
     path: '/pass_remind_send',
-    component: PassRemindSend,
+    components: {
+      header: Header,
+      main: PassRemindSend,
+      footer: Footer,
+    },
+    beforeEnter(to, from, next){
+      if(store.getters['auth/check']){
+        next('/mypage');
+      }else{
+        next();
+      }
+    }
   },
   // パスワードリマインダー入力ページ
   {
     path: '/pass_remind_recieve',
-    component: PassRemindRecive,
+    components: {
+      header: Header,
+      main: PassRemindRecive,
+      footer: Footer,
+    },
+    beforeEnter(to, from, next){
+      if(store.getters['auth/check']){
+        next('/mypage');
+      }else{
+        next();
+      }
+    }
   },
   // 他のユーザーページ
   {
     path: '/user',
-    component: User,
+    components: {
+      header: Header,
+      main: User,
+      footer: Footer,
+    }
   },
   // ログイン後のルーティング
   // マイページ
   {
     path: '/mypage',
-    component: Mypage,
+    components: {
+      header: Header,
+      main: Mypage,
+      footer: Footer,
+    },
+    beforeEnter(to, from, next){
+      if(!store.getters['auth/check']){
+        next('/login');
+      }else{
+        next();
+      }
+    }
   },
   // プロフィール編集ページ
   {
     path: '/prof_edit',
-    component: ProfEdit,
+    components: {
+      header: Header,
+      main: ProfEdit,
+      footer: Footer,
+    },
+    beforeEnter(to, from, next){
+      if(!store.getters['auth/check']){
+        next('/login');
+      }else{
+        next();
+      }
+    }
   },
   // パスワード変更ページ
   {
     path: '/pass_change',
-    component: PassChange,
+    components: {
+      header: Header,
+      main: PassChange,
+      footer: Footer,
+    },
+    beforeEnter(to, from, next){
+      if(!store.getters['auth/check']){
+        next('/login');
+      }else{
+        next();
+      }
+    }
   },
   // 退会ページ
   {
     path: '/withdraw',
-    component: Withdraw,
+    components: {
+      header: Header,
+      main: Withdraw,
+      footer: Footer,
+    },
+    beforeEnter(to, from, next){
+      if(!store.getters['auth/check']){
+        next('/login');
+      }else{
+        next();
+      }
+    }
   },
   // ステップ登録ページ（子ステップは子コンポーネントを使う）
   {
     path: '/step_register',
-    component: StepRegister,
+    components: {
+      header: Header,
+      main: StepRegister,
+      footer: Footer,
+    },
+    beforeEnter(to, from, next){
+      if(!store.getters['auth/check']){
+        next('/login');
+      }else{
+        next();
+      }
+    }
   },
   // ステップ編集ページ（子ステップは子コンポーネントを使う）
   {
     path: '/step_edit',
-    component: StepEdit,
+    components: {
+      header: Header,
+      main: StepEdit,
+      footer: Footer,
+    },
+    beforeEnter(to, from, next){
+      if(!store.getters['auth/check']){
+        next('/login');
+      }else{
+        next();
+      }
+    }
   },
   // 子ステップ詳細ページ
   {
     path: '/steplist/:id/process:id', // パスは検討要
-    component: Process,
+    components: {
+      header: Header,
+      main: Process,
+      footer: Footer,
+    }
   },
   // ログイン未ログインどちらでもアクセス可
   // ステップ一覧ページ
   {
     path: '/stepindex',
-    component: StepIndex,
+    components: {
+      header: Header,
+      main: StepIndex,
+      footer: Footer,
+    }
   },
   // ステップ詳細ページ
   {
     path: '/steplist/:id',
-    component: StepDetail,
+    components: {
+      header: Header,
+      main: StepDetail,
+      footer: Footer,
+    }
   },
 ]
 

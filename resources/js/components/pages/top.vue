@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <main>
     <MainVisual />
     <Feature />
-  </div>
+  </main>
 </template>
 
 <script>

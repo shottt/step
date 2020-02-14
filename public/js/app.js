@@ -1954,8 +1954,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2339,6 +2337,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _organisms_ProfCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../organisms/ProfCard */ "./resources/js/components/organisms/ProfCard.vue");
+//
+//
 //
 //
 //
@@ -38885,11 +38885,11 @@ var render = function() {
     "div",
     { staticClass: "l-container" },
     [
-      _c("Header"),
+      _c("router-view", { attrs: { name: "header" } }),
       _vm._v(" "),
-      _c("main", { staticClass: "l-main" }, [_c("router-view")], 1),
+      _c("router-view", { staticClass: "l-main", attrs: { name: "main" } }),
       _vm._v(" "),
-      _c("Footer")
+      _c("router-view", { attrs: { name: "footer" } })
     ],
     1
   )
@@ -39606,7 +39606,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("ProfCard")
+  return _c("main", [_c("ProfCard")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40270,7 +40270,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("MainVisual"), _vm._v(" "), _c("Feature")], 1)
+  return _c("main", [_c("MainVisual"), _vm._v(" "), _c("Feature")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -58236,6 +58236,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_Process__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/pages/Process */ "./resources/js/components/pages/Process.vue");
 /* harmony import */ var _components_pages_StepIndex__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/pages/StepIndex */ "./resources/js/components/pages/StepIndex.vue");
 /* harmony import */ var _components_pages_StepDeatil__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/pages/StepDeatil */ "./resources/js/components/pages/StepDeatil.vue");
+/* harmony import */ var _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/organisms/Header */ "./resources/js/components/organisms/Header.vue");
+/* harmony import */ var _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../components/organisms/Footer */ "./resources/js/components/organisms/Footer.vue");
 
 
  // ページコンポーネントをインポートする
@@ -58255,24 +58257,52 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // コンポーネントをインポート
-// VueRouterプラグインの使用
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // ルーティング
+
+ // VueRouterプラグインの使用
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // ルーティング（beforeEnterはルート毎の記載で肥大化しているのでリファクタリング要）
 
 var routes = [// ログイン前のルーティング
 // トップページ
 {
   path: '/',
-  component: _components_pages_Top__WEBPACK_IMPORTED_MODULE_3__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_Top__WEBPACK_IMPORTED_MODULE_3__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  },
+  // ナビゲーションガード
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/mypage');
+    } else {
+      next();
+    }
+  }
 }, // ユーザー登録ページ
 {
   path: '/register',
-  component: _components_pages_Register__WEBPACK_IMPORTED_MODULE_4__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_Register__WEBPACK_IMPORTED_MODULE_4__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/mypage');
+    } else {
+      next();
+    }
+  }
 }, // ログインページ
 {
   path: '/login',
-  component: _components_pages_Login__WEBPACK_IMPORTED_MODULE_5__["default"],
-  // ナビゲーションガード
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_Login__WEBPACK_IMPORTED_MODULE_5__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  },
   beforeEnter: function beforeEnter(to, from, next) {
     if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
       next('/mypage');
@@ -58283,54 +58313,158 @@ var routes = [// ログイン前のルーティング
 }, // パスワードリマインダー送信ページ
 {
   path: '/pass_remind_send',
-  component: _components_pages_PassRemindSend__WEBPACK_IMPORTED_MODULE_6__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_PassRemindSend__WEBPACK_IMPORTED_MODULE_6__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/mypage');
+    } else {
+      next();
+    }
+  }
 }, // パスワードリマインダー入力ページ
 {
   path: '/pass_remind_recieve',
-  component: _components_pages_PassRemindRecieve__WEBPACK_IMPORTED_MODULE_7__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_PassRemindRecieve__WEBPACK_IMPORTED_MODULE_7__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/mypage');
+    } else {
+      next();
+    }
+  }
 }, // 他のユーザーページ
 {
   path: '/user',
-  component: _components_pages_User__WEBPACK_IMPORTED_MODULE_8__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_User__WEBPACK_IMPORTED_MODULE_8__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  }
 }, // ログイン後のルーティング
 // マイページ
 {
   path: '/mypage',
-  component: _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_9__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_9__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/login');
+    } else {
+      next();
+    }
+  }
 }, // プロフィール編集ページ
 {
   path: '/prof_edit',
-  component: _components_pages_ProfEdit__WEBPACK_IMPORTED_MODULE_10__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_ProfEdit__WEBPACK_IMPORTED_MODULE_10__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/login');
+    } else {
+      next();
+    }
+  }
 }, // パスワード変更ページ
 {
   path: '/pass_change',
-  component: _components_pages_PassChange__WEBPACK_IMPORTED_MODULE_11__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_PassChange__WEBPACK_IMPORTED_MODULE_11__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/login');
+    } else {
+      next();
+    }
+  }
 }, // 退会ページ
 {
   path: '/withdraw',
-  component: _components_pages_Withdraw__WEBPACK_IMPORTED_MODULE_12__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_Withdraw__WEBPACK_IMPORTED_MODULE_12__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/login');
+    } else {
+      next();
+    }
+  }
 }, // ステップ登録ページ（子ステップは子コンポーネントを使う）
 {
   path: '/step_register',
-  component: _components_pages_StepRegister__WEBPACK_IMPORTED_MODULE_13__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_StepRegister__WEBPACK_IMPORTED_MODULE_13__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/login');
+    } else {
+      next();
+    }
+  }
 }, // ステップ編集ページ（子ステップは子コンポーネントを使う）
 {
   path: '/step_edit',
-  component: _components_pages_StepEdit__WEBPACK_IMPORTED_MODULE_14__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_StepEdit__WEBPACK_IMPORTED_MODULE_14__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/login');
+    } else {
+      next();
+    }
+  }
 }, // 子ステップ詳細ページ
 {
   path: '/steplist/:id/process:id',
   // パスは検討要
-  component: _components_pages_Process__WEBPACK_IMPORTED_MODULE_15__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_Process__WEBPACK_IMPORTED_MODULE_15__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  }
 }, // ログイン未ログインどちらでもアクセス可
 // ステップ一覧ページ
 {
   path: '/stepindex',
-  component: _components_pages_StepIndex__WEBPACK_IMPORTED_MODULE_16__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_StepIndex__WEBPACK_IMPORTED_MODULE_16__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  }
 }, // ステップ詳細ページ
 {
   path: '/steplist/:id',
-  component: _components_pages_StepDeatil__WEBPACK_IMPORTED_MODULE_17__["default"]
+  components: {
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    main: _components_pages_StepDeatil__WEBPACK_IMPORTED_MODULE_17__["default"],
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+  }
 }]; // VueRouterインスタンスを作る
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

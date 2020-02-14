@@ -36,3 +36,5 @@ Route::post('/prof_edit', 'Api\UsersController@prof_edit');
 
 // STEP一覧取得
 Route::get('/steps', 'Api\StepsController@index')->name('steps');
+
+

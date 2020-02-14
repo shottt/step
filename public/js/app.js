@@ -58302,14 +58302,14 @@ var routes = [// ログイン前のルーティング
     header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
     main: _components_pages_Login__WEBPACK_IMPORTED_MODULE_5__["default"],
     footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
-  },
-  beforeEnter: function beforeEnter(to, from, next) {
-    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
-      next('/mypage');
-    } else {
-      next();
-    }
-  }
+  } // beforeEnter(to, from, next){
+  //   if(store.getters['auth/check']){
+  //     next('/mypage');
+  //   }else{
+  //     next();
+  //   }
+  // }
+
 }, // パスワードリマインダー送信ページ
 {
   path: '/pass_remind_send',
@@ -58356,14 +58356,14 @@ var routes = [// ログイン前のルーティング
     header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
     main: _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_9__["default"],
     footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
-  },
-  beforeEnter: function beforeEnter(to, from, next) {
-    if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
-      next('/login');
-    } else {
-      next();
-    }
-  }
+  } // beforeEnter(to, from, next){
+  //   if(!store.getters['auth/check']){
+  //     next('/login');
+  //   }else{
+  //     next();
+  //   }
+  // }
+
 }, // プロフィール編集ページ
 {
   path: '/prof_edit',

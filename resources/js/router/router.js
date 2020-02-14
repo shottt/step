@@ -72,13 +72,13 @@ const routes = [
       main: Login,
       footer: Footer,
     },
-    beforeEnter(to, from, next){
-      if(store.getters['auth/check']){
-        next('/mypage');
-      }else{
-        next();
-      }
-    }
+    // beforeEnter(to, from, next){
+    //   if(store.getters['auth/check']){
+    //     next('/mypage');
+    //   }else{
+    //     next();
+    //   }
+    // }
   },
   // パスワードリマインダー送信ページ
   {
@@ -130,13 +130,13 @@ const routes = [
       main: Mypage,
       footer: Footer,
     },
-    beforeEnter(to, from, next){
-      if(!store.getters['auth/check']){
-        next('/login');
-      }else{
-        next();
-      }
-    }
+    // beforeEnter(to, from, next){
+    //   if(!store.getters['auth/check']){
+    //     next('/login');
+    //   }else{
+    //     next();
+    //   }
+    // }
   },
   // プロフィール編集ページ
   {

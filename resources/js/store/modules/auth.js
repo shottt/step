@@ -61,6 +61,17 @@ const actions = {
       this.message = 'ERROR';
     });
   },
+  // パスワードリマインダー送信機能
+  passremindsend: function(context, data){
+    console.log('data：', data);
+    axios.post('/api/password/email', data).then((res) => {
+      // DBからのレスポンスをログに出力
+      console.log('res.data：', res.data);
+      // ミューテーション実行
+    }).catch((error) => {
+      this.message = 'ERROR';
+    });
+  },
   // ログアウト機能
   logout: function(context){
     axios.post('/api/logout').then((res) => {

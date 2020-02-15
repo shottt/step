@@ -18,11 +18,11 @@ class CreateUsersTable extends Migration
             $table->integer('group')->default(1); // 一般ユーザー：１、管理ユーザー：100
             // iconはデフォルト画像を入れる
             $table->string('icon')->default('storage/avatar.jpeg');
-            $table->string('name')->nullable();
+            $table->string('name')->nullable()->default('名無し');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('introduction')->nullable();
+            $table->string('introduction')->nullable()->default('よろしくお願いします。');
             $table->boolean('delete_flg')->default(0);
             $table->rememberToken();
             $table->timestamps();

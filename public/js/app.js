@@ -2468,7 +2468,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     passremindsend: function passremindsend() {
       // フォームの入力内容をコンソールに出力
-      console.log('passremindsendForm：', this.passremindsendForm);
+      console.log('passremindsendForm：', this.passremindsendForm); // authストアのpassremindsendアクションを呼び出す
+
+      this.$store.dispatch('auth/passremindsend', this.passremindsendForm); // パスワードリマインダー入力画面に移動する
+
+      this.$router.push('/pass_remind_recieve');
     }
   }
 });
@@ -39766,7 +39770,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "l-form-container" }, [
     _c(
-      "div",
+      "form",
       {
         staticClass: "c-form",
         on: {
@@ -39851,7 +39855,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "l-form-container" }, [
     _c(
-      "div",
+      "form",
       {
         staticClass: "c-form",
         on: {
@@ -58332,14 +58336,14 @@ var routes = [// ログイン前のルーティング
     header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
     main: _components_pages_PassRemindRecieve__WEBPACK_IMPORTED_MODULE_7__["default"],
     footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
-  },
-  beforeEnter: function beforeEnter(to, from, next) {
-    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
-      next('/mypage');
-    } else {
-      next();
-    }
-  }
+  } // beforeEnter(to, from, next){
+  //   if(store.getters['auth/check']){
+  //     next('/mypage');
+  //   }else{
+  //     next();
+  //   }
+  // }
+
 }, // 他のユーザーページ
 {
   path: '/user',
@@ -58578,16 +58582,28 @@ var actions = {
       _this2.message = 'ERROR';
     });
   },
+  // パスワードリマインダー送信機能
+  passremindsend: function passremindsend(context, data) {
+    var _this3 = this;
+
+    console.log('data：', data);
+    axios.post('/api/password/email', data).then(function (res) {
+      // DBからのレスポンスをログに出力
+      console.log('res.data：', res.data); // ミューテーション実行
+    })["catch"](function (error) {
+      _this3.message = 'ERROR';
+    });
+  },
   // ログアウト機能
   logout: function logout(context) {
-    var _this3 = this;
+    var _this4 = this;
 
     axios.post('/api/logout').then(function (res) {
       console.log('res：', res); // ミューテーション実行
 
       context.commit('setUser', null);
     })["catch"](function (error) {
-      _this3.message = 'ERROR';
+      _this4.message = 'ERROR';
     });
   },
   // ログインユーザー取得機能

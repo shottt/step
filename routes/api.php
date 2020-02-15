@@ -26,6 +26,9 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 // ログアウト
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
+// パスワードリマインダー
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+
 // ログインユーザー取得
 Route::get('/user', function(){
     return Auth::user();

@@ -104,13 +104,13 @@ const routes = [
       main: PassRemindRecive,
       footer: Footer,
     },
-    beforeEnter(to, from, next){
-      if(store.getters['auth/check']){
-        next('/mypage');
-      }else{
-        next();
-      }
-    }
+    // beforeEnter(to, from, next){
+    //   if(store.getters['auth/check']){
+    //     next('/mypage');
+    //   }else{
+    //     next();
+    //   }
+    // }
   },
   // 他のユーザーページ
   {

@@ -7,26 +7,25 @@ use App\Http\Requests\ProfileRequest;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
     // ユーザー情報の更新
     public function prof_edit(ProfileRequest $request){
-
         // post値を変数に格納
         $icon = $request->icon;
         $name = $request->name;
         $introduction = $request->introduction;
         $id = $request->id;
 
-        Log::debug('icon：' . $icon);
-        Log::debug('id：' . $id);
-        Log::debug('name：' . $name);
-        Log::debug('introduction：' . $introduction);
-
         // 編集するユーザー情報を取得する
         $user = User::Where('id', $id)->where('delete_flag', 0)->first();
-        Log::debug($user);
+
+        // 異常判定
+        if(empty($user)){
+          return response()->json(['result_flag' => false]);
+        }
 
         // 画像がアップロードできているか確認
         if($icon->isValid()){
@@ -35,9 +34,8 @@ class UsersController extends Controller
             // str_replace関数で$filePathからファイル名を取り出し、変数に格納
             $fileName = str_replace('public/', 'storage/', $filePath);
         }
-        Log::debug($filePath);
-        Log::debug($fileName);
 
+        // 値をセットする
         if(!empty($fileName)){
           $user->icon = $fileName;
         }
@@ -57,7 +55,27 @@ class UsersController extends Controller
         }
     }
     // ユーザーの退会
-    public function withdraw(){
-      
+    public function withdraw(Request $request){
+      // ユーザーIDを変数に格納
+      $id = Auth::id();
+      Log::debug('id：' . $id);
+
+      // 異常判定
+      if(empty($id)){
+        return response()->json(['result_flag' => false]);
+      }
+
+      // 退会するユーザーの情報を取得
+      $user = User::find($id);
+      Log::debug('user：' . $user);
+      // ユーザー情報更新
+      $user->delete_flag = 1;
+
+      // DBに保存する
+      $result = $user->save();
+
+      if($result){
+        return response()->json(['result_flag' => true]);
+      }
     }
 }

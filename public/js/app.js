@@ -2315,12 +2315,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     login: function login() {
+      var _this = this;
+
       // フォームの入力内容をコンソールに出力
       console.log('loginForm：', this.loginForm); // authストアのloginアクションを呼び出す
 
-      this.$store.dispatch('auth/login', this.loginForm); // マイページに移動する
-
-      this.$router.push('/mypage');
+      this.$store.dispatch('auth/login', this.loginForm).then(function () {
+        // マイページに移動する
+        _this.$router.push('/mypage');
+      });
     }
   }
 });
@@ -2593,7 +2596,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/api/prof_edit', formData).then(function (res) {
         if (res.data.result_flag === true) {
           console.log('通信成功');
-          console.log('res：', res.data); // authストアのprofEditアクションを呼び出す（ここがうまくいっていない）
+          console.log('res：', res.data); // authストアのprofEditアクションを呼び出す
 
           _this2.$store.dispatch('auth/profEdit', res.data.user); // 送信完了後に入力値をクリアする
 
@@ -2775,10 +2778,8 @@ __webpack_require__.r(__webpack_exports__);
   name: 'withdraw',
   methods: {
     withdraw: function withdraw() {
-      // authストアのlogoutアクションを呼び出す
-      this.$store.dispatch('auth/withdraw'); // ユーザー登録ページに遷移する
-
-      this.$router.push('/register');
+      // authストアのwithdrawアクションを呼び出す
+      this.$store.dispatch('auth/withdraw');
     }
   }
 });
@@ -58636,10 +58637,16 @@ var actions = {
   withdraw: function withdraw(context) {
     var _this5 = this;
 
+    // ゲッターにアクセスし、ユーザー情報を取得（うまくデータが渡せないため、サーバー側で取得する）
+    // const id = context.getters['getUserID'];
     axios.post('/api/withdraw').then(function (res) {
-      console.log('res：', res); // ミューテーション実行
+      if (res.data.result_flag === true) {
+        console.log('res：', res); // ミューテーション実行
 
-      context.commit('setUser', null);
+        context.commit('setUser', null); // ユーザー登録ページに遷移する
+
+        _this5.$router.push('/register');
+      }
     })["catch"](function (error) {
       _this5.message = "ERROR";
     });

@@ -31,10 +31,10 @@ export default {
       // フォームの入力内容をコンソールに出力
       console.log('loginForm：', this.loginForm);
       // authストアのloginアクションを呼び出す
-      this.$store.dispatch('auth/login', this.loginForm);
-
-      // マイページに移動する
-      this.$router.push('/mypage');
+      this.$store.dispatch('auth/login', this.loginForm).then(() => {
+        // マイページに移動する
+        this.$router.push('/mypage');
+      });
     }
   }
 }

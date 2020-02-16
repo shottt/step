@@ -98,10 +98,17 @@ const actions = {
   },
   // 退会機能
   withdraw: function(context){
+    // ゲッターにアクセスし、ユーザー情報を取得（うまくデータが渡せないため、サーバー側で取得する）
+    // const id = context.getters['getUserID'];
     axios.post('/api/withdraw').then((res) => {
-      console.log('res：', res);
-      // ミューテーション実行
-      context.commit('setUser', null);
+      if(res.data.result_flag === true){
+        console.log('res：', res);
+        // ミューテーション実行
+        context.commit('setUser', null);
+
+        // ユーザー登録ページに遷移する
+        this.$router.push('/register');
+      }
     }).catch((error) => {
       this.message = "ERROR";
     });

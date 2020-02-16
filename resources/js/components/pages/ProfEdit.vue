@@ -105,7 +105,7 @@ export default {
         if(res.data.result_flag === true){
           console.log('通信成功');
           console.log('res：', res.data);
-          // authストアのprofEditアクションを呼び出す（ここがうまくいっていない）
+          // authストアのprofEditアクションを呼び出す
           this.$store.dispatch('auth/profEdit', res.data.user);
           // 送信完了後に入力値をクリアする
           this.reset();

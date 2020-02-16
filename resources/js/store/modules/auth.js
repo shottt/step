@@ -95,6 +95,16 @@ const actions = {
   // プロフィール編集機能
   profEdit: function(context, data){
     context.commit('editUser', data);
+  },
+  // 退会機能
+  withdraw: function(context){
+    axios.post('/api/withdraw').then((res) => {
+      console.log('res：', res);
+      // ミューテーション実行
+      context.commit('setUser', null);
+    }).catch((error) => {
+      this.message = "ERROR";
+    });
   }
 }
 

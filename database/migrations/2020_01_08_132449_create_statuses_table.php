@@ -18,7 +18,7 @@ class CreateStatusesTable extends Migration
             $table->unsignedBigInteger('challenge_id');
             $table->unsignedBigInteger('process_id');
             $table->boolean('finish_flg')->default(0);
-            $table->boolean('delete_flg')->default(0);
+            $table->boolean('delete_flag')->default(0);
             $table->timestamps();
             // 外部キー制約
             $table->foreign('challenge_id')->references('id')->on('challenges')->onDelete('cascade');

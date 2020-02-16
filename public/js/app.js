@@ -2591,7 +2591,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('id', this.userID);
       console.log('formData：', formData);
       axios.post('/api/prof_edit', formData).then(function (res) {
-        if (res.data.result_flg === true) {
+        if (res.data.result_flag === true) {
           console.log('通信成功');
           console.log('res：', res.data); // authストアのprofEditアクションを呼び出す（ここがうまくいっていない）
 
@@ -2769,10 +2769,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'withdraw',
   methods: {
-    withdraw: function withdraw() {}
+    withdraw: function withdraw() {
+      // authストアのlogoutアクションを呼び出す
+      this.$store.dispatch('auth/withdraw'); // ユーザー登録ページに遷移する
+
+      this.$router.push('/register');
+    }
   }
 });
 
@@ -40337,27 +40344,32 @@ var render = function() {
       [
         _c("h2", { staticClass: "c-form__title" }, [_vm._v("退会")]),
         _vm._v(" "),
-        _vm._m(0),
+        _c("div", { staticClass: "c-form__button" }, [
+          _c(
+            "button",
+            {
+              staticClass: "c-button-right",
+              attrs: { type: "submit" },
+              on: { click: _vm.withdraw }
+            },
+            [_vm._v("退会する")]
+          )
+        ]),
         _vm._v(" "),
-        _c("p", [_vm._v("マイページに戻る")])
+        _c(
+          "p",
+          [
+            _c("router-link", { attrs: { to: "/mypage" } }, [
+              _vm._v("マイページに戻る")
+            ])
+          ],
+          1
+        )
       ]
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "c-form__button" }, [
-      _c(
-        "button",
-        { staticClass: "c-button-submit", attrs: { type: "submit" } },
-        [_vm._v("退会する")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -58619,6 +58631,18 @@ var actions = {
   // プロフィール編集機能
   profEdit: function profEdit(context, data) {
     context.commit('editUser', data);
+  },
+  // 退会機能
+  withdraw: function withdraw(context) {
+    var _this5 = this;
+
+    axios.post('/api/withdraw').then(function (res) {
+      console.log('res：', res); // ミューテーション実行
+
+      context.commit('setUser', null);
+    })["catch"](function (error) {
+      _this5.message = "ERROR";
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({

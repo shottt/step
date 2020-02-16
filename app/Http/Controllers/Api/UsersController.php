@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 
 class UsersController extends Controller
 {
-    // ユーザー情報の編集
+    // ユーザー情報の更新
     public function prof_edit(ProfileRequest $request){
 
         // post値を変数に格納
@@ -25,7 +25,7 @@ class UsersController extends Controller
         Log::debug('introduction：' . $introduction);
 
         // 編集するユーザー情報を取得する
-        $user = User::Where('id', $id)->where('delete_flg', 0)->first();
+        $user = User::Where('id', $id)->where('delete_flag', 0)->first();
         Log::debug($user);
 
         // 画像がアップロードできているか確認
@@ -52,9 +52,12 @@ class UsersController extends Controller
         
         if($result){
             // 編集したユーザーデータを取得（更新後の画面を表示するため）
-            $user = User::Where('id', $id)->where('delete_flg', 0)->select('icon', 'name', 'introduction')->first();
-            return response()->json(['user' => $user, 'result_flg' => true]);
+            $user = User::Where('id', $id)->where('delete_flag', 0)->select('icon', 'name', 'introduction')->first();
+            return response()->json(['user' => $user, 'result_flag' => true]);
         }
-
+    }
+    // ユーザーの退会
+    public function withdraw(){
+      
     }
 }

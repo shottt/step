@@ -16,7 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->boolean('delete_flg')->default(0);
+            $table->boolean('delete_flag')->default(0);
             $table->timestamps();
         });
     }

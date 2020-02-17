@@ -16,10 +16,14 @@ export default {
   name: 'withdraw',
   methods: {
     withdraw: function(){
-      // authストアのwithdrawアクションを呼び出す
-      this.$store.dispatch('auth/withdraw');
-      // ユーザー登録ページに遷移する
+      if(confirm('本当に退会しますか？')){
+        // authストアのwithdrawアクションを呼び出す
+        this.$store.dispatch('auth/withdraw');
+        // ユーザー登録ページに遷移する
         this.$router.push('/register');
+      }else{
+        alert('退会をやめました。');
+      }
     }
   }
 }

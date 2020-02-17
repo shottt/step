@@ -2788,10 +2788,14 @@ __webpack_require__.r(__webpack_exports__);
   name: 'withdraw',
   methods: {
     withdraw: function withdraw() {
-      // authストアのwithdrawアクションを呼び出す
-      this.$store.dispatch('auth/withdraw'); // ユーザー登録ページに遷移する
+      if (confirm('本当に退会しますか？')) {
+        // authストアのwithdrawアクションを呼び出す
+        this.$store.dispatch('auth/withdraw'); // ユーザー登録ページに遷移する
 
-      this.$router.push('/register');
+        this.$router.push('/register');
+      } else {
+        alert('退会をやめました。');
+      }
     }
   }
 });

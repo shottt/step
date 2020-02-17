@@ -106,12 +106,20 @@ const actions = {
         // ミューテーション実行
         context.commit('setUser', null);
 
-        // ユーザー登録ページに遷移する
-        this.$router.push('/register');
       }
     }).catch((error) => {
       this.message = "ERROR";
     });
+  },
+  // パスワード変更機能
+  passchange: function(context, data){
+    console.log('data：', data);
+    axios.post('/api/pass_change', data).then((res) => {
+      if(res.data.result_flag === true){
+        console.log('res：', res);
+
+      }
+    })
   }
 }
 

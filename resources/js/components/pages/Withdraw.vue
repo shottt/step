@@ -18,6 +18,8 @@ export default {
     withdraw: function(){
       // authストアのwithdrawアクションを呼び出す
       this.$store.dispatch('auth/withdraw');
+      // ユーザー登録ページに遷移する
+        this.$router.push('/register');
     }
   }
 }

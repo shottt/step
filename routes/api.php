@@ -27,6 +27,11 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 // 退会
 Route::post('/withdraw', 'Api\UsersController@withdraw');
+// パスワード変更
+Route::post('/pass_change', 'Api\UsersController@pass_change');
+// プロフィール編集
+Route::post('/prof_edit', 'Api\UsersController@prof_edit');
+
 
 // パスワードリマインダー
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
@@ -36,8 +41,7 @@ Route::get('/user', function(){
     return Auth::user();
 })->name('user');
 
-// プロフィール編集
-Route::post('/prof_edit', 'Api\UsersController@prof_edit');
+
 
 // STEP一覧取得
 Route::get('/steps', 'Api\StepsController@index')->name('steps');

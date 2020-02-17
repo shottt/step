@@ -2391,6 +2391,16 @@ __webpack_require__.r(__webpack_exports__);
         new_password_confirmation: ''
       }
     };
+  },
+  methods: {
+    passchange: function passchange() {
+      // フォームの入力内容をコンソールに出力
+      console.log('passchangeForm：', this.passchangeForm); // authストアのpasschangeアクションを呼び出す
+
+      this.$store.dispatch('auth/passchange', this.passchangeForm); // マイページに遷移する
+
+      this.$router.push('/mypage');
+    }
   }
 });
 
@@ -2779,7 +2789,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     withdraw: function withdraw() {
       // authストアのwithdrawアクションを呼び出す
-      this.$store.dispatch('auth/withdraw');
+      this.$store.dispatch('auth/withdraw'); // ユーザー登録ページに遷移する
+
+      this.$router.push('/register');
     }
   }
 });
@@ -39643,102 +39655,114 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "l-form-container" }, [
-    _c("form", { staticClass: "c-form" }, [
-      _c("h2", { staticClass: "c-form__title" }, [_vm._v("パスワード変更")]),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "c-form__label", attrs: { for: "old-password" } },
-        [_vm._v("古いパスワード")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.passchangeForm.old_password,
-            expression: "passchangeForm.old_password"
-          }
-        ],
-        staticClass: "c-form__input",
-        attrs: { type: "password", id: "old-password" },
-        domProps: { value: _vm.passchangeForm.old_password },
+    _c(
+      "form",
+      {
+        staticClass: "c-form",
         on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.passchangeForm, "old_password", $event.target.value)
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.passchange($event)
           }
         }
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "c-form__label", attrs: { for: "new-password" } },
-        [_vm._v("新しいパスワード")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.passchangeForm.new_password,
-            expression: "passchangeForm.new_password"
-          }
-        ],
-        staticClass: "c-form__input",
-        attrs: { type: "password", id: "new-password" },
-        domProps: { value: _vm.passchangeForm.new_password },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+      },
+      [
+        _c("h2", { staticClass: "c-form__title" }, [_vm._v("パスワード変更")]),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "c-form__label", attrs: { for: "old-password" } },
+          [_vm._v("古いパスワード")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.passchangeForm.old_password,
+              expression: "passchangeForm.old_password"
             }
-            _vm.$set(_vm.passchangeForm, "new_password", $event.target.value)
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        {
-          staticClass: "c-form__label",
-          attrs: { for: "new-password-confirmation" }
-        },
-        [_vm._v("新しいパスワード（再入力）")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.passchangeForm.new_password_confirmation,
-            expression: "passchangeForm.new_password_confirmation"
-          }
-        ],
-        staticClass: "c-form__input",
-        attrs: { type: "password", id: "new-password-confirmation" },
-        domProps: { value: _vm.passchangeForm.new_password_confirmation },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          ],
+          staticClass: "c-form__input",
+          attrs: { type: "password", id: "old-password" },
+          domProps: { value: _vm.passchangeForm.old_password },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.passchangeForm, "old_password", $event.target.value)
             }
-            _vm.$set(
-              _vm.passchangeForm,
-              "new_password_confirmation",
-              $event.target.value
-            )
           }
-        }
-      }),
-      _vm._v(" "),
-      _vm._m(0)
-    ])
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "c-form__label", attrs: { for: "new-password" } },
+          [_vm._v("新しいパスワード")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.passchangeForm.new_password,
+              expression: "passchangeForm.new_password"
+            }
+          ],
+          staticClass: "c-form__input",
+          attrs: { type: "password", id: "new-password" },
+          domProps: { value: _vm.passchangeForm.new_password },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.passchangeForm, "new_password", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass: "c-form__label",
+            attrs: { for: "new-password-confirmation" }
+          },
+          [_vm._v("新しいパスワード（再入力）")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.passchangeForm.new_password_confirmation,
+              expression: "passchangeForm.new_password_confirmation"
+            }
+          ],
+          staticClass: "c-form__input",
+          attrs: { type: "password", id: "new-password-confirmation" },
+          domProps: { value: _vm.passchangeForm.new_password_confirmation },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.passchangeForm,
+                "new_password_confirmation",
+                $event.target.value
+              )
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -58643,12 +58667,19 @@ var actions = {
       if (res.data.result_flag === true) {
         console.log('res：', res); // ミューテーション実行
 
-        context.commit('setUser', null); // ユーザー登録ページに遷移する
-
-        _this5.$router.push('/register');
+        context.commit('setUser', null);
       }
     })["catch"](function (error) {
       _this5.message = "ERROR";
+    });
+  },
+  // パスワード変更機能
+  passchange: function passchange(context, data) {
+    console.log('data：', data);
+    axios.post('/api/pass_change', data).then(function (res) {
+      if (res.data.result_flag === true) {
+        console.log('res：', res);
+      }
     });
   }
 };

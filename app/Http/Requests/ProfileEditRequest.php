@@ -16,6 +16,16 @@ class ProfileEditRequest extends FormRequest
         return true;
     }
 
+    public function messages()
+    {
+        return [
+            'name.max' => '名前は最大20文字まで入力できます',
+            'email.email' => 'メールアドレスの形式が正しくありません',
+            'email.max' => 'メールアドレスは最大255文字まで入力できます',
+
+        ];
+    }
+    
     /**
      * Get the validation rules that apply to the request.
      *
@@ -25,8 +35,8 @@ class ProfileEditRequest extends FormRequest
     {
         return [
             'icon' => 'file|image|mimes:jpeg,png,jpg,gif|max:2048|nullable',
-            'name' => 'max:255|nullable',
-            'email' => 'max:255|nullable',
+            'name' => 'max:20|nullable',
+            'email' => 'max:255|email|nullable',
             'introduction' => 'max:255|nullable',
         ];
     }

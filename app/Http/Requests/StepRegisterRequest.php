@@ -16,6 +16,15 @@ class StepRegisterRequest extends FormRequest
         return true;
     }
 
+    public function messages()
+    {
+        return [
+            'title.max' => 'タイトルは最大20文字まで入力できます',
+            'content.max' => '内容は最大255文字まで入力できます',
+
+        ];
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -25,7 +34,7 @@ class StepRegisterRequest extends FormRequest
     {
         return [
             'thumnail' => 'file|image|mimes:jpeg,png,jpg,gif|max:2048|nullable',
-            'title' => 'max:255|nullable',
+            'title' => 'max:20|nullable',
             'target_time' => 'max:255|nullable',
             'content' => 'max:255|nullable',
             'id' => 'integer|nullable',

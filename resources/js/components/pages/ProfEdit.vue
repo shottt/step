@@ -1,5 +1,6 @@
 <template>
-  <div class="l-form-container">
+  <main>
+    <div class="l-form-container">
     <form class="c-form" accept=”image/*” @submit.prevent="profEdit">
       <h2 class="c-form__title">プロフィール編集</h2>
       <label for="icon" class="c-form__label">アイコン画像</label>
@@ -20,6 +21,7 @@
       </div>
     </form>
   </div>
+  </main>
 </template>
 
 <script>

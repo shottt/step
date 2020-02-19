@@ -11837,6 +11837,14 @@ svg:not([fill]) {
   opacity: 0;
 }
 
+.c-form__select {
+  display: block;
+  width: 340px;
+  height: 50px;
+  border: solid 1px #333;
+  margin-bottom: 20px;
+}
+
 .c-form__button {
   padding: 20px 0;
 }

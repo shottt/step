@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\ProfileRequest;
+use App\Http\Requests\ProfileEditRequest;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Log;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 class UsersController extends Controller
 {
     // ユーザー情報の更新
-    public function prof_edit(ProfileRequest $request){
+    public function prof_edit(ProfileEditRequest $request){
         // post値を変数に格納
         $icon = $request->icon;
         $name = $request->name;

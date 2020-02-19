@@ -31,8 +31,6 @@ Route::post('/withdraw', 'Api\UsersController@withdraw');
 Route::post('/pass_change', 'Api\UsersController@pass_change');
 // プロフィール編集
 Route::post('/prof_edit', 'Api\UsersController@prof_edit');
-
-
 // パスワードリマインダー
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 
@@ -42,8 +40,12 @@ Route::get('/user', function(){
 })->name('user');
 
 
-
+// STEP登録
+Route::post('/step_register', 'Api\StepsController@step_register')->name('step_register');
 // STEP一覧取得
 Route::get('/steps', 'Api\StepsController@index')->name('steps');
+
+// カテゴリー取得
+Route::get('/categories', 'Api\CategoriesController@index')->name('categories');
 
 

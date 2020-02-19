@@ -9,6 +9,9 @@
           <router-link class="c-menu__link" to="/steplist">STEP一覧</router-link>
         </li>
         <li class="c-menu__item">
+          <router-link class="c-menu__link" to="/step_register">STEP登録</router-link>
+        </li>
+        <li class="c-menu__item">
           <router-link class="c-menu__link" to="/mypage">マイページ</router-link>
         </li>
         <li class="c-menu__item">

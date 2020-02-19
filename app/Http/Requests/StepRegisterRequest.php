@@ -33,7 +33,7 @@ class StepRegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'thumnail' => 'file|image|mimes:jpeg,png,jpg,gif|max:2048|nullable',
+            'thumbnail' => 'file|image|mimes:jpeg,png,jpg,gif|max:2048|nullable',
             'title' => 'max:20|nullable',
             'target_time' => 'max:255|nullable',
             'content' => 'max:255|nullable',

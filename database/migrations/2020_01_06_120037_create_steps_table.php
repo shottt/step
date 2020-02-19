@@ -20,7 +20,7 @@ class CreateStepsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->string('content');
-            $table->integer('target_time');
+            $table->string('target_time');
             $table->boolean('delete_flag')->default(0);
             $table->timestamps();
             // 外部キー制約

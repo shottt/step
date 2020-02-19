@@ -2754,6 +2754,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'stepregister',
   data: function data() {
@@ -2761,8 +2779,9 @@ __webpack_require__.r(__webpack_exports__);
       preview: '',
       // ライブプレビュー用（データURLが入る）
       categories: '',
+      display: true,
       stepRegisterForm: {
-        thumnail: '',
+        thumbnail: '',
         title: '',
         target_time: '',
         content: '',
@@ -2786,6 +2805,10 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    // 入力フォームの表示非表示
+    isDisplay: function isDisplay() {
+      this.display = false;
+    },
     // ライブプレビュー機能
     onFileChange: function onFileChange(event) {
       var _this2 = this;
@@ -2817,7 +2840,7 @@ __webpack_require__.r(__webpack_exports__);
 
       reader.readAsDataURL(event.target.files[0]); // ユーザーのアップロードデータをiconにいれる
 
-      this.stepRegisterForm.thumnail = event.target.files[0];
+      this.stepRegisterForm.thumbnail = event.target.files[0];
     },
     // 画像データリセット（画像データキャンセル時）
     resetFile: function resetFile() {
@@ -2837,11 +2860,12 @@ __webpack_require__.r(__webpack_exports__);
       console.log('userID：', this.userID);
       var formData = new FormData(); // フォームへの入力データを追加する
 
-      formData.append('thumnail', this.stepRegisterForm.thumnail);
+      formData.append('thumbnail', this.stepRegisterForm.thumbnail);
       formData.append('title', this.stepRegisterForm.title);
       formData.append('target_time', this.stepRegisterForm.target_time);
       formData.append('content', this.stepRegisterForm.content);
-      formData.append('id', this.userID);
+      formData.append('category_id', this.stepRegisterForm.category_id);
+      formData.append('user_id', this.userID);
       console.log('formData：', formData);
       axios.post('/api/step_register', formData).then(function (res) {
         if (res.data.result_flag === true) {
@@ -40502,171 +40526,371 @@ var render = function() {
           }
         },
         [
-          _c("h2", { staticClass: "c-form__title" }, [
-            _vm._v("STEP登録（1/2）")
-          ]),
-          _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "c-form__label", attrs: { for: "thumbnail" } },
-            [_vm._v("サムネイル")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "c-form__input-file",
-            attrs: { type: "file", id: "thumbnail" },
-            on: { change: _vm.onFileChange }
-          }),
-          _vm._v(" "),
-          _vm.preview
-            ? _c("output", { staticClass: "c-form__output" }, [
-                _c("img", {
-                  staticClass: "c-form__preview",
-                  attrs: { src: _vm.preview, alt: "サムネイル" }
-                })
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "c-form__label", attrs: { for: "title" } },
-            [_vm._v("タイトル")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.stepRegisterForm.title,
-                expression: "stepRegisterForm.title"
-              }
-            ],
-            staticClass: "c-form__input",
-            attrs: { type: "text", id: "title" },
-            domProps: { value: _vm.stepRegisterForm.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.stepRegisterForm, "title", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "c-form__label", attrs: { for: "category" } },
-            [_vm._v("カテゴリ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.stepRegisterForm.category_id,
-                  expression: "stepRegisterForm.category_id"
-                }
-              ],
-              staticClass: "c-form__select",
-              attrs: { name: "", id: "category" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
+          _vm.display
+            ? _c("div", { staticClass: "c-form-1" }, [
+                _c("h2", { staticClass: "c-form__title" }, [
+                  _vm._v("STEP登録（1/2）")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "thumbnail" } },
+                  [_vm._v("サムネイル")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "c-form__input-file",
+                  attrs: { type: "file", id: "thumbnail" },
+                  on: { change: _vm.onFileChange }
+                }),
+                _vm._v(" "),
+                _vm.preview
+                  ? _c("output", { staticClass: "c-form__output" }, [
+                      _c("img", {
+                        staticClass: "c-form__preview",
+                        attrs: { src: _vm.preview, alt: "サムネイル" }
+                      })
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "title" } },
+                  [_vm._v("タイトル")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.title,
+                      expression: "stepRegisterForm.title"
+                    }
+                  ],
+                  staticClass: "c-form__input",
+                  attrs: { type: "text", id: "title" },
+                  domProps: { value: _vm.stepRegisterForm.title },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "title",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "category" } },
+                  [_vm._v("カテゴリ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.stepRegisterForm.category_id,
+                        expression: "stepRegisterForm.category_id"
+                      }
+                    ],
+                    staticClass: "c-form__select",
+                    attrs: { name: "", id: "category" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.stepRegisterForm,
+                          "category_id",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { disabled: "", value: "" } }, [
+                      _vm._v("選択してください")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.categories, function(category) {
+                      return _c(
+                        "option",
+                        { domProps: { value: category.id } },
+                        [
+                          _vm._v(
+                            "\n            " +
+                              _vm._s(category.name) +
+                              "\n          "
+                          )
+                        ]
+                      )
                     })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.stepRegisterForm,
-                    "category_id",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "c-form__label",
+                    attrs: { for: "target_time" }
+                  },
+                  [_vm._v("目安時間")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.target_time,
+                      expression: "stepRegisterForm.target_time"
+                    }
+                  ],
+                  staticClass: "c-form__input",
+                  attrs: { type: "text", id: "target_time" },
+                  domProps: { value: _vm.stepRegisterForm.target_time },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "target_time",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "content" } },
+                  [_vm._v("内容")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.content,
+                      expression: "stepRegisterForm.content"
+                    }
+                  ],
+                  staticClass: "c-form__textarea",
+                  attrs: { id: "content" },
+                  domProps: { value: _vm.stepRegisterForm.content },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "content",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "c-form__button" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "c-button-right",
+                      on: { click: _vm.isDisplay }
+                    },
+                    [_vm._v("次へ")]
                   )
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { disabled: "", value: "" } }, [
-                _vm._v("選択してください")
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.categories, function(category) {
-                return _c("option", { domProps: { value: category.id } }, [
-                  _vm._v("\n          " + _vm._s(category.name) + "\n        ")
                 ])
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "c-form__label", attrs: { for: "target_time" } },
-            [_vm._v("目安時間")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.stepRegisterForm.target_time,
-                expression: "stepRegisterForm.target_time"
-              }
-            ],
-            staticClass: "c-form__input",
-            attrs: { type: "text", id: "target_time" },
-            domProps: { value: _vm.stepRegisterForm.target_time },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(
-                  _vm.stepRegisterForm,
-                  "target_time",
-                  $event.target.value
-                )
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "c-form__label", attrs: { for: "content" } },
-            [_vm._v("内容")]
-          ),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.stepRegisterForm.content,
-                expression: "stepRegisterForm.content"
-              }
-            ],
-            staticClass: "c-form__textarea",
-            attrs: { id: "content" },
-            domProps: { value: _vm.stepRegisterForm.content },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.stepRegisterForm, "content", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _vm._m(0)
+              ])
+            : _c("div", { staticClass: "c-form-2" }, [
+                _c("h2", { staticClass: "c-form__title" }, [
+                  _vm._v("STEP登録（2/2）")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "title" } },
+                  [_vm._v("STEP1")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.process1,
+                      expression: "stepRegisterForm.process1"
+                    }
+                  ],
+                  staticClass: "c-form__input",
+                  attrs: { type: "text", id: "title" },
+                  domProps: { value: _vm.stepRegisterForm.process1 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "process1",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "title" } },
+                  [_vm._v("STEP2")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.process2,
+                      expression: "stepRegisterForm.process2"
+                    }
+                  ],
+                  staticClass: "c-form__input",
+                  attrs: { type: "text", id: "title" },
+                  domProps: { value: _vm.stepRegisterForm.process2 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "process2",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "title" } },
+                  [_vm._v("STEP3")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.process3,
+                      expression: "stepRegisterForm.process3"
+                    }
+                  ],
+                  staticClass: "c-form__input",
+                  attrs: { type: "text", id: "title" },
+                  domProps: { value: _vm.stepRegisterForm.process3 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "process3",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "title" } },
+                  [_vm._v("STEP4")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.process4,
+                      expression: "stepRegisterForm.process4"
+                    }
+                  ],
+                  staticClass: "c-form__input",
+                  attrs: { type: "text", id: "title" },
+                  domProps: { value: _vm.stepRegisterForm.process4 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "process4",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "title" } },
+                  [_vm._v("STEP5")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.process5,
+                      expression: "stepRegisterForm.process5"
+                    }
+                  ],
+                  staticClass: "c-form__input",
+                  attrs: { type: "text", id: "title" },
+                  domProps: { value: _vm.stepRegisterForm.process5 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "process5",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm._m(0)
+              ])
         ]
       )
     ])
@@ -40681,7 +40905,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "c-button-right", attrs: { type: "submit" } },
-        [_vm._v("次へ")]
+        [_vm._v("登録する")]
       )
     ])
   }

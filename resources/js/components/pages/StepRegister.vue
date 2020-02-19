@@ -2,29 +2,47 @@
   <main>
     <div class="l-form-container">
       <form class="c-form" accept=”image/*” @submit.prevent="stepRegister">
-        <h2 class="c-form__title">STEP登録（1/2）</h2>
-        <label for="thumbnail" class="c-form__label">サムネイル</label>
-        <!-- <div class="c-form__area-drop"> -->
-          <input type="file" class="c-form__input-file" id="thumbnail" @change="onFileChange">
-          <output class="c-form__output" v-if="preview">
-            <img :src="preview" alt="サムネイル" class="c-form__preview">
-          </output>
-        <!-- </div> -->
-        <label for="title" class="c-form__label">タイトル</label>
-        <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.title">
-        <label for="category" class="c-form__label">カテゴリ</label>
-        <select v-model="stepRegisterForm.category_id" name="" id="category" class="c-form__select">
-          <option disabled value="">選択してください</option>
-          <option v-for="category in categories" v-bind:value="category.id">
-            {{ category.name }}
-          </option>
-        </select>
-        <label for="target_time" class="c-form__label">目安時間</label>
-        <input type="text" class="c-form__input" id="target_time" v-model="stepRegisterForm.target_time">
-        <label for="content" class="c-form__label">内容</label>
-        <textarea class="c-form__textarea" id="content" v-model="stepRegisterForm.content"></textarea>
-        <div class="c-form__button">
-          <button type="submit" class="c-button-right">次へ</button>
+        <div class="c-form-1" v-if="display">
+          <h2 class="c-form__title">STEP登録（1/2）</h2>
+          <label for="thumbnail" class="c-form__label">サムネイル</label>
+          <!-- <div class="c-form__area-drop"> -->
+            <input type="file" class="c-form__input-file" id="thumbnail" @change="onFileChange">
+            <output class="c-form__output" v-if="preview">
+              <img :src="preview" alt="サムネイル" class="c-form__preview">
+            </output>
+          <!-- </div> -->
+          <label for="title" class="c-form__label">タイトル</label>
+          <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.title">
+          <label for="category" class="c-form__label">カテゴリ</label>
+          <select v-model="stepRegisterForm.category_id" name="" id="category" class="c-form__select">
+            <option disabled value="">選択してください</option>
+            <option v-for="category in categories" v-bind:value="category.id">
+              {{ category.name }}
+            </option>
+          </select>
+          <label for="target_time" class="c-form__label">目安時間</label>
+          <input type="text" class="c-form__input" id="target_time" v-model="stepRegisterForm.target_time">
+          <label for="content" class="c-form__label">内容</label>
+          <textarea class="c-form__textarea" id="content" v-model="stepRegisterForm.content"></textarea>
+          <div class="c-form__button">
+            <button class="c-button-right" @click="isDisplay">次へ</button>
+          </div>
+        </div>
+        <div class="c-form-2" v-else>
+          <h2 class="c-form__title">STEP登録（2/2）</h2>
+          <label for="title" class="c-form__label">STEP1</label>
+          <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.process1">
+          <label for="title" class="c-form__label">STEP2</label>
+          <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.process2">
+          <label for="title" class="c-form__label">STEP3</label>
+          <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.process3">
+          <label for="title" class="c-form__label">STEP4</label>
+          <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.process4">
+          <label for="title" class="c-form__label">STEP5</label>
+          <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.process5">
+          <div class="c-form__button">
+            <button type="submit" class="c-button-right">登録する</button>
+          </div>
         </div>
       </form>
     </div>
@@ -37,8 +55,9 @@ export default {
     return {
       preview: '', // ライブプレビュー用（データURLが入る）
       categories: '',
+      display: true,
       stepRegisterForm: {
-        thumnail: '',
+        thumbnail: '',
         title: '',
         target_time: '',
         content: '',
@@ -60,7 +79,11 @@ export default {
     },
   },
   methods: {
-     // ライブプレビュー機能
+    // 入力フォームの表示非表示
+    isDisplay: function(){
+      this.display = false;
+    },
+    // ライブプレビュー機能
     onFileChange: function(event){
       // 何も選択されていなかったら、処理中断
       if(event.target.files.length === 0){
@@ -87,7 +110,7 @@ export default {
       // 読み込まれたファイルはデータURL形式で受け取れる（上記onload参照）
       reader.readAsDataURL(event.target.files[0]);
       // ユーザーのアップロードデータをiconにいれる
-      this.stepRegisterForm.thumnail = event.target.files[0];
+      this.stepRegisterForm.thumbnail = event.target.files[0];
     },
     // 画像データリセット（画像データキャンセル時）
     resetFile: function(){
@@ -110,11 +133,12 @@ export default {
       const formData = new FormData();
 
       // フォームへの入力データを追加する
-      formData.append('thumnail', this.stepRegisterForm.thumnail);
+      formData.append('thumbnail', this.stepRegisterForm.thumbnail);
       formData.append('title', this.stepRegisterForm.title);
       formData.append('target_time', this.stepRegisterForm.target_time);
       formData.append('content', this.stepRegisterForm.content);
-      formData.append('id', this.userID);
+      formData.append('category_id', this.stepRegisterForm.category_id);
+      formData.append('user_id', this.userID);
 
       console.log('formData：', formData);
 

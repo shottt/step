@@ -17,11 +17,12 @@ class StepsController extends Controller
     // STEP登録
     public function step_register(StepRegisterRequest $request){
         // post値を変数に格納
-        $thumnail = $request->thumnail;
+        $thumbnail = $request->thumbnail;
         $title = $request->title;
         $target_time = $request->target_time;
         $content = $request->content;
-        $id = $request->id;
+        $category_id = $request->category_id;
+        $user_id = $request->user_id;
 
         // 異常判定
         if(empty($title)){
@@ -29,11 +30,12 @@ class StepsController extends Controller
         }
         // モデルを作成して、post値を代入
         $step = new Step;
-        $step->user_id = $id;
-        $step->thumnail = $thumnail;
+        $step->user_id = $user_id;
+        $step->thumbnail = $thumbnail;
         $step->title = $title;
         $step->target_time = $target_time;
         $step->content = $content;
+        $step->category_id = $category_id;
 
         // レコードを作成する
         $result = $step->save();

@@ -19,6 +19,7 @@ import StepEdit from '../components/pages/StepEdit';
 import Process from '../components/pages/Process';
 import StepIndex from '../components/pages/StepIndex';
 import StepDetail from '../components/pages/StepDeatil';
+import SystemError from '../components/pages/SystemError';
 
 
 // コンポーネントをインポート
@@ -120,6 +121,11 @@ const routes = [
       main: User,
       footer: Footer,
     }
+  },
+  // システムエラーページ
+  {
+    path: '/500',
+    component: SystemError
   },
   // ログイン後のルーティング
   // マイページ

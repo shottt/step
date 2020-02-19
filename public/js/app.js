@@ -2758,7 +2758,6 @@ __webpack_require__.r(__webpack_exports__);
   name: 'stepregister',
   data: function data() {
     return {
-      selected: '',
       preview: '',
       // ライブプレビュー用（データURLが入る）
       categories: '',
@@ -2766,7 +2765,8 @@ __webpack_require__.r(__webpack_exports__);
         thumnail: '',
         title: '',
         target_time: '',
-        content: ''
+        content: '',
+        category_id: ''
       }
     };
   },
@@ -40568,8 +40568,8 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.selected,
-                  expression: "selected"
+                  value: _vm.stepRegisterForm.category_id,
+                  expression: "stepRegisterForm.category_id"
                 }
               ],
               staticClass: "c-form__select",
@@ -40584,9 +40584,11 @@ var render = function() {
                       var val = "_value" in o ? o._value : o.value
                       return val
                     })
-                  _vm.selected = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
+                  _vm.$set(
+                    _vm.stepRegisterForm,
+                    "category_id",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
                 }
               }
             },
@@ -40596,15 +40598,9 @@ var render = function() {
               ]),
               _vm._v(" "),
               _vm._l(_vm.categories, function(category) {
-                return _c(
-                  "option",
-                  { key: category.id, domProps: { value: category.name } },
-                  [
-                    _vm._v(
-                      "\n          " + _vm._s(category.name) + "\n        "
-                    )
-                  ]
-                )
+                return _c("option", { domProps: { value: category.id } }, [
+                  _vm._v("\n          " + _vm._s(category.name) + "\n        ")
+                ])
               })
             ],
             2
@@ -40690,6 +40686,30 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SystemError.vue?vue&type=template&id=fa07cd1a&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SystemError.vue?vue&type=template&id=fa07cd1a& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("p", [_vm._v("システムエラーが発生しました。")])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -58484,6 +58504,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/SystemError.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/pages/SystemError.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SystemError_vue_vue_type_template_id_fa07cd1a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SystemError.vue?vue&type=template&id=fa07cd1a& */ "./resources/js/components/pages/SystemError.vue?vue&type=template&id=fa07cd1a&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _SystemError_vue_vue_type_template_id_fa07cd1a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SystemError_vue_vue_type_template_id_fa07cd1a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pages/SystemError.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/SystemError.vue?vue&type=template&id=fa07cd1a&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/pages/SystemError.vue?vue&type=template&id=fa07cd1a& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SystemError_vue_vue_type_template_id_fa07cd1a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./SystemError.vue?vue&type=template&id=fa07cd1a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SystemError.vue?vue&type=template&id=fa07cd1a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SystemError_vue_vue_type_template_id_fa07cd1a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SystemError_vue_vue_type_template_id_fa07cd1a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/Top.vue":
 /*!***********************************************!*\
   !*** ./resources/js/components/pages/Top.vue ***!
@@ -58719,11 +58792,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_Process__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/pages/Process */ "./resources/js/components/pages/Process.vue");
 /* harmony import */ var _components_pages_StepIndex__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/pages/StepIndex */ "./resources/js/components/pages/StepIndex.vue");
 /* harmony import */ var _components_pages_StepDeatil__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/pages/StepDeatil */ "./resources/js/components/pages/StepDeatil.vue");
-/* harmony import */ var _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/organisms/Header */ "./resources/js/components/organisms/Header.vue");
-/* harmony import */ var _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../components/organisms/Footer */ "./resources/js/components/organisms/Footer.vue");
+/* harmony import */ var _components_pages_SystemError__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/pages/SystemError */ "./resources/js/components/pages/SystemError.vue");
+/* harmony import */ var _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../components/organisms/Header */ "./resources/js/components/organisms/Header.vue");
+/* harmony import */ var _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../components/organisms/Footer */ "./resources/js/components/organisms/Footer.vue");
 
 
  // ページコンポーネントをインポートする
+
 
 
 
@@ -58751,9 +58826,9 @@ var routes = [// ログイン前のルーティング
 {
   path: '/',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_Top__WEBPACK_IMPORTED_MODULE_3__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   },
   // ナビゲーションガード
   beforeEnter: function beforeEnter(to, from, next) {
@@ -58767,9 +58842,9 @@ var routes = [// ログイン前のルーティング
 {
   path: '/register',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_Register__WEBPACK_IMPORTED_MODULE_4__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   },
   beforeEnter: function beforeEnter(to, from, next) {
     if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
@@ -58782,9 +58857,9 @@ var routes = [// ログイン前のルーティング
 {
   path: '/login',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_Login__WEBPACK_IMPORTED_MODULE_5__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   } // beforeEnter(to, from, next){
   //   if(store.getters['auth/check']){
   //     next('/mypage');
@@ -58797,9 +58872,9 @@ var routes = [// ログイン前のルーティング
 {
   path: '/pass_remind_send',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_PassRemindSend__WEBPACK_IMPORTED_MODULE_6__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   },
   beforeEnter: function beforeEnter(to, from, next) {
     if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
@@ -58812,9 +58887,9 @@ var routes = [// ログイン前のルーティング
 {
   path: '/pass_remind_recieve',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_PassRemindRecieve__WEBPACK_IMPORTED_MODULE_7__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   } // beforeEnter(to, from, next){
   //   if(store.getters['auth/check']){
   //     next('/mypage');
@@ -58827,18 +58902,22 @@ var routes = [// ログイン前のルーティング
 {
   path: '/user',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_User__WEBPACK_IMPORTED_MODULE_8__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   }
+}, // システムエラーページ
+{
+  path: '/500',
+  component: _components_pages_SystemError__WEBPACK_IMPORTED_MODULE_18__["default"]
 }, // ログイン後のルーティング
 // マイページ
 {
   path: '/mypage',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_Mypage__WEBPACK_IMPORTED_MODULE_9__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   } // beforeEnter(to, from, next){
   //   if(!store.getters['auth/check']){
   //     next('/login');
@@ -58851,9 +58930,9 @@ var routes = [// ログイン前のルーティング
 {
   path: '/prof_edit',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_ProfEdit__WEBPACK_IMPORTED_MODULE_10__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   },
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
@@ -58866,9 +58945,9 @@ var routes = [// ログイン前のルーティング
 {
   path: '/pass_change',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_PassChange__WEBPACK_IMPORTED_MODULE_11__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   },
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
@@ -58881,9 +58960,9 @@ var routes = [// ログイン前のルーティング
 {
   path: '/withdraw',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_Withdraw__WEBPACK_IMPORTED_MODULE_12__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   },
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
@@ -58896,9 +58975,9 @@ var routes = [// ログイン前のルーティング
 {
   path: '/step_register',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_StepRegister__WEBPACK_IMPORTED_MODULE_13__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   },
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
@@ -58911,9 +58990,9 @@ var routes = [// ログイン前のルーティング
 {
   path: '/step_edit',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_StepEdit__WEBPACK_IMPORTED_MODULE_14__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   },
   beforeEnter: function beforeEnter(to, from, next) {
     if (!_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
@@ -58927,26 +59006,26 @@ var routes = [// ログイン前のルーティング
   path: '/steplist/:id/process:id',
   // パスは検討要
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_Process__WEBPACK_IMPORTED_MODULE_15__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   }
 }, // ログイン未ログインどちらでもアクセス可
 // ステップ一覧ページ
 {
   path: '/stepindex',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_StepIndex__WEBPACK_IMPORTED_MODULE_16__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   }
 }, // ステップ詳細ページ
 {
   path: '/steplist/:id',
   components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_18__["default"],
+    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
     main: _components_pages_StepDeatil__WEBPACK_IMPORTED_MODULE_17__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_19__["default"]
+    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
   }
 }]; // VueRouterインスタンスを作る
 
@@ -59139,12 +59218,15 @@ var actions = {
 /*!******************************!*\
   !*** ./resources/js/util.js ***!
   \******************************/
-/*! exports provided: getCookieValue */
+/*! exports provided: getCookieValue, OK, CREATED, INTERNAL_SERVER_ERROR */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCookieValue", function() { return getCookieValue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OK", function() { return OK; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATED", function() { return CREATED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INTERNAL_SERVER_ERROR", function() { return INTERNAL_SERVER_ERROR; });
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -59173,7 +59255,11 @@ function getCookieValue(searchKey) {
     }
   });
   return val;
-}
+} // ステータスコードの定義
+
+var OK = 200;
+var CREATED = 201;
+var INTERNAL_SERVER_ERROR = 500;
 
 /***/ }),
 
@@ -59195,8 +59281,8 @@ function getCookieValue(searchKey) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/code/step/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/code/step/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/s.s/code/step/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/s.s/code/step/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

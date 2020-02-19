@@ -13,9 +13,9 @@
         <label for="title" class="c-form__label">タイトル</label>
         <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.title">
         <label for="category" class="c-form__label">カテゴリ</label>
-        <select v-model="selected" name="" id="category" class="c-form__select">
+        <select v-model="stepRegisterForm.category_id" name="" id="category" class="c-form__select">
           <option disabled value="">選択してください</option>
-          <option v-for="category in categories" v-bind:value="category.name" v-bind:key="category.id">
+          <option v-for="category in categories" v-bind:value="category.id">
             {{ category.name }}
           </option>
         </select>
@@ -35,7 +35,6 @@ export default {
   name: 'stepregister',
   data: function(){
     return {
-      selected: '',
       preview: '', // ライブプレビュー用（データURLが入る）
       categories: '',
       stepRegisterForm: {
@@ -43,6 +42,7 @@ export default {
         title: '',
         target_time: '',
         content: '',
+        category_id: '',
       },
     }
   },

@@ -41,6 +41,7 @@
           <label for="title" class="c-form__label">STEP5</label>
           <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.process5">
           <div class="c-form__button">
+            <button class="c-button-left" @click="isDisplay">前へ</button>
             <button type="submit" class="c-button-right">登録する</button>
           </div>
         </div>
@@ -62,6 +63,12 @@ export default {
         target_time: '',
         content: '',
         category_id: '',
+        // 以下は子STEPのパラメータ
+        process1: '',
+        process2: '',
+        process3: '',
+        process4: '',
+        process5: '',
       },
     }
   },
@@ -79,9 +86,14 @@ export default {
     },
   },
   methods: {
-    // 入力フォームの表示非表示
+    // 入力フォームの表示エリア切替
     isDisplay: function(){
-      this.display = false;
+      if(this.display === true){
+        return this.display = false;
+      }else{
+        return this.display = true;
+      }
+      
     },
     // ライブプレビュー機能
     onFileChange: function(event){
@@ -138,6 +150,11 @@ export default {
       formData.append('target_time', this.stepRegisterForm.target_time);
       formData.append('content', this.stepRegisterForm.content);
       formData.append('category_id', this.stepRegisterForm.category_id);
+      formData.append('process1', this.stepRegisterForm.process1);
+      formData.append('process2', this.stepRegisterForm.process2);
+      formData.append('process1', this.stepRegisterForm.process3);
+      formData.append('process1', this.stepRegisterForm.process4);
+      formData.append('process1', this.stepRegisterForm.process5);
       formData.append('user_id', this.userID);
 
       console.log('formData：', formData);

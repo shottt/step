@@ -15,6 +15,15 @@
     padding: 10px 20px;
     float: right;
   }
+  &-left{  //以下は冗長のため、リファクタリング要
+    cursor: pointer;
+    background: #242322;
+    color: #fff;
+    border-radius: 10px;
+    border: solid 1px ;
+    padding: 10px 20px;
+    float: left;
+  }
   &__link{
     color: #fff;
   }

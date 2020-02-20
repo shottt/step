@@ -6,6 +6,7 @@ use App\Step;
 use Illuminate\Http\Request;
 use App\Http\Requests\StepRegisterRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 
 class StepsController extends Controller
 {
@@ -36,6 +37,12 @@ class StepsController extends Controller
         $step->target_time = $target_time;
         $step->content = $content;
         $step->category_id = $category_id;
+
+        Log::debug('process1：' .$request->process1);
+        Log::debug('process2：' .$request->process2);
+        Log::debug('process3：' .$request->process3);
+        Log::debug('process4：' .$request->process4);
+        Log::debug('process5：' .$request->process5);
 
         // レコードを作成する
         $result = $step->save();

@@ -2772,6 +2772,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'stepregister',
   data: function data() {
@@ -2785,7 +2786,13 @@ __webpack_require__.r(__webpack_exports__);
         title: '',
         target_time: '',
         content: '',
-        category_id: ''
+        category_id: '',
+        // 以下は子STEPのパラメータ
+        process1: '',
+        process2: '',
+        process3: '',
+        process4: '',
+        process5: ''
       }
     };
   },
@@ -2805,9 +2812,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    // 入力フォームの表示非表示
+    // 入力フォームの表示エリア切替
     isDisplay: function isDisplay() {
-      this.display = false;
+      if (this.display === true) {
+        return this.display = false;
+      } else {
+        return this.display = true;
+      }
     },
     // ライブプレビュー機能
     onFileChange: function onFileChange(event) {
@@ -2865,6 +2876,11 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('target_time', this.stepRegisterForm.target_time);
       formData.append('content', this.stepRegisterForm.content);
       formData.append('category_id', this.stepRegisterForm.category_id);
+      formData.append('process1', this.stepRegisterForm.process1);
+      formData.append('process2', this.stepRegisterForm.process2);
+      formData.append('process1', this.stepRegisterForm.process3);
+      formData.append('process1', this.stepRegisterForm.process4);
+      formData.append('process1', this.stepRegisterForm.process5);
       formData.append('user_id', this.userID);
       console.log('formData：', formData);
       axios.post('/api/step_register', formData).then(function (res) {
@@ -40889,27 +40905,32 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm._m(0)
+                _c("div", { staticClass: "c-form__button" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "c-button-left",
+                      on: { click: _vm.isDisplay }
+                    },
+                    [_vm._v("前へ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "c-button-right",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("登録する")]
+                  )
+                ])
               ])
         ]
       )
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "c-form__button" }, [
-      _c(
-        "button",
-        { staticClass: "c-button-right", attrs: { type: "submit" } },
-        [_vm._v("登録する")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

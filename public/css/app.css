@@ -11886,6 +11886,16 @@ svg:not([fill]) {
   float: right;
 }
 
+.c-button-left {
+  cursor: pointer;
+  background: #242322;
+  color: #fff;
+  border-radius: 10px;
+  border: solid 1px;
+  padding: 10px 20px;
+  float: left;
+}
+
 .c-button__link {
   color: #fff;
 }

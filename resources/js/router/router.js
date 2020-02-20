@@ -4,22 +4,22 @@ import store from '../store';
 
 
 // ページコンポーネントをインポートする
-import Top from '../components/pages/Top';
-import Register from '../components/pages/Register';
-import Login from '../components/pages/Login';
-import PassRemindSend from '../components/pages/PassRemindSend';
-import PassRemindRecive from '../components/pages/PassRemindRecieve';
-import User from '../components/pages/User';
-import Mypage from '../components/pages/Mypage';
-import ProfEdit from '../components/pages/ProfEdit';
-import PassChange from '../components/pages/PassChange';
-import Withdraw from '../components/pages/Withdraw';
-import StepRegister from '../components/pages/StepRegister';
-import StepEdit from '../components/pages/StepEdit';
-import Process from '../components/pages/Process';
-import StepIndex from '../components/pages/StepIndex';
-import StepDetail from '../components/pages/StepDeatil';
-import SystemError from '../components/pages/SystemError';
+import Top from '../components/organisms/Top';
+import Register from '../components/organisms/Register';
+import Login from '../components/organisms/Login';
+import PassRemindSend from '../components/organisms/PassRemindSend';
+import PassRemindRecive from '../components/organisms/PassRemindRecieve';
+import User from '../components/organisms/User';
+import Mypage from '../components/organisms/Mypage';
+import ProfEdit from '../components/organisms/ProfEdit';
+import PassChange from '../components/organisms/PassChange';
+import Withdraw from '../components/organisms/Withdraw';
+import StepRegister from '../components/organisms/StepRegister';
+import StepEdit from '../components/organisms/StepEdit';
+import Process from '../components/organisms/Process';
+import StepIndex from '../components/organisms/StepIndex';
+import StepDetail from '../components/organisms/StepDeatil';
+import SystemError from '../components/organisms/SystemError';
 
 
 // コンポーネントをインポート

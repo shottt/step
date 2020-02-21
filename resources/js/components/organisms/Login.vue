@@ -10,7 +10,8 @@
       <div class="c-form__button">
         <button type="submit" class="c-button-right">ログイン</button>
       </div>
-      <p class="c-form__text">パスワードを忘れた方は<router-link class="c-form__link" to="/pass_remind_send">こちら</router-link></p>
+      <!-- <router-link class="c-form__text">パスワードを忘れた方は<router-link class="c-form__link" to="/pass_remind_send">こちら</router-link></p> -->
+      <p class="c-form__text">パスワードを忘れた方は<a class="c-form__link" href="/password/reset">こちら</a></p>
     </form>
   </div>
 </template>
@@ -35,7 +36,7 @@ export default {
         // マイページに移動する
         this.$router.push('/mypage');
       });
-    }
+    },
   }
 }
 </script>

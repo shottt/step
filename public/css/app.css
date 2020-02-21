@@ -11837,6 +11837,11 @@ svg:not([fill]) {
   opacity: 0;
 }
 
+.c-form__link {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .c-form__select {
   display: block;
   width: 340px;

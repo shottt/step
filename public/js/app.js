@@ -2169,6 +2169,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'login',
   data: function data() {
@@ -39521,22 +39522,7 @@ var render = function() {
         _vm._v("次回ログインを省略する\n    "),
         _vm._m(0),
         _vm._v(" "),
-        _c(
-          "p",
-          { staticClass: "c-form__text" },
-          [
-            _vm._v("パスワードを忘れた方は"),
-            _c(
-              "router-link",
-              {
-                staticClass: "c-form__link",
-                attrs: { to: "/pass_remind_send" }
-              },
-              [_vm._v("こちら")]
-            )
-          ],
-          1
-        )
+        _vm._m(1)
       ]
     )
   ])
@@ -39551,6 +39537,19 @@ var staticRenderFns = [
         "button",
         { staticClass: "c-button-right", attrs: { type: "submit" } },
         [_vm._v("ログイン")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "c-form__text" }, [
+      _vm._v("パスワードを忘れた方は"),
+      _c(
+        "a",
+        { staticClass: "c-form__link", attrs: { href: "/password/reset" } },
+        [_vm._v("こちら")]
       )
     ])
   }
@@ -59144,14 +59143,15 @@ var routes = [// ログイン前のルーティング
   // }
 
 }, // 他のユーザーページ
-{
-  path: '/user',
-  components: {
-    header: _components_organisms_Header__WEBPACK_IMPORTED_MODULE_19__["default"],
-    main: _components_organisms_User__WEBPACK_IMPORTED_MODULE_8__["default"],
-    footer: _components_organisms_Footer__WEBPACK_IMPORTED_MODULE_20__["default"]
-  }
-}, // システムエラーページ
+// {
+//   path: '/user',
+//   components: {
+//     header: Header,
+//     main: User,
+//     footer: Footer,
+//   }
+// },
+// システムエラーページ
 {
   path: '/500',
   component: _components_organisms_SystemError__WEBPACK_IMPORTED_MODULE_18__["default"]

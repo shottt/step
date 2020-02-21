@@ -114,14 +114,14 @@ const routes = [
     // }
   },
   // 他のユーザーページ
-  {
-    path: '/user',
-    components: {
-      header: Header,
-      main: User,
-      footer: Footer,
-    }
-  },
+  // {
+  //   path: '/user',
+  //   components: {
+  //     header: Header,
+  //     main: User,
+  //     footer: Footer,
+  //   }
+  // },
   // システムエラーページ
   {
     path: '/500',

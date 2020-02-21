@@ -15,7 +15,13 @@
 //     return view('welcome');
 // });
 
-Auth::routes();
+// Auth::routes();
+// パスワードリセットメール送信フォーム表示
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+// パスワードリセットフォーム処理
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+
+
 
 // API以外のリクエストに対してはindexテンプレートを返す
 // 画面遷移はフロントエンドのVueRouterが制御する

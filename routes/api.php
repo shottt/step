@@ -31,8 +31,10 @@ Route::post('/withdraw', 'Api\UsersController@withdraw');
 Route::post('/pass_change', 'Api\UsersController@pass_change');
 // プロフィール編集
 Route::post('/prof_edit', 'Api\UsersController@prof_edit');
-// パスワードリマインダー
+// パスワードリセット
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+// パスワードリセットフォーム処理
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 
 // ログインユーザー取得
 Route::get('/user', function(){

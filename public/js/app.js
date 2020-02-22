@@ -59296,6 +59296,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/auth */ "./resources/js/store/modules/auth.js");
+/* harmony import */ var _modules_error__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/error */ "./resources/js/store/modules/error.js");
+
 
 
  // Vuexプラグインの使用
@@ -59303,7 +59305,8 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
-    auth: _modules_auth__WEBPACK_IMPORTED_MODULE_2__["default"]
+    auth: _modules_auth__WEBPACK_IMPORTED_MODULE_2__["default"],
+    error: _modules_error__WEBPACK_IMPORTED_MODULE_3__["default"]
   }
 });
 /* harmony default export */ __webpack_exports__["default"] = (store);
@@ -59319,8 +59322,12 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../util */ "./resources/js/util.js");
+
 var state = {
   user: null,
+  apiStatus: '',
+  // API呼び出しの成功有無
   message: ''
 };
 var getters = {
@@ -59341,6 +59348,9 @@ var getters = {
 var mutations = {
   setUser: function setUser(state, user) {
     state.user = user;
+  },
+  setApiStatus: function setApiStatus(statu, status) {
+    state.apiStatus = status;
   },
   editUser: function editUser(state, user) {
     if (user.icon) {
@@ -59373,40 +59383,40 @@ var actions = {
   },
   // ログイン機能
   login: function login(context, data) {
-    var _this2 = this;
-
     console.log('data：', data);
+    context.commit('setApiStatus', null);
     axios.post('/api/login', data).then(function (res) {
       // DBからのレスポンスをログに出力
       console.log('res.data：', res.data); // ミューテーション実行
 
+      context.commit('setApiStatus', true);
       context.commit('setUser', res.data);
     })["catch"](function (error) {
-      _this2.message = 'ERROR';
+      error.response || error;
     });
   },
   // パスワードリマインダー送信機能
   passremindsend: function passremindsend(context, data) {
-    var _this3 = this;
+    var _this2 = this;
 
     console.log('data：', data);
     axios.post('/api/password/email', data).then(function (res) {
       // DBからのレスポンスをログに出力
       console.log('res.data：', res.data); // ミューテーション実行
     })["catch"](function (error) {
-      _this3.message = 'ERROR';
+      _this2.message = 'ERROR';
     });
   },
   // ログアウト機能
   logout: function logout(context) {
-    var _this4 = this;
+    var _this3 = this;
 
     axios.post('/api/logout').then(function (res) {
       console.log('res：', res); // ミューテーション実行
 
       context.commit('setUser', null);
     })["catch"](function (error) {
-      _this4.message = 'ERROR';
+      _this3.message = 'ERROR';
     });
   },
   // ログインユーザー取得機能
@@ -59425,7 +59435,7 @@ var actions = {
   },
   // 退会機能
   withdraw: function withdraw(context) {
-    var _this5 = this;
+    var _this4 = this;
 
     // ゲッターにアクセスし、ユーザー情報を取得（うまくデータが渡せないため、サーバー側で取得する）
     // const id = context.getters['getUserID'];
@@ -59436,7 +59446,7 @@ var actions = {
         context.commit('setUser', null);
       }
     })["catch"](function (error) {
-      _this5.message = "ERROR";
+      _this4.message = "ERROR";
     });
   },
   // パスワード変更機能
@@ -59455,6 +59465,31 @@ var actions = {
   getters: getters,
   mutations: mutations,
   actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/error.js":
+/*!*********************************************!*\
+  !*** ./resources/js/store/modules/error.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var state = {
+  code: null
+};
+var mutations = {
+  setCode: function setCode(state, code) {
+    state.code = code;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  mutations: mutations
 });
 
 /***/ }),

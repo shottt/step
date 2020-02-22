@@ -1,5 +1,8 @@
+import { OK } from '../../util';
+
 const state = {
   user: null,
+  apiStatus: '', // API呼び出しの成功有無
   message: '',
 }
 
@@ -22,6 +25,9 @@ const getters = {
 const mutations = {
   setUser: function(state, user){
     state.user = user
+  },
+  setApiStatus: function(statu, status){
+    state.apiStatus = status;
   },
   editUser: function(state, user){
     if(user.icon){
@@ -52,13 +58,15 @@ const actions = {
   // ログイン機能
   login: function(context, data){
     console.log('data：', data);
+    context.commit('setApiStatus', null);
     axios.post('/api/login', data).then((res) => {
       // DBからのレスポンスをログに出力
       console.log('res.data：', res.data);
       // ミューテーション実行
+      context.commit('setApiStatus', true);
       context.commit('setUser', res.data);
     }).catch((error) => {
-      this.message = 'ERROR';
+      error.response || error;
     });
   },
   // パスワードリマインダー送信機能

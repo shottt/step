@@ -1,5 +1,5 @@
 <template>
-  <header class="l-header">
+  <header>
     <h1 class="l-header__logo">
       <router-link class="l-header__logo-link" to="/">STEP</router-link>
     </h1>

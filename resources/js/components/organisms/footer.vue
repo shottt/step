@@ -1,5 +1,5 @@
 <template>
-  <footer class="l-footer">
+  <footer>
     <p class="l-footer__text">Copyright &copy; 2020 STEP. All Rights Reserved</p>
   </footer>
 </template>

@@ -39107,11 +39107,11 @@ var render = function() {
     "div",
     { staticClass: "l-container" },
     [
-      _c("router-view", { attrs: { name: "header" } }),
+      _c("router-view", { staticClass: "l-header", attrs: { name: "header" } }),
       _vm._v(" "),
       _c("router-view", { staticClass: "l-main", attrs: { name: "main" } }),
       _vm._v(" "),
-      _c("router-view", { attrs: { name: "footer" } })
+      _c("router-view", { staticClass: "l-footer", attrs: { name: "footer" } })
     ],
     1
   )
@@ -39300,7 +39300,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "l-footer" }, [
+    return _c("footer", [
       _c("p", { staticClass: "l-footer__text" }, [
         _vm._v("Copyright © 2020 STEP. All Rights Reserved")
       ])
@@ -39328,7 +39328,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("header", { staticClass: "l-header" }, [
+  return _c("header", [
     _c(
       "h1",
       { staticClass: "l-header__logo" },

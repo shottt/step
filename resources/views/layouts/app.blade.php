@@ -20,61 +20,47 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    {{-- <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'STEP') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+    <div class="l-container">
+        <header class="l-header">
+            <h1 class="l-header__logo">
+                <a class="l-header__logo-link" href="/">STEP</a>
+            </h1>
+            <nav class="l-header__nav-menu js-toggle-sp-menu-target">
+                @auth
+                <ul class="c-menu">
+                    <li class="c-menu__item">
+                        <a class="c-menu__link" href="/steplist">STEP一覧</a>
+                    </li>
+                    <li class="c-menu__item">
+                        <a class="c-menu__link" href="/step_register">STEP登録</a>
+                    </li>
+                    <li class="c-menu__item">
+                        <a class="c-menu__link" href="/mypage">マイページ</a>
+                    </li>
+                    <li class="c-menu__item">
+                        <button class="c-menu__button" @click="logout">ログアウト</button>
+                    </li>
+                </ul>
+                @else
+                <ul class="c-menu">
+                    <li class="c-menu__item">
+                        <a class="c-menu__link" href="/login">ログイン</a>
+                    </li>
+                    <li class="c-menu__item">
+                        <a class="c-menu__link" href="/register">ユーザー登録</a>
+                    </li>
                     </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> --}}
+                @endauth
+            </nav>
+        </header>
 
         <main class="py-4">
             @yield('content')
         </main>
-    {{-- </div> --}}
+
+        <footer class="l-footer">
+            <p class="l-footer__text">Copyright &copy; 2020 STEP. All Rights Reserved</p>
+        </footer>
+    </div>
 </body>
 </html>

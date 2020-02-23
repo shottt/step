@@ -2774,6 +2774,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'stepregister',
   data: function data() {
@@ -2786,14 +2796,19 @@ __webpack_require__.r(__webpack_exports__);
         thumbnail: '',
         title: '',
         target_time: '',
-        content: '',
+        overview: '',
         category_id: '',
         // 以下は子STEPのパラメータ
-        process1: '',
-        process2: '',
-        process3: '',
-        process4: '',
-        process5: ''
+        item1: '',
+        item2: '',
+        item3: '',
+        item4: '',
+        item5: '',
+        detail1: '',
+        detail2: '',
+        detail3: '',
+        detail4: '',
+        detail5: ''
       }
     };
   },
@@ -2861,7 +2876,7 @@ __webpack_require__.r(__webpack_exports__);
     // 入力データリセット
     reset: function reset() {
       this.resetFile();
-      this.stepRegisterForm.title = '', this.stepRegisterForm.target_time = '', this.stepRegisterForm.content = '';
+      this.stepRegisterForm.title = '', this.stepRegisterForm.target_time = '', this.stepRegisterForm.overview = '', this.stepRegisterForm.item1 = '', this.stepRegisterForm.item2 = '', this.stepRegisterForm.item3 = '', this.stepRegisterForm.item4 = '', this.stepRegisterForm.item5 = '';
     },
     // ステップ登録
     stepRegister: function stepRegister() {
@@ -2875,15 +2890,21 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('thumbnail', this.stepRegisterForm.thumbnail);
       formData.append('title', this.stepRegisterForm.title);
       formData.append('target_time', this.stepRegisterForm.target_time);
-      formData.append('content', this.stepRegisterForm.content);
+      formData.append('overview', this.stepRegisterForm.overview);
       formData.append('category_id', this.stepRegisterForm.category_id);
-      formData.append('process1', this.stepRegisterForm.process1);
-      formData.append('process2', this.stepRegisterForm.process2);
-      formData.append('process1', this.stepRegisterForm.process3);
-      formData.append('process1', this.stepRegisterForm.process4);
-      formData.append('process1', this.stepRegisterForm.process5);
+      formData.append('item1', this.stepRegisterForm.item1);
+      formData.append('item2', this.stepRegisterForm.item2);
+      formData.append('item3', this.stepRegisterForm.item3);
+      formData.append('item4', this.stepRegisterForm.item4);
+      formData.append('item5', this.stepRegisterForm.item5);
+      formData.append('detail1', this.stepRegisterForm.detail1);
+      formData.append('detail2', this.stepRegisterForm.detail2);
+      formData.append('detail3', this.stepRegisterForm.detail3);
+      formData.append('detail4', this.stepRegisterForm.detail4);
+      formData.append('detail5', this.stepRegisterForm.detail5);
       formData.append('user_id', this.userID);
-      console.log('formData：', formData);
+      console.log('item1：', formData.get('item1'));
+      console.log('detail1：', formData.get('detail1'));
       axios.post('/api/step_register', formData).then(function (res) {
         if (res.data.result_flag === true) {
           console.log('通信成功');
@@ -40698,8 +40719,8 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "label",
-                  { staticClass: "c-form__label", attrs: { for: "content" } },
-                  [_vm._v("内容")]
+                  { staticClass: "c-form__label", attrs: { for: "overview" } },
+                  [_vm._v("概要（191文字以下）")]
                 ),
                 _vm._v(" "),
                 _c("textarea", {
@@ -40707,13 +40728,13 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.stepRegisterForm.content,
-                      expression: "stepRegisterForm.content"
+                      value: _vm.stepRegisterForm.overview,
+                      expression: "stepRegisterForm.overview"
                     }
                   ],
                   staticClass: "c-form__textarea",
-                  attrs: { id: "content" },
-                  domProps: { value: _vm.stepRegisterForm.content },
+                  attrs: { id: "overview" },
+                  domProps: { value: _vm.stepRegisterForm.overview },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
@@ -40721,7 +40742,7 @@ var render = function() {
                       }
                       _vm.$set(
                         _vm.stepRegisterForm,
-                        "content",
+                        "overview",
                         $event.target.value
                       )
                     }
@@ -40733,6 +40754,7 @@ var render = function() {
                     "button",
                     {
                       staticClass: "c-button-right",
+                      attrs: { type: "button" },
                       on: { click: _vm.isDisplay }
                     },
                     [_vm._v("次へ")]
@@ -40746,7 +40768,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "label",
-                  { staticClass: "c-form__label", attrs: { for: "title" } },
+                  { staticClass: "c-form__label", attrs: { for: "item1" } },
                   [_vm._v("STEP1")]
                 ),
                 _vm._v(" "),
@@ -40755,13 +40777,13 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.stepRegisterForm.process1,
-                      expression: "stepRegisterForm.process1"
+                      value: _vm.stepRegisterForm.item1,
+                      expression: "stepRegisterForm.item1"
                     }
                   ],
                   staticClass: "c-form__input",
-                  attrs: { type: "text", id: "title" },
-                  domProps: { value: _vm.stepRegisterForm.process1 },
+                  attrs: { type: "text", id: "item1" },
+                  domProps: { value: _vm.stepRegisterForm.item1 },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
@@ -40769,7 +40791,7 @@ var render = function() {
                       }
                       _vm.$set(
                         _vm.stepRegisterForm,
-                        "process1",
+                        "item1",
                         $event.target.value
                       )
                     }
@@ -40778,7 +40800,39 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "label",
-                  { staticClass: "c-form__label", attrs: { for: "title" } },
+                  { staticClass: "c-form__label", attrs: { for: "detail1" } },
+                  [_vm._v("STEP1詳細（191文字以下）")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.detail1,
+                      expression: "stepRegisterForm.detail1"
+                    }
+                  ],
+                  staticClass: "c-form__textarea",
+                  attrs: { id: "detail1" },
+                  domProps: { value: _vm.stepRegisterForm.detail1 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "detail1",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "item2" } },
                   [_vm._v("STEP2")]
                 ),
                 _vm._v(" "),
@@ -40787,13 +40841,13 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.stepRegisterForm.process2,
-                      expression: "stepRegisterForm.process2"
+                      value: _vm.stepRegisterForm.item2,
+                      expression: "stepRegisterForm.item2"
                     }
                   ],
                   staticClass: "c-form__input",
-                  attrs: { type: "text", id: "title" },
-                  domProps: { value: _vm.stepRegisterForm.process2 },
+                  attrs: { type: "text", id: "item2" },
+                  domProps: { value: _vm.stepRegisterForm.item2 },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
@@ -40801,7 +40855,7 @@ var render = function() {
                       }
                       _vm.$set(
                         _vm.stepRegisterForm,
-                        "process2",
+                        "item2",
                         $event.target.value
                       )
                     }
@@ -40810,7 +40864,39 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "label",
-                  { staticClass: "c-form__label", attrs: { for: "title" } },
+                  { staticClass: "c-form__label", attrs: { for: "detail2" } },
+                  [_vm._v("STEP2詳細（191文字以下）")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.detail2,
+                      expression: "stepRegisterForm.detail2"
+                    }
+                  ],
+                  staticClass: "c-form__textarea",
+                  attrs: { id: "detail2" },
+                  domProps: { value: _vm.stepRegisterForm.detail2 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "detail2",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "item3" } },
                   [_vm._v("STEP3")]
                 ),
                 _vm._v(" "),
@@ -40819,13 +40905,13 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.stepRegisterForm.process3,
-                      expression: "stepRegisterForm.process3"
+                      value: _vm.stepRegisterForm.item3,
+                      expression: "stepRegisterForm.item3"
                     }
                   ],
                   staticClass: "c-form__input",
-                  attrs: { type: "text", id: "title" },
-                  domProps: { value: _vm.stepRegisterForm.process3 },
+                  attrs: { type: "text", id: "item3" },
+                  domProps: { value: _vm.stepRegisterForm.item3 },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
@@ -40833,7 +40919,7 @@ var render = function() {
                       }
                       _vm.$set(
                         _vm.stepRegisterForm,
-                        "process3",
+                        "item3",
                         $event.target.value
                       )
                     }
@@ -40842,7 +40928,39 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "label",
-                  { staticClass: "c-form__label", attrs: { for: "title" } },
+                  { staticClass: "c-form__label", attrs: { for: "detail3" } },
+                  [_vm._v("STEP3詳細（191文字以下）")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.detail3,
+                      expression: "stepRegisterForm.detail3"
+                    }
+                  ],
+                  staticClass: "c-form__textarea",
+                  attrs: { id: "detail3" },
+                  domProps: { value: _vm.stepRegisterForm.detail3 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "detail3",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "item4" } },
                   [_vm._v("STEP4")]
                 ),
                 _vm._v(" "),
@@ -40851,13 +40969,13 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.stepRegisterForm.process4,
-                      expression: "stepRegisterForm.process4"
+                      value: _vm.stepRegisterForm.item4,
+                      expression: "stepRegisterForm.item4"
                     }
                   ],
                   staticClass: "c-form__input",
-                  attrs: { type: "text", id: "title" },
-                  domProps: { value: _vm.stepRegisterForm.process4 },
+                  attrs: { type: "text", id: "item4" },
+                  domProps: { value: _vm.stepRegisterForm.item4 },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
@@ -40865,7 +40983,7 @@ var render = function() {
                       }
                       _vm.$set(
                         _vm.stepRegisterForm,
-                        "process4",
+                        "item4",
                         $event.target.value
                       )
                     }
@@ -40874,7 +40992,39 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "label",
-                  { staticClass: "c-form__label", attrs: { for: "title" } },
+                  { staticClass: "c-form__label", attrs: { for: "detail4" } },
+                  [_vm._v("STEP4詳細（191文字以下）")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.detail4,
+                      expression: "stepRegisterForm.detail4"
+                    }
+                  ],
+                  staticClass: "c-form__textarea",
+                  attrs: { id: "detail4" },
+                  domProps: { value: _vm.stepRegisterForm.detail4 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "detail4",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "item5" } },
                   [_vm._v("STEP5")]
                 ),
                 _vm._v(" "),
@@ -40883,13 +41033,13 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.stepRegisterForm.process5,
-                      expression: "stepRegisterForm.process5"
+                      value: _vm.stepRegisterForm.item5,
+                      expression: "stepRegisterForm.item5"
                     }
                   ],
                   staticClass: "c-form__input",
-                  attrs: { type: "text", id: "title" },
-                  domProps: { value: _vm.stepRegisterForm.process5 },
+                  attrs: { type: "text", id: "item5" },
+                  domProps: { value: _vm.stepRegisterForm.item5 },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
@@ -40897,7 +41047,39 @@ var render = function() {
                       }
                       _vm.$set(
                         _vm.stepRegisterForm,
-                        "process5",
+                        "item5",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "c-form__label", attrs: { for: "detail5" } },
+                  [_vm._v("STEP5詳細（191文字以下）")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stepRegisterForm.detail5,
+                      expression: "stepRegisterForm.detail5"
+                    }
+                  ],
+                  staticClass: "c-form__textarea",
+                  attrs: { id: "detail5" },
+                  domProps: { value: _vm.stepRegisterForm.detail5 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.stepRegisterForm,
+                        "detail5",
                         $event.target.value
                       )
                     }
@@ -40909,6 +41091,7 @@ var render = function() {
                     "button",
                     {
                       staticClass: "c-button-left",
+                      attrs: { type: "button" },
                       on: { click: _vm.isDisplay }
                     },
                     [_vm._v("前へ")]

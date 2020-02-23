@@ -19,7 +19,7 @@ class CreateStepsTable extends Migration
             $table->string('thumbnail')->default();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
-            $table->string('content');
+            $table->string('overview');
             $table->string('target_time');
             $table->boolean('delete_flag')->default(0);
             $table->timestamps();

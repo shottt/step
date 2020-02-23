@@ -11869,6 +11869,7 @@ svg:not([fill]) {
   width: 340px;
   height: 100px;
   border: solid 1px #333;
+  margin-bottom: 40px;
 }
 
 .c-button {

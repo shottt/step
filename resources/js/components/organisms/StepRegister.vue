@@ -2,7 +2,7 @@
   <main>
     <div class="l-form-container">
       <form class="c-form" accept=”image/*” @submit.prevent="stepRegister">
-        <div class="c-form-1" v-if="display">
+        <div v-if="display" class="c-form-1">
           <h2 class="c-form__title">STEP登録（1/2）</h2>
           <label for="thumbnail" class="c-form__label">サムネイル</label>
           <!-- <div class="c-form__area-drop"> -->
@@ -22,26 +22,36 @@
           </select>
           <label for="target_time" class="c-form__label">目安時間</label>
           <input type="text" class="c-form__input" id="target_time" v-model="stepRegisterForm.target_time">
-          <label for="content" class="c-form__label">内容</label>
-          <textarea class="c-form__textarea" id="content" v-model="stepRegisterForm.content"></textarea>
+          <label for="overview" class="c-form__label">概要（191文字以下）</label>
+          <textarea class="c-form__textarea" id="overview" v-model="stepRegisterForm.overview"></textarea>
           <div class="c-form__button">
-            <button class="c-button-right" @click="isDisplay">次へ</button>
+            <button type="button" class="c-button-right" @click="isDisplay">次へ</button>
           </div>
         </div>
-        <div class="c-form-2" v-else>
+        <div v-else class="c-form-2">
           <h2 class="c-form__title">STEP登録（2/2）</h2>
-          <label for="title" class="c-form__label">STEP1</label>
-          <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.process1">
-          <label for="title" class="c-form__label">STEP2</label>
-          <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.process2">
-          <label for="title" class="c-form__label">STEP3</label>
-          <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.process3">
-          <label for="title" class="c-form__label">STEP4</label>
-          <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.process4">
-          <label for="title" class="c-form__label">STEP5</label>
-          <input type="text" class="c-form__input" id="title" v-model="stepRegisterForm.process5">
+          <label for="item1" class="c-form__label">STEP1</label>
+          <input type="text" class="c-form__input" id="item1" v-model="stepRegisterForm.item1">
+          <label for="detail1" class="c-form__label">STEP1詳細（191文字以下）</label>
+          <textarea class="c-form__textarea" id="detail1" v-model="stepRegisterForm.detail1"></textarea>
+          <label for="item2" class="c-form__label">STEP2</label>
+          <input type="text" class="c-form__input" id="item2" v-model="stepRegisterForm.item2">
+          <label for="detail2" class="c-form__label">STEP2詳細（191文字以下）</label>
+          <textarea class="c-form__textarea" id="detail2" v-model="stepRegisterForm.detail2"></textarea>
+          <label for="item3" class="c-form__label">STEP3</label>
+          <input type="text" class="c-form__input" id="item3" v-model="stepRegisterForm.item3">
+          <label for="detail3" class="c-form__label">STEP3詳細（191文字以下）</label>
+          <textarea class="c-form__textarea" id="detail3" v-model="stepRegisterForm.detail3"></textarea>
+          <label for="item4" class="c-form__label">STEP4</label>
+          <input type="text" class="c-form__input" id="item4" v-model="stepRegisterForm.item4">
+          <label for="detail4" class="c-form__label">STEP4詳細（191文字以下）</label>
+          <textarea class="c-form__textarea" id="detail4" v-model="stepRegisterForm.detail4"></textarea>
+          <label for="item5" class="c-form__label">STEP5</label>
+          <input type="text" class="c-form__input" id="item5" v-model="stepRegisterForm.item5">
+          <label for="detail5" class="c-form__label">STEP5詳細（191文字以下）</label>
+          <textarea class="c-form__textarea" id="detail5" v-model="stepRegisterForm.detail5"></textarea>
           <div class="c-form__button">
-            <button class="c-button-left" @click="isDisplay">前へ</button>
+            <button type="button" class="c-button-left" @click="isDisplay">前へ</button>
             <button type="submit" class="c-button-right">登録する</button>
           </div>
         </div>
@@ -61,14 +71,19 @@ export default {
         thumbnail: '',
         title: '',
         target_time: '',
-        content: '',
+        overview: '',
         category_id: '',
         // 以下は子STEPのパラメータ
-        process1: '',
-        process2: '',
-        process3: '',
-        process4: '',
-        process5: '',
+        item1: '',
+        item2: '',
+        item3: '',
+        item4: '',
+        item5: '',
+        detail1: '',
+        detail2: '',
+        detail3: '',
+        detail4: '',
+        detail5: '',
       },
     }
   },
@@ -93,7 +108,6 @@ export default {
       }else{
         return this.display = true;
       }
-      
     },
     // ライブプレビュー機能
     onFileChange: function(event){
@@ -134,7 +148,12 @@ export default {
       this.resetFile();
       this.stepRegisterForm.title = '',
       this.stepRegisterForm.target_time = '',
-      this.stepRegisterForm.content = ''
+      this.stepRegisterForm.overview = '',
+      this.stepRegisterForm.item1 = '',
+      this.stepRegisterForm.item2 = '',
+      this.stepRegisterForm.item3 = '',
+      this.stepRegisterForm.item4 = '',
+      this.stepRegisterForm.item5 = ''
     },
     // ステップ登録
     stepRegister: function(){
@@ -148,16 +167,22 @@ export default {
       formData.append('thumbnail', this.stepRegisterForm.thumbnail);
       formData.append('title', this.stepRegisterForm.title);
       formData.append('target_time', this.stepRegisterForm.target_time);
-      formData.append('content', this.stepRegisterForm.content);
+      formData.append('overview', this.stepRegisterForm.overview);
       formData.append('category_id', this.stepRegisterForm.category_id);
-      formData.append('process1', this.stepRegisterForm.process1);
-      formData.append('process2', this.stepRegisterForm.process2);
-      formData.append('process1', this.stepRegisterForm.process3);
-      formData.append('process1', this.stepRegisterForm.process4);
-      formData.append('process1', this.stepRegisterForm.process5);
+      formData.append('item1', this.stepRegisterForm.item1);
+      formData.append('item2', this.stepRegisterForm.item2);
+      formData.append('item3', this.stepRegisterForm.item3);
+      formData.append('item4', this.stepRegisterForm.item4);
+      formData.append('item5', this.stepRegisterForm.item5);
+      formData.append('detail1', this.stepRegisterForm.detail1);
+      formData.append('detail2', this.stepRegisterForm.detail2);
+      formData.append('detail3', this.stepRegisterForm.detail3);
+      formData.append('detail4', this.stepRegisterForm.detail4);
+      formData.append('detail5', this.stepRegisterForm.detail5);
       formData.append('user_id', this.userID);
 
-      console.log('formData：', formData);
+      console.log('item1：', formData.get('item1'));
+      console.log('detail1：', formData.get('detail1'));
 
       axios.post('/api/step_register', formData).then((res) => {
         if(res.data.result_flag === true){

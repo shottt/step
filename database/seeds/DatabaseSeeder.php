@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             StepsTableSeeder::class,
             // ProcessesTableSeeder::class,
             CategoriesTableSeeder::class,
-            // FavoritesTableSeeder::class,
+            FavoritesTableSeeder::class,
             ]);
     }
 }

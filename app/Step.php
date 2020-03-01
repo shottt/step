@@ -21,4 +21,9 @@ class Step extends Model
     {
         return $this->hasMany('App\Process');
     }
+
+    public function challenges()
+    {
+        return $this->hasMany('App\Challenge');
+    }
 }

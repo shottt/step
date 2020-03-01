@@ -40196,6 +40196,10 @@ var render = function() {
           _vm._v(" "),
           _c("span", { staticClass: "p-step-card__favorites" }, [
             _vm._v(_vm._s(_vm.step.favorites_count))
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "p-step-card__challenges" }, [
+            _vm._v(_vm._s(_vm.step.challenges_count))
           ])
         ]
       )

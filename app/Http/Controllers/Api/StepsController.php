@@ -15,7 +15,7 @@ class StepsController extends Controller
     public function steplist(){
         
         // STEP一覧取得（お気に入り情報、チャレンジ情報はSTEP詳細で取得し、emitで渡す？）
-        $steplist = Step::withCount('favorites')->get();
+        $steplist = Step::withCount('favorites')->withCount('challenges')->get();
 
         Log::debug('steplist：' . $steplist);
 

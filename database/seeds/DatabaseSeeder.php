@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             // ProcessesTableSeeder::class,
             CategoriesTableSeeder::class,
             FavoritesTableSeeder::class,
+            ChallengesTableSeeder::class,
             ]);
     }
 }

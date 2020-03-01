@@ -6,7 +6,7 @@
       <p class="p-step-card__overview">{{ step.overview }}</p>
       <div class="p-step-card__date">{{ step.created_at }}</div>
       <span class="p-step-card__favorites">{{ step.favorites_count }}</span>
-      <!-- <span class="p-step-card__challenges">{{ challenges }}</span> -->
+      <span class="p-step-card__challenges">{{ step.challenges_count }}</span>
     </router-link>
   </div>
 </template>

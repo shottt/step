@@ -7,8 +7,6 @@ import store from '../store';
 import Top from '../components/organisms/Top';
 import Register from '../components/organisms/Register';
 import Login from '../components/organisms/Login';
-import PassRemindSend from '../components/organisms/PassRemindSend';
-import PassRemindRecive from '../components/organisms/PassRemindRecieve';
 import User from '../components/organisms/User';
 import Mypage from '../components/organisms/Mypage';
 import ProfEdit from '../components/organisms/ProfEdit';
@@ -71,38 +69,6 @@ const routes = [
     components: {
       header: Header,
       main: Login,
-      footer: Footer,
-    },
-    // beforeEnter(to, from, next){
-    //   if(store.getters['auth/check']){
-    //     next('/mypage');
-    //   }else{
-    //     next();
-    //   }
-    // }
-  },
-  // パスワードリマインダー送信ページ
-  {
-    path: '/pass_remind_send',
-    components: {
-      header: Header,
-      main: PassRemindSend,
-      footer: Footer,
-    },
-    beforeEnter(to, from, next){
-      if(store.getters['auth/check']){
-        next('/mypage');
-      }else{
-        next();
-      }
-    }
-  },
-  // パスワードリマインダー入力ページ
-  {
-    path: '/pass_remind_recieve',
-    components: {
-      header: Header,
-      main: PassRemindRecive,
       footer: Footer,
     },
     // beforeEnter(to, from, next){

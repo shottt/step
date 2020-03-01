@@ -41,7 +41,7 @@ Route::get('/user', function(){
 // STEP登録
 Route::post('/step_register', 'Api\StepsController@step_register')->name('step_register');
 // STEP一覧取得
-Route::get('/steps', 'Api\StepsController@index')->name('steps');
+Route::get('/steplist', 'Api\StepsController@steplist')->name('steplist');
 
 // カテゴリー取得
 Route::get('/categories', 'Api\CategoriesController@index')->name('categories');

@@ -16,7 +16,7 @@ class CreateStepsTable extends Migration
         Schema::create('steps', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('thumbnail')->default();
+            $table->string('thumbnail')->default('storage/noimage.gif');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->string('overview');

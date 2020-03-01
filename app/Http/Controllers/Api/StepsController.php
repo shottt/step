@@ -12,8 +12,17 @@ use Illuminate\Support\Facades\Log;
 class StepsController extends Controller
 {
     // STEP一覧取得
-    public function steps(){
+    public function steplist(){
         
+        // STEP一覧取得（お気に入り情報、チャレンジ情報はSTEP詳細で取得し、emitで渡す？）
+        $steplist = Step::all();
+
+        Log::debug('steplist：' . $steplist);
+
+
+        if($steplist){
+            return response()->json(['steplist' => $steplist, 'result_flag' => true]);
+        }
     }
 
     // STEP登録

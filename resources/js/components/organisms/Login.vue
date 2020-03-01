@@ -6,7 +6,7 @@
       <input type="email" class="c-form__input" id="login-email" v-model="loginForm.email">
       <label for="login-password" class="c-form__label">パスワード</label>
       <input type="password" class="c-form__input" id="login-password" v-model="loginForm.password">
-      <input type="checkbox">次回ログインを省略する
+      <!-- <input type="checkbox">次回ログインを省略する -->
       <div class="c-form__button">
         <button type="submit" class="c-button-right">ログイン</button>
       </div>

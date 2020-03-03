@@ -10,7 +10,7 @@ class CategoriesController extends Controller
 {
     public function index(){
         // DBからカテゴリーデータを取得する
-        $categories = Category::get(); // nameとidだけ取得してセットする
+        $categories = Category::get(); 
 
         return response()->json(['categories' => $categories]);
     }

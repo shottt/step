@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
+use Faker\Provider\DateTime;
 
 class StepsTableSeeder extends Seeder
 {
@@ -20,7 +21,7 @@ class StepsTableSeeder extends Seeder
             'category_id' => '1',
             'overview' => '紹介紹介紹介紹介紹介紹介紹介紹介',
             'target_time' => '3か月',
-            'created_at' => Carbon::now(),
+            'created_at' => DateTime::dateTimeThisDecade(),
             'updated_at' => Carbon::now(),
         ];
         DB::table('steps')->insert($param);
@@ -32,7 +33,7 @@ class StepsTableSeeder extends Seeder
             'category_id' => '2',
             'overview' => '紹介紹介紹介紹介紹介紹介紹介紹介',
             'target_time' => '6か月',
-            'created_at' => Carbon::now(),
+            'created_at' => DateTime::dateTimeThisDecade(),
             'updated_at' => Carbon::now(),
         ];
         DB::table('steps')->insert($param);
@@ -44,7 +45,7 @@ class StepsTableSeeder extends Seeder
             'category_id' => '1',
             'overview' => '紹介紹介紹介紹介紹介紹介紹介紹介',
             'target_time' => '3か月',
-            'created_at' => Carbon::now(),
+            'created_at' => DateTime::dateTimeThisDecade(),
             'updated_at' => Carbon::now(),
         ];
         DB::table('steps')->insert($param);
@@ -56,7 +57,7 @@ class StepsTableSeeder extends Seeder
             'category_id' => '2',
             'overview' => '紹介紹介紹介紹介紹介紹介紹介紹介',
             'target_time' => '6か月',
-            'created_at' => Carbon::now(),
+            'created_at' => DateTime::dateTimeThisDecade(),
             'updated_at' => Carbon::now(),
         ];
         DB::table('steps')->insert($param);

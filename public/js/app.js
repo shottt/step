@@ -2027,8 +2027,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'search'
+  name: 'search',
+  data: function data() {
+    return {
+      categories: '',
+      searchForm: {
+        category_id: '',
+        sort: ''
+      }
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/categories').then(function (res) {
+      console.log('res.data.categories：', res.data.categories);
+      _this.categories = res.data.categories;
+    });
+  },
+  methods: {
+    search: function search() {
+      // フォームの入力内容をコンソールに出力
+      console.log('searchForm：', this.searchForm);
+      axios.post('/api/step_search', this.searchForm).then(function (res) {
+        console.log('res.data.steplist：', res.data.steplist);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -39130,51 +39162,138 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "p-step-search" }, [
+    _c(
+      "form",
+      {
+        staticClass: "p-step-search__form",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.search($event)
+          }
+        }
+      },
+      [
+        _c("h2", { staticClass: "p-step-search__title" }, [_vm._v("検索する")]),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "p-step-search__label", attrs: { for: "category" } },
+          [_vm._v("カテゴリー")]
+        ),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.searchForm.category_id,
+                expression: "searchForm.category_id"
+              }
+            ],
+            staticClass: "p-step-search__form",
+            attrs: { name: "", id: "category" },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.searchForm,
+                  "category_id",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { disabled: "", value: "" } }, [
+              _vm._v("選択してください")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.categories, function(category) {
+              return _c("option", { domProps: { value: category.id } }, [
+                _vm._v("\n        " + _vm._s(category.name) + "\n      ")
+              ])
+            })
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "p-step-search__label", attrs: { for: "sort" } },
+          [_vm._v("表示順")]
+        ),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.searchForm.sort,
+                expression: "searchForm.sort"
+              }
+            ],
+            staticClass: "p-step-search__form",
+            attrs: { name: "", id: "sort" },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.searchForm,
+                  "sort",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { disabled: "", value: "" } }, [
+              _vm._v("選択してください")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "0", selected: "" } }, [
+              _vm._v("新着順")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "1" } }, [_vm._v("投稿順")])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-step-search" }, [
-      _c("form", { staticClass: "p-step-search__form" }, [
-        _c("h2", { staticClass: "p-step-search__title" }, [_vm._v("検索する")]),
-        _vm._v(" "),
-        _c(
-          "label",
-          {
-            staticClass: "p-step-search__label",
-            attrs: { for: "category-search" }
-          },
-          [_vm._v("カテゴリー")]
-        ),
-        _vm._v(" "),
-        _c("select", { attrs: { name: "category", id: "category-search" } }, [
-          _c("option", { attrs: { value: "0", selected: "" } }, [
-            _vm._v("プログラミング")
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "1" } }, [_vm._v("英語")])
-        ]),
-        _vm._v(" "),
-        _c(
-          "label",
-          {
-            staticClass: "p-step-search__label",
-            attrs: { for: "display-order" }
-          },
-          [_vm._v("表示順")]
-        ),
-        _vm._v(" "),
-        _c("select", { attrs: { name: "order", id: "display-order" } }, [
-          _c("option", { attrs: { value: "0", selected: "" } }, [
-            _vm._v("新着順")
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "1" } }, [_vm._v("投稿順")])
-        ])
-      ])
+    return _c("div", { staticClass: "c-form__button" }, [
+      _c(
+        "button",
+        { staticClass: "c-button-right", attrs: { type: "submit" } },
+        [_vm._v("登録する")]
+      )
     ])
   }
 ]

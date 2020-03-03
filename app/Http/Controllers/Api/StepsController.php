@@ -25,6 +25,30 @@ class StepsController extends Controller
         }
     }
 
+    // STEP検索
+    public function step_search(Request $request){
+
+        $category_id = $request->category_id;
+        $sort = $request->sort;
+
+        Log::debug('category_id：' . $category_id);
+        Log::debug('sort：' . $sort);
+
+        // レコードを検索する(withCount使う)
+        if($sort == 0){
+            $steplist = Step::withCount('favorites')->withCount('challenges')->Where('category_id', $category_id)
+                            ->orderBy('created_at', 'desc')->get();
+        }else{
+            $steplist = Step::withCount('favorites')->withCount('challenges')->Where('category_id', $category_id)
+                            ->orderBy('created_at', 'asc')->get();
+        }
+
+        Log::debug('steplist：' . $steplist);
+        if($steplist){
+            return response()->json(['steplist' => $steplist, 'result_flag' => true]);
+        }
+    }
+
     // STEP登録
     public function step_register(StepRegisterRequest $request){
         // post値を変数に格納

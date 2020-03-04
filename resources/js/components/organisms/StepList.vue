@@ -13,11 +13,6 @@ export default {
   components: {
     'StepCard': StepCard,
   },
-  // data: function(){
-  //   return {
-  //     steplist: ''
-  //   }
-  // },
   props: {
     steplist: '',
   },

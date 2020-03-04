@@ -2054,10 +2054,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     search: function search() {
+      var _this2 = this;
+
       // フォームの入力内容をコンソールに出力
       console.log('searchForm：', this.searchForm);
       axios.post('/api/step_search', this.searchForm).then(function (res) {
         console.log('res.data.steplist：', res.data.steplist);
+
+        _this2.$emit('search-event', res.data.steplist);
       });
     }
   }
@@ -2624,6 +2628,27 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     'StepList': _organisms_StepList__WEBPACK_IMPORTED_MODULE_0__["default"],
     'Search': _molecule_Search__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      searchresult: ''
+    };
+  },
+  // STEP一覧データ取得
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/steplist').then(function (res) {
+      console.log('res.data.steplist：', res.data.steplist);
+      _this.searchresult = res.data.steplist;
+    });
+  },
+  // 検索結果をセット
+  methods: {
+    resultSet: function resultSet(result) {
+      console.log('result：', result);
+      this.searchresult = result;
+    }
   }
 });
 
@@ -2652,19 +2677,13 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     'StepCard': _StepCard__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  data: function data() {
-    return {
-      steplist: ''
-    };
-  },
-  // STEP一覧データ取得
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/api/steplist').then(function (res) {
-      console.log('res.data.steplist：', res.data.steplist);
-      _this.steplist = res.data.steplist;
-    });
+  // data: function(){
+  //   return {
+  //     steplist: ''
+  //   }
+  // },
+  props: {
+    steplist: ''
   }
 });
 
@@ -40354,7 +40373,11 @@ var render = function() {
     _c(
       "div",
       { staticClass: "p-step-index__area" },
-      [_c("StepList"), _vm._v(" "), _c("Search")],
+      [
+        _c("StepList", { attrs: { steplist: _vm.searchresult } }),
+        _vm._v(" "),
+        _c("Search", { on: { "search-event": _vm.resultSet } })
+      ],
       1
     )
   ])

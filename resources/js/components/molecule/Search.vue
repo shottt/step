@@ -48,7 +48,7 @@ export default {
       axios.post('/api/step_search', this.searchForm).then((res) => {
         console.log('res.data.steplist：', res.data.steplist);
 
-        
+        this.$emit('search-event', res.data.steplist);
       });
     }
   }

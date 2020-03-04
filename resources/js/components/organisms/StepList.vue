@@ -13,17 +13,13 @@ export default {
   components: {
     'StepCard': StepCard,
   },
-  data: function(){
-    return {
-      steplist: ''
-    }
-  },
-  // STEP一覧データ取得
-  mounted: function(){
-    axios.get('/api/steplist').then((res) => {
-      console.log('res.data.steplist：', res.data.steplist);
-      this.steplist = res.data.steplist;
-    })
+  // data: function(){
+  //   return {
+  //     steplist: ''
+  //   }
+  // },
+  props: {
+    steplist: '',
   },
 }
 </script>

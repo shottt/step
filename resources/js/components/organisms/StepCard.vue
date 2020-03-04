@@ -5,6 +5,7 @@
       <img :src="step.thumbnail" alt="" class="p-step-card__thumbnail">
       <p class="p-step-card__overview">{{ step.overview }}</p>
       <div class="p-step-card__date">{{ step.created_at }}</div>
+      <i class="fa fa-heart"></i>
       <span class="p-step-card__favorites">{{ step.favorites_count }}</span>
       <span class="p-step-card__challenges">{{ step.challenges_count }}</span>
     </router-link>

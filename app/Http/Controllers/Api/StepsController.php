@@ -49,6 +49,28 @@ class StepsController extends Controller
         }
     }
 
+    // 登録したSTEP一覧取得
+    public function registered_step(Request $request){
+        
+        Log::debug('1');
+        // ユーザーIDを変数に格納
+        // $user_id = $request->user_id;
+        // Log::debug('user_id：' .$user_id);
+        
+
+        // // 異常判定
+        // if($user_id){
+        //     return response()->json(['result_flag' => false]);
+        // }
+
+        // // 登録したSTEP一覧を取得する
+        // $steplist = Step::withCount('favorites')->withCount('challenges')->where('user_id', $user_id)->get();
+
+        // if($steplist){
+        //     return response()->json(['steplist' => $steplist, 'result_flag' => true]);
+        // }
+
+    }
     // STEP登録
     public function step_register(StepRegisterRequest $request){
         // post値を変数に格納

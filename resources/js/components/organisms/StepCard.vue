@@ -1,6 +1,6 @@
 <template>
   <div class="p-step-card">
-    <router-link class="p-step-card__link" to="">
+    <router-link class="p-step-card__link" to="/steplist/:id">
       <h2 class="p-step-card__title">{{ step.title }}</h2>
       <img :src="step.thumbnail" alt="" class="p-step-card__thumbnail">
       <p class="p-step-card__overview">{{ step.overview }}</p>

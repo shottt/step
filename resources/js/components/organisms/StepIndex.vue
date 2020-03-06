@@ -1,11 +1,13 @@
 <template>
-  <div class="p-step-index">
-    <h2 class="p-step-index__title">STEP一覧</h2>
-    <div class="p-step-index__area">
-      <StepList v-bind:steplist="searchresult"/>
-      <Search @search-event="resultSet"/>
+  <main>
+    <div class="p-step-index">
+      <h2 class="p-step-index__title">STEP一覧</h2>
+      <div class="p-step-index__area">
+        <StepList v-bind:steplist="searchresult"/>
+        <Search @search-event="resultSet"/>
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>

@@ -45,6 +45,12 @@ Route::get('/steplist', 'Api\StepsController@steplist')->name('steplist');
 // STEP検索
 Route::post('/step_search', 'Api\StepsController@step_search')->name('step_search');
 
+// 登録したSTEP一覧取得
+Route::get('/registered_step', 'Api\StepsController@registered_step')->name('registered_step');
+
+
+// チャレンジ中のSTEP一覧取得
+Route::get('/challenged_step', 'Api\ChallengesController@challenged_step')->name('challenged_step');
 
 // カテゴリー取得
 Route::get('/categories', 'Api\CategoriesController@index')->name('categories');

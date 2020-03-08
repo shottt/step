@@ -44,6 +44,8 @@ Route::post('/step_register', 'Api\StepsController@step_register')->name('step_r
 Route::get('/steplist', 'Api\StepsController@steplist')->name('steplist');
 // STEP検索
 Route::post('/step_search', 'Api\StepsController@step_search')->name('step_search');
+// STEP詳細取得
+Route::get('/step_detail', 'Api\StepsController@step_detail')->name('step_detail');
 
 // 登録したSTEP一覧取得
 Route::get('/registered_step', 'Api\StepsController@registered_step')->name('registered_step');

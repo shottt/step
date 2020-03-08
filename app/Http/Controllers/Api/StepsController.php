@@ -25,6 +25,24 @@ class StepsController extends Controller
         }
     }
 
+    // STEP詳細取得
+    public function step_detail(Request $request){
+        Log::debug('id：' . $request->input('s'));
+        // クエリパラメータ(STEP_idを変数に格納)
+        $step_id = (int)$request->input('s');
+
+        // STEP詳細情報を取得（categoryテーブルの情報も取得)
+        $step = Step::with('category:id,name')->where('id', $step_id)->first();
+        Log::debug('step：'. $step);
+
+        // 異常判定
+        if(empty($step)){
+            return response()->json(['result_flag' => false]);
+        }
+
+        return response()->json(['step' => $step, 'result_flag' => true]);
+    }
+
     // STEP検索
     public function step_search(Request $request){
 

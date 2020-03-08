@@ -16,7 +16,7 @@ import StepRegister from '../components/organisms/StepRegister';
 import StepEdit from '../components/organisms/StepEdit';
 import Process from '../components/organisms/Process';
 import StepIndex from '../components/organisms/StepIndex';
-import StepDetail from '../components/organisms/StepDeatil';
+import StepDetail from '../components/organisms/StepDetail';
 import SystemError from '../components/organisms/SystemError';
 
 
@@ -192,7 +192,7 @@ const routes = [
   },
   // 子ステップ詳細ページ
   {
-    path: '/steplist/:id/process:id', // パスは検討要
+    path: '/steplist/:id(\\d+)/process/:id(\\d+)', // パスは検討要
     components: {
       header: Header,
       main: Process,
@@ -211,7 +211,8 @@ const routes = [
   },
   // ステップ詳細ページ
   {
-    path: '/steplist/:id',
+    path: '/stepindex/:id(\\d+)', // (\\d+)でパラメータに数字しか入らない正規表現
+    name: 'step_detail',
     components: {
       header: Header,
       main: StepDetail,

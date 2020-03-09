@@ -9,21 +9,21 @@ class Step extends Model
     
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Category', 'id');
     }
 
     public function favorites()
     {
-        return $this->hasMany('App\Favorite');
+        return $this->hasMany('App\Favorite', 'step_id');
     }
 
     public function processes()
     {
-        return $this->hasMany('App\Process');
+        return $this->hasMany('App\Process', 'step_id');
     }
 
     public function challenges()
     {
-        return $this->hasMany('App\Challenge');
+        return $this->hasMany('App\Challenge', 'step_id');
     }
 }

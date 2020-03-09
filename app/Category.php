@@ -9,6 +9,6 @@ class Category extends Model
     // hasMany設定
     public function steps()
     {
-        return $this->hasMany('App\Step');
+        return $this->hasMany('App\Step', 'category_id');
     }
 }

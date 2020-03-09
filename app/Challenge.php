@@ -8,6 +8,6 @@ class Challenge extends Model
 {
     public function step()
     {
-        return $this->belongsTo('App\Step');
+        return $this->belongsTo('App\Step', 'id');
     }
 }

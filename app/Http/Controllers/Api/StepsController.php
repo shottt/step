@@ -31,12 +31,15 @@ class StepsController extends Controller
         // クエリパラメータ(STEP_idを変数に格納)
         $step_id = (int)$request->input('s');
 
-        // STEP詳細情報を取得（categoryテーブルの情報も取得)
-        $step = Step::with('category:id,name')->where('id', $step_id)->first();
+        // STEP詳細情報を取得（categoryテーブルからカテゴリ名も取得)
+        $step = Step::find($step_id)->with('category:id,name')->first();
         Log::debug('step：'. $step);
+        // 該当STEPに紐づくprocesses情報を取得
+        $processes = $step->processes;
+        Log::debug('processes：' . $processes);
 
         // 異常判定
-        if(empty($step)){
+        if(empty($step || $processes)){
             return response()->json(['result_flag' => false]);
         }
 

@@ -12075,3 +12075,30 @@ svg:not([fill]) {
   padding-right: 20px;
 }
 
+.p-step-detail {
+  width: 760px;
+}
+
+.p-step-detail__title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.p-step-detail__category {
+  background-color: black;
+  color: white;
+}
+
+.p-step-detail__thumbnail {
+  width: 100%;
+  height: 420px;
+  margin-bottom: 20px;
+}
+
+.p-step-datail__category {
+  padding: 5px;
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
+}
+

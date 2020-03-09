@@ -8287,6 +8287,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   nama: 'stepdetail',
   data: function data() {
@@ -46112,7 +46117,7 @@ var render = function() {
           _vm._v(" "),
           _c("img", {
             staticClass: "p-step-card__thumbnail",
-            attrs: { src: _vm.step.thumbnail, alt: "" }
+            attrs: { src: _vm.step.thumbnail, alt: "サムネイル" }
           }),
           _vm._v(" "),
           _c("p", { staticClass: "p-step-card__overview" }, [
@@ -46160,28 +46165,43 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "p-step-detail" }, [
-    _c("h2", { staticClass: "p-step-detail__title" }, [
-      _vm._v(_vm._s(_vm.step.title))
-    ]),
-    _vm._v(" "),
-    _c("span", { staticClass: "p-step-datail__category" }, [
-      _vm._v(_vm._s(_vm.step.category.name))
-    ]),
-    _c("br"),
-    _vm._v(" "),
-    _c("img", {
-      staticClass: "p-step-detail__thumbnail",
-      attrs: { src: _vm.step.thumbnail, alt: "" }
-    }),
-    _vm._v(" "),
-    _c("p", { staticClass: "p-step-detail__overview" }, [
-      _vm._v(_vm._s(_vm.step.overview))
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "p-step-detail__date" }, [
-      _vm._v(_vm._s(_vm.step.created_at))
-    ])
+  return _c("main", [
+    _c(
+      "div",
+      { staticClass: "p-step-detail" },
+      [
+        _c("h2", { staticClass: "p-step-detail__title" }, [
+          _vm._v(_vm._s(_vm.step.title))
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "p-step-datail__category" }, [
+          _vm._v(_vm._s(_vm.step.category.name))
+        ]),
+        _c("br"),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "p-step-detail__thumbnail",
+          attrs: { src: _vm.step.thumbnail, alt: "サムネイル" }
+        }),
+        _vm._v(" "),
+        _c("p", { staticClass: "p-step-detail__overview" }, [
+          _vm._v(_vm._s(_vm.step.overview))
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-step-detail__date" }, [
+          _vm._v(_vm._s(_vm.step.created_at))
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.step.processes, function(process) {
+          return _c("div", { staticClass: "p-step-detail__process" }, [
+            _c("h2", [_vm._v(_vm._s(process.item))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(process.detail))])
+          ])
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []

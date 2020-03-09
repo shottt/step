@@ -2,7 +2,7 @@
   <div class="p-step-card">
     <router-link class="p-step-card__link" :to="{ name: 'step_detail', params: {id: step.id }}">
       <h2 class="p-step-card__title">{{ step.title }}</h2>
-      <img :src="step.thumbnail" alt="" class="p-step-card__thumbnail">
+      <img :src="step.thumbnail" alt="サムネイル" class="p-step-card__thumbnail">
       <p class="p-step-card__overview">{{ step.overview }}</p>
       <div class="p-step-card__date">{{ step.created_at }}</div>
       <i class="fa fa-heart"></i>

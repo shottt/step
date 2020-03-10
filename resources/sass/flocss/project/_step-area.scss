@@ -1,0 +1,31 @@
+.p-step-area{
+  &__title{
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  &__category{
+    background-color: black;
+    color: white;
+  }
+  &__thumbnail{
+    width: 100%;
+    height: 420px;
+    margin-bottom: 20px;
+  }
+  &__data{
+
+  }
+  &__overview{
+    width: 100%;
+    min-height: 120xp;
+  }
+}
+
+// 入れ子（上記）では反映されないため、直接指定
+.p-step-area__category{
+  padding: 5px;
+  font-size: 12px;
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
+}

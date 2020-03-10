@@ -18,7 +18,7 @@ class StepsController extends Controller
         $steplist = Step::withCount('favorites')->withCount('challenges')->get();
         
 
-        Log::debug('steplist：' . $steplist);
+        // Log::debug('steplist：' . $steplist);
 
         if($steplist){
             return response()->json(['steplist' => $steplist, 'result_flag' => true]);
@@ -27,16 +27,17 @@ class StepsController extends Controller
 
     // STEP詳細取得
     public function step_detail(Request $request){
-        Log::debug('id：' . $request->input('s'));
+        Log::debug('s_id：' . $request->input('s_id'));
         // クエリパラメータ(STEP_idを変数に格納)
-        $step_id = (int)$request->input('s');
+        $step_id = (int)$request->input('s_id');
 
         // STEP詳細情報を取得（categoryテーブルからカテゴリ名も取得)
         $step = Step::find($step_id)->with('category:id,name')->first();
-        Log::debug('step：'. $step);
+        // Log::debug('step：'. $step);
+
         // 該当STEPに紐づくprocesses情報を取得
         $processes = $step->processes;
-        Log::debug('processes：' . $processes);
+        // Log::debug('processes：' . $processes);
 
         // 異常判定
         if(empty($step || $processes)){

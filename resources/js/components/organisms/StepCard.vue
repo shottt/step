@@ -1,6 +1,7 @@
 <template>
   <div class="p-step-card">
-    <router-link class="p-step-card__link" :to="{ name: 'step_detail', params: {id: step.id }}">
+    <router-link class="p-step-card__link" :to="{ name: 'step_detail', params: {s_id: step.id }}">
+    <!-- <router-link class="p-step-card__link" :to="`/stepindex/${ step.id }`"> -->
       <h2 class="p-step-card__title">{{ step.title }}</h2>
       <img :src="step.thumbnail" alt="サムネイル" class="p-step-card__thumbnail">
       <p class="p-step-card__overview">{{ step.overview }}</p>

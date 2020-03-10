@@ -190,15 +190,16 @@ const routes = [
       }
     }
   },
-  // 子ステップ詳細ページ
-  {
-    path: '/steplist/:id(\\d+)/process/:id(\\d+)', // パスは検討要
-    components: {
-      header: Header,
-      main: Process,
-      footer: Footer,
-    }
-  },
+  // // 子ステップ詳細ページ
+  // {
+  //   path: '/stepindex/:id(\\d+)/process/:id(\\d+)', // パスは検討要
+  //   name: 'process_detail',
+  //   components: {
+  //     header: Header,
+  //     main: Process,
+  //     footer: Footer,
+  //   }
+  // },
   // ログイン未ログインどちらでもアクセス可
   // ステップ一覧ページ
   {
@@ -211,13 +212,25 @@ const routes = [
   },
   // ステップ詳細ページ
   {
-    path: '/stepindex/:id(\\d+)', // (\\d+)でパラメータに数字しか入らない正規表現
+    path: '/stepindex/:s_id(\\d+)', 
     name: 'step_detail',
     components: {
       header: Header,
       main: StepDetail,
       footer: Footer,
-    }
+    },
+    // 子ステップ詳細ページ
+    children: [
+      {
+        path: 'process/:p_id(\\d+)',
+        name: 'process_detail',
+        components: {
+          header: Header,
+          main: Process,
+          footer: Footer,
+        }
+      }
+    ]
   },
 ]
 

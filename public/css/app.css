@@ -12079,24 +12079,30 @@ svg:not([fill]) {
   width: 760px;
 }
 
-.p-step-detail__title {
-  font-size: 20px;
+.p-step-area__title {
+  font-size: 36px;
   margin-bottom: 20px;
 }
 
-.p-step-detail__category {
+.p-step-area__category {
   background-color: black;
   color: white;
 }
 
-.p-step-detail__thumbnail {
+.p-step-area__thumbnail {
   width: 100%;
   height: 420px;
   margin-bottom: 20px;
 }
 
-.p-step-datail__category {
+.p-step-area__overview {
+  width: 100%;
+  min-height: 120xp;
+}
+
+.p-step-area__category {
   padding: 5px;
+  font-size: 12px;
   background-color: black;
   color: white;
   margin-bottom: 20px;

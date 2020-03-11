@@ -29,7 +29,7 @@ export default {
     }
   },
   mounted: function(){
-    console.log('id：', this.$route.params['s_id']);
+    console.log('s_id：', this.$route.params['s_id']);
     axios.get('/api/step_detail', {
       params: {
         // クエリパラメータ付与

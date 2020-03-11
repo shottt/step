@@ -16,6 +16,7 @@ import StepRegister from '../components/organisms/StepRegister';
 import StepEdit from '../components/organisms/StepEdit';
 import Process from '../components/organisms/Process';
 import StepIndex from '../components/organisms/StepIndex';
+import Step from '../components/organisms/Step';
 import StepDetail from '../components/organisms/StepDetail';
 import SystemError from '../components/organisms/SystemError';
 
@@ -190,16 +191,6 @@ const routes = [
       }
     }
   },
-  // // 子ステップ詳細ページ
-  // {
-  //   path: '/stepindex/:id(\\d+)/process/:id(\\d+)', // パスは検討要
-  //   name: 'process_detail',
-  //   components: {
-  //     header: Header,
-  //     main: Process,
-  //     footer: Footer,
-  //   }
-  // },
   // ログイン未ログインどちらでもアクセス可
   // ステップ一覧ページ
   {
@@ -212,22 +203,27 @@ const routes = [
   },
   // ステップ詳細ページ
   {
-    path: '/stepindex/:s_id(\\d+)', 
-    name: 'step_detail',
+    path: '/stepindex/:s_id(\\d+)',
+    name: 'step',
     components: {
       header: Header,
-      main: StepDetail,
+      main: Step,
       footer: Footer,
     },
     // 子ステップ詳細ページ
     children: [
       {
+        path: '',
+        name: 'step_detail',
+        components: {
+          main: StepDetail,
+        }
+      },
+      {
         path: 'process/:p_id(\\d+)',
         name: 'process_detail',
         components: {
-          header: Header,
           main: Process,
-          footer: Footer,
         }
       }
     ]

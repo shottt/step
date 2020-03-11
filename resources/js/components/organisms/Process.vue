@@ -17,6 +17,15 @@ export default {
   },
   mounted: function(){
     console.log('p_id：', this.$route.params['p_id']);
+    axios.get('/api/process_detail', {
+      params: {
+        // クエリパラメータ付与
+        p_id: this.$route.params['p_id']
+      }
+    }).then((res) => {
+      console.log('res.data.process：', res.data.process);
+      this.process = res.data.process;
+    });
 
   }
 }

@@ -12114,3 +12114,15 @@ svg:not([fill]) {
   color: black;
 }
 
+.p-process {
+  width: 760px;
+}
+
+.p-process__item {
+  font-size: 30px;
+}
+
+.p-process__detail {
+  min-height: 250px;
+}
+

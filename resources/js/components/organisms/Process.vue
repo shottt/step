@@ -1,8 +1,9 @@
 <template>
   <main>
     <div class="p-process">
-      <h2 class="p-process__title"></h2>
-
+      <h2 class="p-process__item">{{ process.item }}</h2>
+      <p class="p-process__detail">{{ process.detail }}</p>
+      <router-link class="p-process__link" :to="{ name: 'step_detail', params:{s_id: process.step_id}}"><span>&lt;戻る</span></router-link>
     </div>
   </main>
 </template>

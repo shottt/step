@@ -2,7 +2,7 @@
   <main>
   <div class="p-step-detail">
     <div class="p-step-area">
-      <h2 class="p-step-detail__title">{{ step.title }}</h2>
+      <h2 class="p-step-area__title">{{ step.title }}</h2>
       <span class="p-step-area__category">{{ step.category.name }}</span><br>
       <img :src="step.thumbnail" alt="サムネイル" class="p-step-area__thumbnail">
       <p class="p-step-area__overview">{{ step.overview }}</p>
@@ -16,6 +16,7 @@
         </router-link>
       </div>
     </div>
+    <router-link class="p-step-detail__link" to="/stepindex"><span>&lt;STEP一覧に戻る</span></router-link>
   </div>
   </main>
 </template>

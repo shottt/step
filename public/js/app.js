@@ -8364,6 +8364,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   nama: 'stepdetail',
   data: function data() {
@@ -46317,69 +46318,83 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", [
-    _c("div", { staticClass: "p-step-detail" }, [
-      _c("div", { staticClass: "p-step-area" }, [
-        _c("h2", { staticClass: "p-step-detail__title" }, [
-          _vm._v(_vm._s(_vm.step.title))
+    _c(
+      "div",
+      { staticClass: "p-step-detail" },
+      [
+        _c("div", { staticClass: "p-step-area" }, [
+          _c("h2", { staticClass: "p-step-area__title" }, [
+            _vm._v(_vm._s(_vm.step.title))
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "p-step-area__category" }, [
+            _vm._v(_vm._s(_vm.step.category.name))
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "p-step-area__thumbnail",
+            attrs: { src: _vm.step.thumbnail, alt: "サムネイル" }
+          }),
+          _vm._v(" "),
+          _c("p", { staticClass: "p-step-area__overview" }, [
+            _vm._v(_vm._s(_vm.step.overview))
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-step-area__date" }, [
+            _vm._v(_vm._s(_vm.step.created_at))
+          ])
         ]),
         _vm._v(" "),
-        _c("span", { staticClass: "p-step-area__category" }, [
-          _vm._v(_vm._s(_vm.step.category.name))
-        ]),
-        _c("br"),
+        _c(
+          "div",
+          { staticClass: "p-process-area" },
+          _vm._l(_vm.step.processes, function(process, index) {
+            return _c(
+              "div",
+              { staticClass: "p-process-area__process" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "p-process-area__link",
+                    attrs: {
+                      to: {
+                        name: "process_detail",
+                        params: { p_id: process.id }
+                      }
+                    }
+                  },
+                  [
+                    _c("h2", { staticClass: "p-process-area__item" }, [
+                      _vm._v(
+                        "【STEP." +
+                          _vm._s(index + 1) +
+                          "】" +
+                          _vm._s(process.item)
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "p-process-area__detail" }, [
+                      _vm._v(_vm._s(process.detail))
+                    ])
+                  ]
+                )
+              ],
+              1
+            )
+          }),
+          0
+        ),
         _vm._v(" "),
-        _c("img", {
-          staticClass: "p-step-area__thumbnail",
-          attrs: { src: _vm.step.thumbnail, alt: "サムネイル" }
-        }),
-        _vm._v(" "),
-        _c("p", { staticClass: "p-step-area__overview" }, [
-          _vm._v(_vm._s(_vm.step.overview))
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-step-area__date" }, [
-          _vm._v(_vm._s(_vm.step.created_at))
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "p-process-area" },
-        _vm._l(_vm.step.processes, function(process, index) {
-          return _c(
-            "div",
-            { staticClass: "p-process-area__process" },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "p-process-area__link",
-                  attrs: {
-                    to: { name: "process_detail", params: { p_id: process.id } }
-                  }
-                },
-                [
-                  _c("h2", { staticClass: "p-process-area__item" }, [
-                    _vm._v(
-                      "【STEP." +
-                        _vm._s(index + 1) +
-                        "】" +
-                        _vm._s(process.item)
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "p-process-area__detail" }, [
-                    _vm._v(_vm._s(process.detail))
-                  ])
-                ]
-              )
-            ],
-            1
-          )
-        }),
-        0
-      )
-    ])
+        _c(
+          "router-link",
+          { staticClass: "p-step-detail__link", attrs: { to: "/stepindex" } },
+          [_c("span", [_vm._v("<STEP一覧に戻る")])]
+        )
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -64571,14 +64586,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./resources/js/components/organisms/Step.vue ***!
   \****************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Step_vue_vue_type_template_id_9147af36___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Step.vue?vue&type=template&id=9147af36& */ "./resources/js/components/organisms/Step.vue?vue&type=template&id=9147af36&");
 /* harmony import */ var _Step_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Step.vue?vue&type=script&lang=js& */ "./resources/js/components/organisms/Step.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Step_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Step_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -64608,7 +64624,7 @@ component.options.__file = "resources/js/components/organisms/Step.vue"
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/organisms/Step.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

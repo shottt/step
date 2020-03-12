@@ -12110,6 +12110,10 @@ svg:not([fill]) {
   display: inline-block;
 }
 
+.p-process-area {
+  margin-bottom: 20px;
+}
+
 .p-process-area__item {
   color: black;
 }
@@ -12124,5 +12128,6 @@ svg:not([fill]) {
 
 .p-process__detail {
   min-height: 250px;
+  margin-bottom: 20px;
 }
 

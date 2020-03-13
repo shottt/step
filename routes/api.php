@@ -52,7 +52,8 @@ Route::get('/process_detail', 'Api\ProcessesController@process_detail')->name('p
 // 登録したSTEP一覧取得
 Route::get('/registered_step', 'Api\StepsController@registered_step')->name('registered_step');
 
-
+// チャレンジするSTEPの登録
+Route::post('/challenge', 'Api\ChallengesController@challenge')->name('challenge');
 // チャレンジ中のSTEP一覧取得
 Route::get('/challenged_step', 'Api\ChallengesController@challenged_step')->name('challenged_step');
 

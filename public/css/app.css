@@ -12118,6 +12118,11 @@ svg:not([fill]) {
   color: black;
 }
 
+.p-process-area__text {
+  font-size: 30px;
+  text-align: right;
+}
+
 .p-process {
   width: 760px;
 }

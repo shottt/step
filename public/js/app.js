@@ -8332,12 +8332,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   nama: 'stepdetail',
   data: function data() {
     return {
-      step: ''
+      step: '',
+      challenge_id: ''
     };
+  },
+  computed: {
+    isLogin: function isLogin() {
+      return this.$store.getters['auth/check'];
+    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -8352,6 +8366,25 @@ __webpack_require__.r(__webpack_exports__);
       console.log('res.data.step：', res.data.step);
       _this.step = res.data.step;
     });
+  },
+  methods: {
+    challenge: function challenge() {
+      var _this2 = this;
+
+      var challenge_info = {
+        step_id: this.step.id,
+        user_id: this.step.user_id
+      };
+      console.log('challeng_info：', challenge_info); // user_idとstep_idを送る
+
+      axios.post('/api/challenge', challenge_info).then(function (res) {
+        if (res.data.result_flag === true) {
+          console.log('通信成功');
+          console.log('res.data.challenge_id：', res.data.challenge_id);
+          _this2.challenge_id = res.data.challenge_id;
+        }
+      });
+    }
   }
 });
 
@@ -46263,49 +46296,79 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "p-step-area__date" }, [
             _vm._v(_vm._s(_vm.step.created_at))
-          ])
+          ]),
+          _vm._v(" "),
+          _vm.isLogin
+            ? _c(
+                "form",
+                {
+                  staticClass: "c-form",
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.challenge($event)
+                    }
+                  }
+                },
+                [_vm._m(0)]
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "p-process-area" },
-          _vm._l(_vm.step.processes, function(process, index) {
-            return _c(
+        _vm.isLogin
+          ? _c(
               "div",
-              { staticClass: "p-process-area__process" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "p-process-area__link",
-                    attrs: {
-                      to: {
-                        name: "process_detail",
-                        params: { p_id: process.id }
-                      }
-                    }
-                  },
+              { staticClass: "p-process-area" },
+              _vm._l(_vm.step.processes, function(process, index) {
+                return _c(
+                  "div",
+                  { staticClass: "p-process-area__process" },
                   [
-                    _c("h2", { staticClass: "p-process-area__item" }, [
-                      _vm._v(
-                        "【STEP." +
-                          _vm._s(index + 1) +
-                          "】" +
-                          _vm._s(process.item)
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "p-process-area__detail" }, [
-                      _vm._v(_vm._s(process.detail))
-                    ])
-                  ]
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "p-process-area__link",
+                        attrs: {
+                          to: {
+                            name: "process_detail",
+                            params: { p_id: process.id }
+                          }
+                        }
+                      },
+                      [
+                        _c("h2", { staticClass: "p-process-area__item" }, [
+                          _vm._v(
+                            "【STEP." +
+                              _vm._s(index + 1) +
+                              "】" +
+                              _vm._s(process.item)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "p-process-area__detail" }, [
+                          _vm._v(_vm._s(process.detail))
+                        ])
+                      ]
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
+              }),
+              0
             )
-          }),
-          0
-        ),
+          : _c("div", { staticClass: "p-process-area" }, [
+              _c(
+                "p",
+                { staticClass: "p-process-area__text" },
+                [
+                  _vm._v("このSTEPの内容を見たい方は"),
+                  _c("router-link", { attrs: { to: "/register" } }, [
+                    _vm._v("こちら")
+                  ])
+                ],
+                1
+              )
+            ]),
         _vm._v(" "),
         _c(
           "router-link",
@@ -46317,7 +46380,20 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "c-form__button" }, [
+      _c(
+        "button",
+        { staticClass: "c-button-right", attrs: { type: "submit" } },
+        [_vm._v("チャレンジする")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

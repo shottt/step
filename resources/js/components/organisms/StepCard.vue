@@ -18,6 +18,7 @@ export default {
   name: 'stepcard',
   props: {
     step: '',
+    
   },
   data: function(){
     return {

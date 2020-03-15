@@ -14,6 +14,7 @@ const getters = {
       return false;
     }
   },
+  // この機能は使えない？
   getUserID: function(state){
     return state.user.id;
   },

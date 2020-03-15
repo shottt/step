@@ -54,6 +54,8 @@ Route::get('/registered_step', 'Api\StepsController@registered_step')->name('reg
 
 // チャレンジするSTEPの登録
 Route::post('/challenge', 'Api\ChallengesController@challenge')->name('challenge');
+// チャレンジ情報取得
+Route::get('challenge_get', 'Api\ChallengesController@challenge_get')->name('challenge_get');
 // チャレンジ中のSTEP一覧取得
 Route::get('/challenged_step', 'Api\ChallengesController@challenged_step')->name('challenged_step');
 

@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         $this->notify(new CustomPasswordReset($token));
     }
+
+    public function steps()
+    {
+        return $this->hasMany('App\Step', 'user_id');
+    }
 }

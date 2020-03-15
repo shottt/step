@@ -35,13 +35,16 @@ export default {
   data: function(){
     return {
       step: '',
-      challenge_id: ''
+      challenge_id: '',
     }
   },
   computed: {
     isLogin: function(){
       return this.$store.getters['auth/check']
-    }
+    },
+    userID: function(){
+      return this.$store.getters['auth/getUserID']
+    },
   },
   mounted: function(){
     console.log('s_id：', this.$route.params['s_id']);
@@ -59,7 +62,7 @@ export default {
     challenge: function(){
       const challenge_info = {
         step_id: this.step.id, 
-        user_id: this.step.user_id
+        user_id: this.userID,
       };
       console.log('challeng_info：', challenge_info);
       // user_idとstep_idを送る

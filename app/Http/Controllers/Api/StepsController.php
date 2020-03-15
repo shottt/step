@@ -29,8 +29,8 @@ class StepsController extends Controller
         $step_id = (int)$request->input('s_id');
         Log::debug('step_id：' . $step_id);
 
-        // STEP詳細情報を取得（categoryテーブルからカテゴリ名も取得
-        $step = Step::where('id', $step_id)->with('category:id,name')->first();
+        // STEP詳細情報を取得（categoryテーブルからカテゴリ名も取得）
+        $step = Step::with('category:id,name')->where('id', $step_id)->first();
 
         Log::debug('step：'. $step);
 

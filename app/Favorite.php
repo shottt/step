@@ -8,6 +8,6 @@ class Favorite extends Model
 {
     public function step()
     {
-        return $this->belongsTo('App\Step', 'id');
+        return $this->belongsTo('App\Step', 'step_id');
     }
 }

@@ -2,7 +2,7 @@
   <main>
   <div class="p-step-detail">
     <div class="p-step-area">
-      <h2 class="p-step-area__title">{{ step.title }}</h2>
+      <h2 class="p-step-area__title">{{ step.title }}<span v-if="challenge_flag">（チャレンジ中）</span></h2>
       <span class="p-step-area__category">{{ step.category.name }}</span><br>
       <img :src="step.thumbnail" alt="サムネイル" class="p-step-area__thumbnail">
       <p class="p-step-area__overview">{{ step.overview }}</p>
@@ -35,7 +35,7 @@ export default {
   data: function(){
     return {
       step: '',
-      challenge_id: '',
+      challenge_flag: false,
     }
   },
   computed: {
@@ -55,7 +55,10 @@ export default {
       }
     }).then((res) => {
       console.log('res.data.step：', res.data.step);
+
       this.step = res.data.step;
+      // チャレンジ情報はログインユーザーかどうかの判定が必要
+      this.challenge_flag = res.data.challenge_flag;
     });
   },
   methods: {
@@ -69,9 +72,9 @@ export default {
       axios.post('/api/challenge', challenge_info).then((res) => {
         if(res.data.result_flag === true){
           console.log('通信成功');
-          console.log('res.data.challenge_id：', res.data.challenge_id);
+          console.log('res.data.challenge_flag：', res.data.challenge_flag);
 
-          this.challenge_id = res.data.challenge_id;
+          this.challenge_flag = res.data.challenge_flag;
         }
        
 

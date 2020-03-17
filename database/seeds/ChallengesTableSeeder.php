@@ -37,5 +37,44 @@ class ChallengesTableSeeder extends Seeder
         ];
         DB::table('challenges')->insert($param);
 
+        $param = [
+            'user_id' => '2',
+            'step_id' => '2',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('challenges')->insert($param);
+
+        $param = [
+            'user_id' => '2',
+            'step_id' => '3',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('challenges')->insert($param);
+
+        $param = [
+            'user_id' => '2',
+            'step_id' => '4',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('challenges')->insert($param);
+
+        $param = [
+            'user_id' => '1',
+            'step_id' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('challenges')->insert($param);
+
+        $param = [
+            'user_id' => '1',
+            'step_id' => '2',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('challenges')->insert($param);
     }
 }

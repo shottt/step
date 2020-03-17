@@ -34,11 +34,9 @@ class ChallengesController extends Controller
         $challenge->step_id = $step_id;
         $challenge->user_id = $user_id;
         $result = $challenge->save();
-        $challenge_id = $challenge->id;
-        Log::debug('challenge_id：' . $challenge_id);
 
         if($result){
-            return response()->json(['challenge_id' =>$challenge_id, 'result_flag' => true]);
+            return response()->json(['challenge_flag' => true, 'result_flag' => true]);
         }
 
 

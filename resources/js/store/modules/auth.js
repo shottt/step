@@ -14,12 +14,19 @@ const getters = {
       return false;
     }
   },
-  // この機能は使えない？
   getUserID: function(state){
-    return state.user.id;
+    if(state.user){
+      return state.user.id;
+    }else{
+      return '';
+    }
   },
   getUser: function(state){
-    return state.user;
+    if(state.user){
+      return state.user;
+    }else{
+      return '';
+    }
   }
 }
 

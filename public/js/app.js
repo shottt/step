@@ -8345,7 +8345,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       step: '',
-      challenge_id: ''
+      challenge_flag: false
     };
   },
   computed: {
@@ -8367,7 +8367,9 @@ __webpack_require__.r(__webpack_exports__);
       }
     }).then(function (res) {
       console.log('res.data.step：', res.data.step);
-      _this.step = res.data.step;
+      _this.step = res.data.step; // チャレンジ情報はログインユーザーかどうかの判定が必要
+
+      _this.challenge_flag = res.data.challenge_flag;
     });
   },
   methods: {
@@ -8383,8 +8385,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/api/challenge', challenge_info).then(function (res) {
         if (res.data.result_flag === true) {
           console.log('通信成功');
-          console.log('res.data.challenge_id：', res.data.challenge_id);
-          _this2.challenge_id = res.data.challenge_id;
+          console.log('res.data.challenge_flag：', res.data.challenge_flag);
+          _this2.challenge_flag = res.data.challenge_flag;
         }
       });
     }
@@ -46280,7 +46282,10 @@ var render = function() {
       [
         _c("div", { staticClass: "p-step-area" }, [
           _c("h2", { staticClass: "p-step-area__title" }, [
-            _vm._v(_vm._s(_vm.step.title))
+            _vm._v(_vm._s(_vm.step.title)),
+            _vm.challenge_flag
+              ? _c("span", [_vm._v("（チャレンジ中）")])
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("span", { staticClass: "p-step-area__category" }, [
@@ -65522,12 +65527,19 @@ var getters = {
       return false;
     }
   },
-  // この機能は使えない？
   getUserID: function getUserID(state) {
-    return state.user.id;
+    if (state.user) {
+      return state.user.id;
+    } else {
+      return '';
+    }
   },
   getUser: function getUser(state) {
-    return state.user;
+    if (state.user) {
+      return state.user;
+    } else {
+      return '';
+    }
   }
 };
 var mutations = {

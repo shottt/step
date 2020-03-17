@@ -8,6 +8,7 @@ use App\Http\Requests\StepRegisterRequest;
 use App\Http\Controllers\Controller;
 use App\Process;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class StepsController extends Controller
 {
@@ -32,18 +33,31 @@ class StepsController extends Controller
         // STEP詳細情報を取得（categoryテーブルからカテゴリ名も取得）
         $step = Step::with('category:id,name')->where('id', $step_id)->first();
 
-        Log::debug('step：'. $step);
-
-        // 該当STEPに紐づくprocesses情報を取得
+        // 該当STEPに紐づくprocesses情報を取得するメソッドを実行し、変数に格納（異常判定用）
         $processes = $step->processes;
-        // Log::debug('processes：' . $processes);
+
+        // ログインユーザーのIDを変数に格納
+        $user_id = Auth::id();
+
+        // チャレンジ情報を取得すr
+        // $challenge = $step->challenges()->where('user_id', $user_id)->first();
+        $challenges = $step->challenges;
+
+
+        Log::debug('challenges：' . $challenges);
+        Log::debug('step：' . $step);
+        
+        // ログインユーザーがチャレンジしているレコードを取得したい
+        // $challenge = 
+        
+
 
         // 異常判定
         if(empty($step || $processes)){
             return response()->json(['result_flag' => false]);
         }
 
-        return response()->json(['step' => $step, 'result_flag' => true]);
+        // return response()->json(['step' => $step, 'challenge_flag' => $challenge_flag, 'result_flag' => true]);
     }
 
     // STEP検索

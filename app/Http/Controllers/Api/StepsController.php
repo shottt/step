@@ -39,7 +39,7 @@ class StepsController extends Controller
         // ログインユーザーのIDを変数に格納
         $user_id = Auth::id();
 
-        // チャレンジ情報を取得すr
+        // チャレンジ情報を取得する
         // $challenge = $step->challenges()->where('user_id', $user_id)->first();
         $challenges = $step->challenges;
 

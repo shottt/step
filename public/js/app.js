@@ -7689,8 +7689,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'header',
+  data: function data() {
+    return {
+      isActive: false
+    };
+  },
   computed: {
     islogin: function islogin() {
       return this.$store.getters['auth/check'];
@@ -7717,6 +7728,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -8153,6 +8166,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -45170,9 +45185,23 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("nav", { staticClass: "l-header__nav-menu js-toggle-sp-menu-target" }, [
+    _c("nav", { staticClass: "l-header__nav-menu" }, [
+      _c(
+        "div",
+        {
+          staticClass: "c-sp-menu",
+          class: { active: _vm.isActive },
+          on: {
+            click: function($event) {
+              _vm.isActive = !_vm.isActive
+            }
+          }
+        },
+        [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]
+      ),
+      _vm._v(" "),
       _vm.islogin
-        ? _c("ul", { staticClass: "c-menu" }, [
+        ? _c("ul", { staticClass: "c-menu", class: { active: _vm.isActive } }, [
             _c(
               "li",
               { staticClass: "c-menu__item" },
@@ -45223,7 +45252,7 @@ var render = function() {
               )
             ])
           ])
-        : _c("ul", { staticClass: "c-menu" }, [
+        : _c("ul", { staticClass: "c-menu", class: { active: _vm.isActive } }, [
             _c(
               "li",
               { staticClass: "c-menu__item" },
@@ -45275,82 +45304,84 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "l-form-container" }, [
-    _c(
-      "form",
-      {
-        staticClass: "c-form",
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.login($event)
-          }
-        }
-      },
-      [
-        _c("h2", { staticClass: "c-form__title" }, [_vm._v("ログイン")]),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "c-form__label", attrs: { for: "login-email" } },
-          [_vm._v("メールアドレス")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.loginForm.email,
-              expression: "loginForm.email"
-            }
-          ],
-          staticClass: "c-form__input",
-          attrs: { type: "email", id: "login-email" },
-          domProps: { value: _vm.loginForm.email },
+  return _c("main", [
+    _c("div", { staticClass: "l-form-container" }, [
+      _c(
+        "form",
+        {
+          staticClass: "c-form",
           on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.loginForm, "email", $event.target.value)
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.login($event)
             }
           }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "c-form__label", attrs: { for: "login-password" } },
-          [_vm._v("パスワード")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.loginForm.password,
-              expression: "loginForm.password"
-            }
-          ],
-          staticClass: "c-form__input",
-          attrs: { type: "password", id: "login-password" },
-          domProps: { value: _vm.loginForm.password },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        },
+        [
+          _c("h2", { staticClass: "c-form__title" }, [_vm._v("ログイン")]),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "c-form__label", attrs: { for: "login-email" } },
+            [_vm._v("メールアドレス")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.loginForm.email,
+                expression: "loginForm.email"
               }
-              _vm.$set(_vm.loginForm, "password", $event.target.value)
+            ],
+            staticClass: "c-form__input",
+            attrs: { type: "email", id: "login-email" },
+            domProps: { value: _vm.loginForm.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.loginForm, "email", $event.target.value)
+              }
             }
-          }
-        }),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1)
-      ]
-    )
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "c-form__label", attrs: { for: "login-password" } },
+            [_vm._v("パスワード")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.loginForm.password,
+                expression: "loginForm.password"
+              }
+            ],
+            staticClass: "c-form__input",
+            attrs: { type: "password", id: "login-password" },
+            domProps: { value: _vm.loginForm.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.loginForm, "password", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -45402,11 +45433,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-main-visual" }, [
-    _c("h2", { staticClass: "p-main-visual__title" }, [
-      _vm._v("あなたの人生のSTEPを共有しよう！")
-    ]),
-    _vm._v(" "),
     _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
     _vm._v(" "),
     _c("div", { staticClass: "p-main-visual__button" }, [
       _c(
@@ -45438,6 +45467,16 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", { staticClass: "p-main-visual__title" }, [
+      _vm._v("あなたの人生のSTEPを"),
+      _c("br"),
+      _vm._v("共有しよう！")
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -46004,115 +46043,120 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "l-form-container" }, [
-    _c(
-      "form",
-      {
-        staticClass: "c-form",
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.register($event)
-          }
-        }
-      },
-      [
-        _c("h2", { staticClass: "c-form__title" }, [_vm._v("ユーザー登録")]),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "c-form__label", attrs: { for: "register-email" } },
-          [_vm._v("メールアドレス")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.registerForm.email,
-              expression: "registerForm.email"
-            }
-          ],
-          staticClass: "c-form__input",
-          attrs: { type: "email", id: "register-email" },
-          domProps: { value: _vm.registerForm.email },
+  return _c("main", [
+    _c("div", { staticClass: "l-form-container" }, [
+      _c(
+        "form",
+        {
+          staticClass: "c-form",
           on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.registerForm, "email", $event.target.value)
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.register($event)
             }
           }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "c-form__label", attrs: { for: "register-password" } },
-          [_vm._v("パスワード（6文字以上12文字以内）")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
+        },
+        [
+          _c("h2", { staticClass: "c-form__title" }, [_vm._v("ユーザー登録")]),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "c-form__label", attrs: { for: "register-email" } },
+            [_vm._v("メールアドレス")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.registerForm.email,
+                expression: "registerForm.email"
+              }
+            ],
+            staticClass: "c-form__input",
+            attrs: { type: "email", id: "register-email" },
+            domProps: { value: _vm.registerForm.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.registerForm, "email", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
             {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.registerForm.password,
-              expression: "registerForm.password"
-            }
-          ],
-          staticClass: "c-form__input",
-          attrs: { type: "password", id: "register-password" },
-          domProps: { value: _vm.registerForm.password },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+              staticClass: "c-form__label",
+              attrs: { for: "register-password" }
+            },
+            [_vm._v("パスワード（6文字以上12文字以内）")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.registerForm.password,
+                expression: "registerForm.password"
               }
-              _vm.$set(_vm.registerForm, "password", $event.target.value)
+            ],
+            staticClass: "c-form__input",
+            attrs: { type: "password", id: "register-password" },
+            domProps: { value: _vm.registerForm.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.registerForm, "password", $event.target.value)
+              }
             }
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          {
-            staticClass: "c-form__label",
-            attrs: { for: "register-password-confirmation" }
-          },
-          [_vm._v("パスワード（再入力）")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
             {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.registerForm.password_confirmation,
-              expression: "registerForm.password_confirmation"
-            }
-          ],
-          staticClass: "c-form__input",
-          attrs: { type: "password", id: "register-password-confirmation" },
-          domProps: { value: _vm.registerForm.password_confirmation },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+              staticClass: "c-form__label",
+              attrs: { for: "register-password-confirmation" }
+            },
+            [_vm._v("パスワード（再入力）")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.registerForm.password_confirmation,
+                expression: "registerForm.password_confirmation"
               }
-              _vm.$set(
-                _vm.registerForm,
-                "password_confirmation",
-                $event.target.value
-              )
+            ],
+            staticClass: "c-form__input",
+            attrs: { type: "password", id: "register-password-confirmation" },
+            domProps: { value: _vm.registerForm.password_confirmation },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.registerForm,
+                  "password_confirmation",
+                  $event.target.value
+                )
+              }
             }
-          }
-        }),
-        _vm._v(" "),
-        _vm._m(0)
-      ]
-    )
+          }),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -64520,15 +64564,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./resources/js/components/organisms/Step.vue ***!
   \****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Step_vue_vue_type_template_id_9147af36___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Step.vue?vue&type=template&id=9147af36& */ "./resources/js/components/organisms/Step.vue?vue&type=template&id=9147af36&");
 /* harmony import */ var _Step_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Step.vue?vue&type=script&lang=js& */ "./resources/js/components/organisms/Step.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Step_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Step_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -64558,7 +64601,7 @@ component.options.__file = "resources/js/components/organisms/Step.vue"
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/organisms/Step.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

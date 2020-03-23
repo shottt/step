@@ -5,12 +5,12 @@
 // ・1200px～
 // マップ型変数
 $breakpoints: (
-  'sp': 'screen and (min-width: 400px)',
+  'sp': 'screen and (max-width: 767px)',
   'tab': 'screen and (min-width: 768px)',
   'pc': 'screen and (min-width: 1024px)',
 ) !default;
 
-@mixin mq($breakpoints: sp) {
+@mixin mq($breakpoint: sp) {
   @media #{map-get($breakpoints, $breakpoint)}{
     @content;
   }

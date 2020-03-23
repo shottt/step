@@ -1,15 +1,31 @@
 .p-main-visual{
-  width: 100%;
-  background-image: url();
+  // 親要素に依存せず、子要素を画面いっぱいにする
+  margin-left: calc((100% - 100vw)/2);
+  margin-right: calc((100% - 100vw)/2);
+
+  background-image: url('../../../../storage/app/public/main-visual.jpg');
+  // background-image: url('../../../../public/images/main-visual.jpg');
+
   min-height: 500px;
   margin-bottom: 40px;
   &__title{
     text-align: center;
     margin-bottom: 20px;
+    br {
+      display: none;
+      @include mq(){
+        display: block;
+      }
+    }
   }
   &__text{
     margin-bottom: 20px;
     text-align: center;
+    @include mq(){
+      text-align: initial;
+      padding-left: $space_l;
+      padding-right: $space_l;
+    }
   }
   &__button{
     padding: 20px 0;

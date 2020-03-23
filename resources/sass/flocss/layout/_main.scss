@@ -1,6 +1,7 @@
 .l-main{
   margin: 30px auto;
-  // width: 100%
-  
-  width: 960px;
+  max-width: 960px;
+  @include mq(){
+    width: 100%;
+  }
 }

@@ -30,4 +30,9 @@
   &__challenges{
     margin-bottom: 20px;
   }
+  @include mq(){
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+  }
 }

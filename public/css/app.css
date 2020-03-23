@@ -10985,9 +10985,11 @@ svg:not([fill]) {
   }
   .c-menu__item {
     margin-top: 20px;
+    border-bottom: #777;
   }
   .c-menu__link {
     color: black;
+    font-weight: bold;
   }
 }
 

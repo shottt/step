@@ -25,9 +25,11 @@
     }
     &__item{
       margin-top: 20px;
+      border-bottom: #777;
     }
     &__link{
       color: black;
+      font-weight: bold;
     }
   }
 }

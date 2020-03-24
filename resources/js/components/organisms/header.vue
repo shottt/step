@@ -3,14 +3,13 @@
     <h1 class="l-header__logo">
       <router-link class="l-header__logo-link" to="/">STEP</router-link>
     </h1>
-    
-    <nav class="l-header__nav-menu">
-      <div class="c-sp-menu" @click="isActive=!isActive" v-bind:class="{active:isActive}">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul v-if="islogin" class="c-menu" v-bind:class="{active:isActive}">
+    <div class="c-sp-menu" @click="isActive=!isActive" v-bind:class="{active:isActive}">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="l-header__nav-menu" v-bind:class="{active:isActive}">
+      <ul v-if="islogin" class="c-menu">
         <li class="c-menu__item">
           <router-link class="c-menu__link" to="/stepindex">STEP一覧</router-link>
         </li>
@@ -24,7 +23,7 @@
           <button class="c-menu__button" @click="logout">ログアウト</button>
         </li>
       </ul>
-      <ul v-else class="c-menu" v-bind:class="{active:isActive}">
+      <ul v-else class="c-menu">
         <li class="c-menu__item">
           <router-link class="c-menu__link" to="/login">ログイン</router-link>
         </li>

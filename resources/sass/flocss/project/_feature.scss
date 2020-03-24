@@ -2,7 +2,15 @@
   &__title{
     text-align: center;
   }
+  &__content{
+    display: flex;
+  }
   &__item{
 
+  }
+  @include mq(){
+    &__content{
+      display: block;
+    }
   }
 }

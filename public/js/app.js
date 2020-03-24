@@ -7621,6 +7621,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'feature'
 });
@@ -7657,7 +7660,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -45107,11 +45109,19 @@ var staticRenderFns = [
     return _c("div", { staticClass: "p-feature" }, [
       _c("h2", { staticClass: "p-feature__title" }, [_vm._v("3つの特徴")]),
       _vm._v(" "),
-      _c("div", { staticClass: "p-feature__item" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-feature__item" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-feature__item" })
+      _c("div", { staticClass: "p-feature__content" }, [
+        _c("div", { staticClass: "p-feature__item" }, [
+          _vm._v("\n        STEPの投稿が可能\n      ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-feature__item" }, [
+          _vm._v("\n        STEPの共有が可能\n      ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-feature__item" }, [
+          _vm._v("\n        STEPのチャレンジができる\n      ")
+        ])
+      ])
     ])
   }
 ]
@@ -45185,101 +45195,108 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("nav", { staticClass: "l-header__nav-menu" }, [
-      _c(
-        "div",
-        {
-          staticClass: "c-sp-menu",
-          class: { active: _vm.isActive },
-          on: {
-            click: function($event) {
-              _vm.isActive = !_vm.isActive
-            }
+    _c(
+      "div",
+      {
+        staticClass: "c-sp-menu",
+        class: { active: _vm.isActive },
+        on: {
+          click: function($event) {
+            _vm.isActive = !_vm.isActive
           }
-        },
-        [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]
-      ),
-      _vm._v(" "),
-      _vm.islogin
-        ? _c("ul", { staticClass: "c-menu", class: { active: _vm.isActive } }, [
-            _c(
-              "li",
-              { staticClass: "c-menu__item" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "c-menu__link", attrs: { to: "/stepindex" } },
-                  [_vm._v("STEP一覧")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "c-menu__item" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "c-menu__link",
-                    attrs: { to: "/step_register" }
-                  },
-                  [_vm._v("STEP登録")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "c-menu__item" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "c-menu__link", attrs: { to: "/mypage" } },
-                  [_vm._v("マイページ")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("li", { staticClass: "c-menu__item" }, [
+        }
+      },
+      [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]
+    ),
+    _vm._v(" "),
+    _c(
+      "nav",
+      { staticClass: "l-header__nav-menu", class: { active: _vm.isActive } },
+      [
+        _vm.islogin
+          ? _c("ul", { staticClass: "c-menu" }, [
               _c(
-                "button",
-                { staticClass: "c-menu__button", on: { click: _vm.logout } },
-                [_vm._v("ログアウト")]
+                "li",
+                { staticClass: "c-menu__item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "c-menu__link",
+                      attrs: { to: "/stepindex" }
+                    },
+                    [_vm._v("STEP一覧")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "c-menu__item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "c-menu__link",
+                      attrs: { to: "/step_register" }
+                    },
+                    [_vm._v("STEP登録")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "c-menu__item" },
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "c-menu__link", attrs: { to: "/mypage" } },
+                    [_vm._v("マイページ")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("li", { staticClass: "c-menu__item" }, [
+                _c(
+                  "button",
+                  { staticClass: "c-menu__button", on: { click: _vm.logout } },
+                  [_vm._v("ログアウト")]
+                )
+              ])
+            ])
+          : _c("ul", { staticClass: "c-menu" }, [
+              _c(
+                "li",
+                { staticClass: "c-menu__item" },
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "c-menu__link", attrs: { to: "/login" } },
+                    [_vm._v("ログイン")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "c-menu__item" },
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "c-menu__link", attrs: { to: "/register" } },
+                    [_vm._v("ユーザー登録")]
+                  )
+                ],
+                1
               )
             ])
-          ])
-        : _c("ul", { staticClass: "c-menu", class: { active: _vm.isActive } }, [
-            _c(
-              "li",
-              { staticClass: "c-menu__item" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "c-menu__link", attrs: { to: "/login" } },
-                  [_vm._v("ログイン")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "c-menu__item" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "c-menu__link", attrs: { to: "/register" } },
-                  [_vm._v("ユーザー登録")]
-                )
-              ],
-              1
-            )
-          ])
-    ])
+      ]
+    )
   ])
 }
 var staticRenderFns = []

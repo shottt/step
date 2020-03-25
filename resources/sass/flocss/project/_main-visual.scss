@@ -3,11 +3,16 @@
   margin-left: calc((100% - 100vw)/2);
   margin-right: calc((100% - 100vw)/2);
 
-  background-image: url('../../../../storage/app/public/main-visual.jpg');
-  // background-image: url('../../../../public/images/main-visual.jpg');
-
+  // background-image: url('../storage/app/public/main-visual.jpg');
+  background-image: url('/images/main-visual.jpg');
+  background-size: cover; // 画面、ブラウザサイズに基づいて、背景画像を調整する
+  background-position: center center; // 画像を常に上下中央に配置する
+  background-repeat: no-repeat; // 画像を繰り返し表示しない
+  background-attachment: fixed; // ページなどのコンテンツの高さが画像の高さより大きい時に固定する
+  padding-top: 30px;
   min-height: 500px;
   margin-bottom: 40px;
+  color: #fff;
   &__title{
     text-align: center;
     margin-bottom: 20px;

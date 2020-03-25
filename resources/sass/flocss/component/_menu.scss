@@ -8,13 +8,18 @@
     color: #fff;
   }
   @include mq(){
+    margin-top: 20px;
     &__item{
-      padding-top: 20px;
+      padding: 20px;
       border-bottom: #777;
+      display: block;
     }
     &__link{
       color: black;
       font-weight: bold;
+    }
+    &__button{
+      color: black;
     }
   }
 }

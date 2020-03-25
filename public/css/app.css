@@ -10859,7 +10859,8 @@ svg:not([fill]) {
 }
 
 .l-main {
-  margin: 30px auto;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 960px;
 }
 @media screen and (max-width: 767px) {
@@ -10983,13 +10984,20 @@ svg:not([fill]) {
   color: #fff;
 }
 @media screen and (max-width: 767px) {
+  .c-menu {
+    margin-top: 20px;
+  }
   .c-menu__item {
-    padding-top: 20px;
+    padding: 20px;
     border-bottom: #777;
+    display: block;
   }
   .c-menu__link {
     color: black;
     font-weight: bold;
+  }
+  .c-menu__button {
+    color: black;
   }
 }
 
@@ -11080,23 +11088,34 @@ svg:not([fill]) {
 
 .p-feature__title {
   text-align: center;
+  margin-bottom: 30px;
 }
 .p-feature__content {
   display: -webkit-box;
   display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
 }
 @media screen and (max-width: 767px) {
   .p-feature__content {
     display: block;
+    text-align: center;
+    margin-bottom: 20px;
   }
 }
 
 .p-main-visual {
   margin-left: calc((100% - 100vw)/2);
   margin-right: calc((100% - 100vw)/2);
-  background-image: url("../../../../storage/app/public/main-visual.jpg");
+  background-image: url("/images/main-visual.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 30px;
   min-height: 500px;
   margin-bottom: 40px;
+  color: #fff;
 }
 .p-main-visual__title {
   text-align: center;

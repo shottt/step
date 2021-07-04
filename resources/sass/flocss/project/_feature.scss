@@ -6,15 +6,18 @@
   &__content{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 40px;
   }
   &__item{
-
+    text-align: center;
   }
   @include mq(){
     &__content{
       display: block;
       text-align: center;
-      margin-bottom: 20px;
+    }
+    &__item{
+      display: block;
     }
   }
 }
